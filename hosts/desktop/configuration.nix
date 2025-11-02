@@ -89,7 +89,6 @@ in
           hyprshot = enabled;
           hyprpaper = enabled;
           rofi = enabled;
-          vicinae = enabled;
           waybar = enabled;
           stylix = {
             enable = true;
