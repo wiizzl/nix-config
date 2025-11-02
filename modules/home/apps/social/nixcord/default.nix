@@ -6,15 +6,32 @@
 }:
 
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib)
+    mkEnableOption
+    mkOption
+    mkIf
+    types
+    ;
   inherit (config.my) apps desktop user;
 in
 {
   options.my.apps.social = {
-    vesktop.enable = mkEnableOption "Enable Vesktop client (Discord)";
+    nixcord = {
+      enable = mkEnableOption "Enable NixCord";
+      vesktop.enable = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable Vesktop client";
+      };
+      discord.enable = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable Discord client";
+      };
+    };
   };
 
-  config = mkIf apps.social.vesktop.enable {
+  config = mkIf apps.social.nixcord.enable {
     home-manager.users.${user.name} = {
       imports = [ inputs.nixcord.homeModules.nixcord ];
 
@@ -24,8 +41,8 @@ in
 
       programs.nixcord = {
         enable = true;
-        vesktop.enable = true;
-        discord.enable = false;
+        vesktop.enable = apps.social.nixcord.vesktop.enable;
+        discord.enable = apps.social.nixcord.discord.enable;
 
         quickCss = "@import url('https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css');";
 
