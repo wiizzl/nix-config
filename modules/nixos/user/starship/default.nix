@@ -5,7 +5,7 @@ let
   inherit (config.my) user;
 in
 {
-  config = mkIf user.shell.starship {
+  config = mkIf user.shell.starship.enable {
     programs.starship = {
       enable = true;
 
