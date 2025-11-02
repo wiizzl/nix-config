@@ -50,9 +50,9 @@ in
 
         config = {
           useQuickCss = true;
-          frameless = true;
 
           plugins = {
+            readAllNotificationsButton.enable = true;
             youtubeAdblock.enable = true;
             vencordToolbox.enable = true;
             noTrack = {
@@ -62,9 +62,15 @@ in
             fakeNitro.enable = true;
             callTimer.enable = true;
             friendsSince.enable = true;
+            replyTimestamp.enable = true;
             shikiCodeblocks.enable = true;
             voiceMessages.enable = true;
-            messageLogger.enable = true;
+            messageLogger = {
+              enable = true;
+              collapseDeleted = true;
+              ignoreBots = true;
+              ignoreSelf = true;
+            };
           };
         };
       };
