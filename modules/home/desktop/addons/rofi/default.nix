@@ -5,7 +5,7 @@ let
   inherit (config.my) desktop user;
 in
 {
-  config = mkIf desktop.addons.app-runner.rofi.enable {
+  config = mkIf desktop.addons.rofi.enable {
     home-manager.users.${user.name} = {
       programs.rofi = {
         enable = true;

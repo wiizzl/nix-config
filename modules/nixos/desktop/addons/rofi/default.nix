@@ -10,13 +10,13 @@ let
   inherit (config.my) desktop user;
 in
 {
-  options.my.desktop.addons.app-runner.walker = {
-    enable = mkEnableOption "Walker app runner";
+  options.my.desktop.addons.rofi = {
+    enable = mkEnableOption "Rofi app runner";
   };
 
-  config = mkIf desktop.addons.app-runner.walker.enable {
+  config = mkIf desktop.addons.rofi.enable {
     environment.systemPackages = with pkgs; [
-      walker
+      rofi
     ];
   };
 }

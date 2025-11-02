@@ -83,7 +83,7 @@ in
         hyprland = enabled;
 
         addons = {
-          app-runner.walker = enabled;
+          rofi = enabled;
           ly = enabled;
           hyprpicker = enabled;
           swaync = enabled;
