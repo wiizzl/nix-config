@@ -83,12 +83,12 @@ in
         hyprland = enabled;
 
         addons = {
+          app-runner.walker = enabled;
           ly = enabled;
           hyprpicker = enabled;
           swaync = enabled;
           hyprshot = enabled;
           hyprpaper = enabled;
-          rofi = enabled;
           waybar = enabled;
           stylix = {
             enable = true;
@@ -189,7 +189,7 @@ in
           networkmanager = enabled;
         };
         nix = {
-          substituters = enabled;
+          extra-substituters = enabled;
           flakes.extra-options = ''
             warn-dirty = false
           '';
