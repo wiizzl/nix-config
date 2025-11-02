@@ -10,8 +10,8 @@ let
   inherit (config.my) apps;
 in
 {
-  options.my.apps.media = {
-    vlc.enable = mkEnableOption "VLC media player";
+  options.my.apps.media.vlc = {
+    enable = mkEnableOption "VLC media player";
   };
 
   config = mkIf apps.media.vlc.enable {

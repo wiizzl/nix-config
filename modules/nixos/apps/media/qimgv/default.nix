@@ -10,8 +10,8 @@ let
   inherit (config.my) apps;
 in
 {
-  options.my.apps.media = {
-    qimgv.enable = mkEnableOption "Qimgv image viewer";
+  options.my.apps.media.qimgv = {
+    enable = mkEnableOption "QIMGV image viewer";
   };
 
   config = mkIf apps.media.qimgv.enable {

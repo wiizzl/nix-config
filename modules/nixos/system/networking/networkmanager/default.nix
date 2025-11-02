@@ -6,7 +6,7 @@ let
 in
 {
   options.my.system.networking.networkmanager = {
-    enable = mkEnableOption "Enable Network Manager";
+    enable = mkEnableOption "Network Manager";
   };
 
   config = mkIf system.networking.networkmanager.enable {

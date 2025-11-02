@@ -6,27 +6,14 @@
 }:
 
 let
-  inherit (lib)
-    mkEnableOption
-    mkOption
-    mkIf
-    types
-    ;
+  inherit (lib) mkEnableOption mkIf;
   inherit (config.my) system user;
 in
 {
   options.my.system.virtualisation.podman = {
-    enable = mkEnableOption "Enable Podman engine";
-    docker-compat = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable Docker compatibility mode";
-    };
-    podman-desktop = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable Podman Desktop GUI";
-    };
+    enable = mkEnableOption "Podman engine";
+    docker-compat = mkEnableOption "Docker compatibility mode";
+    podman-desktop = mkEnableOption "Podman Desktop GUI";
   };
 
   config = mkIf system.virtualisation.podman.enable {

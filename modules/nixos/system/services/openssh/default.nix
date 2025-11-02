@@ -6,7 +6,7 @@ let
 in
 {
   options.my.system.services.openssh = {
-    enable = mkEnableOption "Enable OpenSSH";
+    enable = mkEnableOption "OpenSSH";
   };
 
   config = mkIf system.services.openssh.enable {

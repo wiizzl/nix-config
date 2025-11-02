@@ -5,8 +5,8 @@ let
   inherit (config.my) system;
 in
 {
-  options.my.system.video = {
-    nvidia.enable = mkEnableOption "Enable NVIDIA graphics support";
+  options.my.system.video.nvidia = {
+    enable = mkEnableOption "NVIDIA graphics support";
   };
 
   config = mkIf system.video.nvidia.enable {

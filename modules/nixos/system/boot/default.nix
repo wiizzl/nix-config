@@ -12,9 +12,9 @@ in
 {
   options.my.system.boot = {
     kernel = mkOption {
-      # type = types.package;
+      # https://nixos.wiki/wiki/Linux_kernel
       default = pkgs.linuxPackages_rt_latest;
-      description = "Enable grub as the bootloader";
+      description = "Kernel package to use for the system boot";
     };
   };
 

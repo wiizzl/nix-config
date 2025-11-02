@@ -10,8 +10,8 @@ let
   inherit (config.my) apps;
 in
 {
-  options.my.apps.jetbrains = {
-    datagrip.enable = mkEnableOption "Enable Jetbrains Database Manager";
+  options.my.apps.jetbrains.datagrip = {
+    enable = mkEnableOption "Jetbrains Database Manager";
   };
 
   config = mkIf apps.jetbrains.datagrip.enable {

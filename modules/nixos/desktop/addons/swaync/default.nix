@@ -11,7 +11,7 @@ let
 in
 {
   options.my.desktop.addons.swaync = {
-    enable = mkEnableOption "Enable Sway Notifications Center (swaync)";
+    enable = mkEnableOption "Sway Notifications Center (swaync)";
   };
 
   config = mkIf desktop.addons.swaync.enable {

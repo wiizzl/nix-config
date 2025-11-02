@@ -5,8 +5,8 @@ let
   inherit (config.my) apps user;
 in
 {
-  options.my.apps.terminal = {
-    kitty.enable = mkEnableOption "Enable Kitty terminal emulator";
+  options.my.apps.terminal.kitty = {
+    enable = mkEnableOption "Kitty terminal emulator";
   };
 
   config = mkIf apps.terminal.kitty.enable {

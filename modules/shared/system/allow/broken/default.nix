@@ -6,7 +6,7 @@ let
 in
 {
   options.my.system.allow.broken = {
-    enable = mkEnableOption "Allow broken packages";
+    enable = mkEnableOption "broken packages";
   };
 
   config = mkIf system.allow.broken.enable {

@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkIf;
+  inherit (lib) mkIf mkForce;
   inherit (config.my) desktop system user;
 in
 {
@@ -9,8 +9,11 @@ in
     home-manager.users.${user.name} = {
       wayland.windowManager.hyprland = {
         enable = true;
-        package = null;
-        portalPackage = null;
+
+        package = mkForce null;
+        portalPackage = mkForce null;
+
+        systemd.variables = [ "--all" ];
 
         settings = {
           "$mod" = "SUPER";

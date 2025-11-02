@@ -10,8 +10,8 @@ let
   inherit (config.my) apps;
 in
 {
-  options.my.apps.jetbrains = {
-    phpstorm.enable = mkEnableOption "Enable Jetbrains PHP IDE";
+  options.my.apps.jetbrains.phpstorm = {
+    enable = mkEnableOption "Jetbrains PHP IDE";
   };
 
   config = mkIf apps.jetbrains.phpstorm.enable {

@@ -11,7 +11,7 @@ let
 in
 {
   options.my.desktop.addons.waybar = {
-    enable = mkEnableOption "Enable Waybar status bar";
+    enable = mkEnableOption "Waybar status bar";
   };
 
   config = mkIf desktop.addons.waybar.enable {

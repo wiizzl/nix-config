@@ -8,8 +8,8 @@ let
   aliases = import ../aliases.nix;
 in
 {
-  options.my.system.shell = {
-    bash.enable = mkEnableOption "Enable Bash shell";
+  options.my.system.shell.bash = {
+    enable = mkEnableOption "Bash shell";
   };
 
   config = mkIf system.shell.bash.enable {

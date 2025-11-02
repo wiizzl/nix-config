@@ -11,7 +11,7 @@ let
 in
 {
   options.my.desktop.addons.hyprpicker = {
-    enable = mkEnableOption "Enable hyprpicker";
+    enable = mkEnableOption "hyprpicker";
   };
 
   config = mkIf desktop.addons.hyprpicker.enable {

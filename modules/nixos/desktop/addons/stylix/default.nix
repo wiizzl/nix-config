@@ -8,122 +8,55 @@
 let
   inherit (lib)
     mkEnableOption
-    mkOption
     mkIf
+    mkOption
     types
     ;
+  inherit (lib.extraMkOptions) mkOpt mkOpt' mkOpt_;
+
   inherit (config.my) desktop;
 in
 {
   imports = [ inputs.stylix.nixosModules.stylix ];
 
   options.my.desktop.addons.stylix = {
-    enable = mkEnableOption "Enable Stylix theming framework";
-    autoEnable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Auto-enable Stylix on supported applications";
-    };
-    polarity = mkOption {
-      type = types.str;
-      default = "dark";
-      description = "Algorithm's preferred polarity (dark or light)";
-    };
+    enable = mkEnableOption "Stylix theming framework";
+    autoEnable = mkOpt types.bool false "Auto-enable Stylix on supported applications";
+    polarity = mkOpt types.str "dark" "Algorithm's preferred polarity (dark or light)";
     base16Scheme = mkOption {
-      default = { };
       description = "The base16 color scheme to use";
       type = types.submodule {
         options = {
-          base00 = mkOption {
-            type = types.str;
-            description = "Default Background";
-          };
-          base01 = mkOption {
-            type = types.str;
-            description = "Lighter Background (Used for status bars, line number and folding marks)";
-          };
-          base02 = mkOption {
-            type = types.str;
-            description = "Selection Background";
-          };
-          base03 = mkOption {
-            type = types.str;
-            description = "Comments, Invisibles, Line Highlighting";
-          };
-          base04 = mkOption {
-            type = types.str;
-            description = "Dark Foreground (Used for status bars)";
-          };
-          base05 = mkOption {
-            type = types.str;
-            description = "Default Foreground, Caret, Delimiters, Operators";
-          };
-          base06 = mkOption {
-            type = types.str;
-            description = "Light Foreground (Not often used)";
-          };
-          base07 = mkOption {
-            type = types.str;
-            description = "Light Background (Not often used)";
-          };
-          base08 = mkOption {
-            type = types.str;
-            default = "f38ba8";
-            description = "Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted";
-          };
-          base09 = mkOption {
-            type = types.str;
-            description = "Integers, Boolean, Constants, XML Attributes, Markup Link Url";
-          };
-          base0A = mkOption {
-            type = types.str;
-            description = "Classes, Markup Bold, Search Text Background";
-          };
-          base0B = mkOption {
-            type = types.str;
-            description = "Strings, Inherited Class, Markup Code, Diff Inserted";
-          };
-          base0C = mkOption {
-            type = types.str;
-            description = "Support, Regular Expressions, Escape Characters, Markup Quotes";
-          };
-          base0D = mkOption {
-            type = types.str;
-            description = "Functions, Methods, Attribute IDs, Headings, Accent color";
-          };
-          base0E = mkOption {
-            type = types.str;
-            description = "Keywords, Storage, Selector, Markup Italic, Diff Changed";
-          };
-          base0F = mkOption {
-            type = types.str;
-            description = "Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>";
-          };
+          base00 = mkOpt' types.str;
+          base01 = mkOpt' types.str;
+          base02 = mkOpt' types.str;
+          base03 = mkOpt' types.str;
+          base04 = mkOpt' types.str;
+          base05 = mkOpt' types.str;
+          base06 = mkOpt' types.str;
+          base07 = mkOpt' types.str;
+          base08 = mkOpt' types.str;
+          base09 = mkOpt' types.str;
+          base0A = mkOpt' types.str;
+          base0B = mkOpt' types.str;
+          base0C = mkOpt' types.str;
+          base0D = mkOpt' types.str;
+          base0E = mkOpt' types.str;
+          base0F = mkOpt' types.str;
         };
       };
     };
     cursor = mkOption {
-      default = { };
       description = "Cursor theme configuration";
       type = types.submodule {
         options = {
-          package = mkOption {
-            type = types.package;
-            description = "The Nix package providing the cursor theme";
-          };
-          name = mkOption {
-            type = types.str;
-            description = "The name of the cursor theme";
-          };
-          size = mkOption {
-            type = types.int;
-            description = "The size of the cursor theme";
-          };
+          package = mkOpt_ types.package "The Nix package providing the cursor theme";
+          name = mkOpt_ types.str "The name of the cursor theme";
+          size = mkOpt types.int 24 "The size of the cursor theme";
         };
       };
     };
     fonts = mkOption {
-      default = { };
       description = "Font configuration for Stylix";
       type = types.submodule {
         options = {
@@ -131,14 +64,8 @@ in
             description = "Monospace font configuration";
             type = types.submodule {
               options = {
-                package = mkOption {
-                  type = types.package;
-                  description = "The Nix package providing the monospace font";
-                };
-                name = mkOption {
-                  type = types.str;
-                  description = "The name of the monospace font";
-                };
+                package = mkOpt_ types.package "The Nix package providing the monospace font";
+                name = mkOpt_ types.str "The name of the monospace font";
               };
             };
           };
@@ -146,14 +73,8 @@ in
             description = "Sans-serif font configuration";
             type = types.submodule {
               options = {
-                package = mkOption {
-                  type = types.package;
-                  description = "The Nix package providing the sans-serif font";
-                };
-                name = mkOption {
-                  type = types.str;
-                  description = "The name of the sans-serif font";
-                };
+                package = mkOpt_ types.package "The Nix package providing the sans-serif font";
+                name = mkOpt_ types.str "The name of the sans-serif font";
               };
             };
           };
@@ -161,14 +82,8 @@ in
             description = "Serif font configuration";
             type = types.submodule {
               options = {
-                package = mkOption {
-                  type = types.package;
-                  description = "The Nix package providing the serif font";
-                };
-                name = mkOption {
-                  type = types.str;
-                  description = "The name of the serif font";
-                };
+                package = mkOpt_ types.package "The Nix package providing the serif font";
+                name = mkOpt_ types.str "The name of the serif font";
               };
             };
           };
@@ -176,14 +91,8 @@ in
             description = "Emoji font configuration";
             type = types.submodule {
               options = {
-                package = mkOption {
-                  type = types.package;
-                  description = "The Nix package providing the emoji font";
-                };
-                name = mkOption {
-                  type = types.str;
-                  description = "The name of the emoji font";
-                };
+                package = mkOpt_ types.package "The Nix package providing the emoji font";
+                name = mkOpt_ types.str "The name of the emoji font";
               };
             };
           };
@@ -191,22 +100,10 @@ in
             description = "Font sizes configuration";
             type = types.submodule {
               options = {
-                applications = mkOption {
-                  type = types.int;
-                  description = "Font size for applications";
-                };
-                desktop = mkOption {
-                  type = types.int;
-                  description = "Font size for desktop elements";
-                };
-                popups = mkOption {
-                  type = types.int;
-                  description = "Font size for popups";
-                };
-                terminal = mkOption {
-                  type = types.int;
-                  description = "Font size for terminal";
-                };
+                applications = mkOpt_ types.int "Font size for applications";
+                desktop = mkOpt_ types.int "Font size for desktop elements";
+                popups = mkOpt_ types.int "Font size for popups";
+                terminal = mkOpt_ types.int "Font size for terminal";
               };
             };
           };

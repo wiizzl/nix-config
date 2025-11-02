@@ -5,8 +5,8 @@ let
   inherit (config.my) system;
 in
 {
-  options.my.system.audio = {
-    pipewire.enable = mkEnableOption "Enable pipewire audio system";
+  options.my.system.audio.pipewire = {
+    enable = mkEnableOption "Pipewire audio system";
   };
 
   config = mkIf system.audio.pipewire.enable {

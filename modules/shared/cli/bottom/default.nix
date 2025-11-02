@@ -11,7 +11,7 @@ let
 in
 {
   options.my.cli.bottom = {
-    enable = mkEnableOption "Enable bottom";
+    enable = mkEnableOption "bottom";
   };
 
   config = mkIf cli.bottom.enable {

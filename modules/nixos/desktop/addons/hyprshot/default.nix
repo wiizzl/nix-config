@@ -11,7 +11,7 @@ let
 in
 {
   options.my.desktop.addons.hyprshot = {
-    enable = mkEnableOption "Enable hyprshot";
+    enable = mkEnableOption "hyprshot";
   };
 
   config = mkIf desktop.addons.hyprshot.enable {

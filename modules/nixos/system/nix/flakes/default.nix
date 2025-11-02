@@ -2,21 +2,18 @@
 
 let
   inherit (lib) mkOption types;
+  inherit (lib.extraMkOptions) mkOpt;
+
   inherit (config.my) system;
 in
 {
   options.my.system.nix.flakes = {
-    extra-options = mkOption {
-      type = types.str;
-      default = '''';
-      description = "Flakes extra-options";
-    };
+    extra-options = mkOpt types.str '''' "Flakes extra-options";
   };
 
   config = {
     nix = {
       settings.experimental-features = [
-        # NOTE: You cant disable both of thoses because a lot depends on it
         "nix-command"
         "flakes"
       ];

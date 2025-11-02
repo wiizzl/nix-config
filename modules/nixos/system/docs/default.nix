@@ -1,37 +1,17 @@
 { config, lib, ... }:
 
 let
-  inherit (lib)
-    mkEnableOption
-    mkOption
-    mkIf
-    types
-    ;
+  inherit (lib) mkEnableOption mkIf;
   inherit (config.my) system;
 in
 {
   options.my.system.docs = {
-    enable = mkEnableOption "Enable documentation generation";
-    doc = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    man = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    dev = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    info = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    nixos = mkOption {
-      type = types.bool;
-      default = false;
-    };
+    enable = mkEnableOption "Documentations generation";
+    doc = mkEnableOption "doc documentation";
+    man = mkEnableOption "man documentation";
+    dev = mkEnableOption "dev documentation";
+    info = mkEnableOption "info documentation";
+    nixos = mkEnableOption "nixos documentation";
   };
 
   config = mkIf system.docs.enable {

@@ -11,7 +11,7 @@ let
 in
 {
   options.my.cli.microfetch = {
-    enable = mkEnableOption "Enable Microscopic fetch tool";
+    enable = mkEnableOption "Microscopic fetch tool";
   };
 
   config = mkIf cli.microfetch.enable {

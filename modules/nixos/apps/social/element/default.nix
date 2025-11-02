@@ -10,8 +10,8 @@ let
   inherit (config.my) apps;
 in
 {
-  options.my.apps.social = {
-    element.enable = mkEnableOption "Element matrix client";
+  options.my.apps.social.element = {
+    enable = mkEnableOption "Element matrix client";
   };
 
   config = mkIf apps.social.element.enable {

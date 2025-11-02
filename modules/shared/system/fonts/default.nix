@@ -6,22 +6,13 @@
 }:
 
 let
-  inherit (lib)
-    mkEnableOption
-    mkOption
-    mkIf
-    types
-    ;
+  inherit (lib) mkEnableOption mkIf types;
   inherit (config.my) system;
 in
 {
   options.my.system.fonts = {
-    enable = mkEnableOption "Enable fonts";
-    default = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable default fonts";
-    };
+    enable = mkEnableOption "fonts";
+    default = mkEnableOption "default fonts";
   };
 
   config = mkIf system.fonts.enable {

@@ -11,7 +11,7 @@ let
 in
 {
   options.my.apps.editor.vscode = {
-    enable = mkEnableOption "Enable Visual Studio Code";
+    enable = mkEnableOption "Visual Studio Code editor";
   };
 
   config = mkIf apps.editor.vscode.enable {

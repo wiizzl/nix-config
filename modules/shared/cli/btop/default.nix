@@ -11,7 +11,7 @@ let
 in
 {
   options.my.cli.btop = {
-    enable = mkEnableOption "Enable btop";
+    enable = mkEnableOption "btop";
   };
 
   config = mkIf cli.btop.enable {

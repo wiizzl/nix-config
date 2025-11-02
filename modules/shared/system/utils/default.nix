@@ -8,7 +8,6 @@
 let
   inherit (lib)
     mkEnableOption
-    mkOption
     mkIf
     types
     optionals
@@ -17,17 +16,9 @@ let
 in
 {
   options.my.system.utils = {
-    enable = mkEnableOption "Enable utils packages";
-    dev = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable dev utils packages";
-    };
-    fun = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable fun utils packages";
-    };
+    enable = mkEnableOption "utils packages";
+    dev = mkEnableOption "dev utils packages";
+    fun = mkEnableOption "fun utils packages";
   };
 
   config = mkIf system.utils.enable {

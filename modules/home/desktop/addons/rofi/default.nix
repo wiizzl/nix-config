@@ -6,7 +6,7 @@ let
 in
 {
   options.my.desktop.addons.rofi = {
-    enable = mkEnableOption "Enable Rofi app launcher";
+    enable = mkEnableOption "Rofi app launcher";
   };
 
   config = mkIf desktop.addons.rofi.enable {

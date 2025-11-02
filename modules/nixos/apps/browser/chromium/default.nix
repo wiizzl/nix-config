@@ -10,8 +10,8 @@ let
   inherit (config.my) apps;
 in
 {
-  options.my.apps.browser = {
-    chromium.enable = mkEnableOption "Enable Chromium browser";
+  options.my.apps.browser.chromium = {
+    enable = mkEnableOption "Chromium browser";
   };
 
   config = mkIf apps.browser.chromium.enable {

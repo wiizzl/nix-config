@@ -13,7 +13,7 @@ in
 {
 
   options.my.apps.spotify = {
-    enable = mkEnableOption "Enable Spotify with Spicetify";
+    enable = mkEnableOption "Spotify with Spicetify";
   };
 
   config = mkIf apps.spotify.enable {

@@ -6,7 +6,7 @@ let
 in
 {
   options.my.desktop.addons.hyprpaper = {
-    enable = mkEnableOption "Enable hyprpaper wallpaper manager";
+    enable = mkEnableOption "hyprpaper wallpaper manager";
   };
 
   config = mkIf cli.cava.enable {

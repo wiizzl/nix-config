@@ -6,7 +6,7 @@ let
 in
 {
   options.my.system.allow.unfree = {
-    enable = mkEnableOption "Allow unfree packages";
+    enable = mkEnableOption "unfree packages";
   };
 
   config = mkIf system.allow.unfree.enable {

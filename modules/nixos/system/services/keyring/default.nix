@@ -1,22 +1,13 @@
 { config, lib, ... }:
 
 let
-  inherit (lib)
-    mkEnableOption
-    mkOption
-    mkIf
-    types
-    ;
+  inherit (lib) mkEnableOption mkIf;
   inherit (config.my) system;
 in
 {
   options.my.system.services.keyring = {
     enable = mkEnableOption "Enable Keyring";
-    seahorse = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable seahorse GUI";
-    };
+    seahorse = mkEnableOption "Seahorse GUI";
   };
 
   config = mkIf system.services.keyring.enable {

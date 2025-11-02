@@ -11,7 +11,7 @@ let
 in
 {
   options.my.apps.gimp = {
-    enable = mkEnableOption "Enable GIMP";
+    enable = mkEnableOption "GNU Image Manipulation Program (GIMP)";
   };
 
   config = mkIf apps.gimp.enable {

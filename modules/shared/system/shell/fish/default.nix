@@ -8,8 +8,8 @@ let
   aliases = import ../aliases.nix;
 in
 {
-  options.my.system.shell = {
-    fish.enable = mkEnableOption "Enable Fish shell";
+  options.my.system.shell.fish = {
+    enable = mkEnableOption "Fish shell";
   };
 
   config = mkIf system.shell.fish.enable {

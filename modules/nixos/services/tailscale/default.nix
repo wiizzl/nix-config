@@ -6,7 +6,7 @@ let
 in
 {
   options.my.services.tailscale = {
-    enable = mkEnableOption "Enable Tailscale VPN";
+    enable = mkEnableOption "Tailscale VPN";
   };
 
   config = mkIf services.tailscale.enable {

@@ -6,7 +6,7 @@ let
 in
 {
   options.my.system.networking.firewall = {
-    enable = mkEnableOption "Enable Firewall";
+    enable = mkEnableOption "Firewall";
   };
 
   config = mkIf system.networking.firewall.enable {

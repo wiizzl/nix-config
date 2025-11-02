@@ -7,8 +7,8 @@ let
   aliases = import ../aliases.nix;
 in
 {
-  options.my.system.shell = {
-    zsh.enable = mkEnableOption "Enable ZSH shell";
+  options.my.system.shell.zsh = {
+    enable = mkEnableOption "ZSH shell";
   };
 
   config = mkIf system.shell.zsh.enable {

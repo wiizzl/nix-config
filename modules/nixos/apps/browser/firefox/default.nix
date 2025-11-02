@@ -10,8 +10,8 @@ let
   inherit (config.my) apps;
 in
 {
-  options.my.apps.browser = {
-    firefox.enable = mkEnableOption "Enable Firefox browser";
+  options.my.apps.browser.firefox = {
+    enable = mkEnableOption "Firefox browser";
   };
 
   config = mkIf apps.browser.firefox.enable {

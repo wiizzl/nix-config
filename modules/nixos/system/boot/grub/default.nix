@@ -5,8 +5,8 @@ let
   inherit (config.my) system;
 in
 {
-  options.my.system.boot = {
-    grub.enable = mkEnableOption "Enable grub as the bootloader";
+  options.my.system.boot.grub = {
+    enable = mkEnableOption "grub as the bootloader";
   };
 
   config = mkIf system.boot.grub.enable {

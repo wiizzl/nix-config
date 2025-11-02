@@ -6,7 +6,7 @@ let
 in
 {
   options.my.cli.direnv = {
-    enable = mkEnableOption "Enable direnv";
+    enable = mkEnableOption "direnv";
   };
 
   config = mkIf cli.direnv.enable {

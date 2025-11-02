@@ -11,7 +11,7 @@ let
 in
 {
   options.my.cli.fastfetch = {
-    enable = mkEnableOption "Enable fastfetch";
+    enable = mkEnableOption "fastfetch";
   };
 
   config = mkIf cli.fastfetch.enable {

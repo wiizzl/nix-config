@@ -11,7 +11,7 @@ let
 in
 {
   options.my.cli.cava = {
-    enable = mkEnableOption "Enable cava";
+    enable = mkEnableOption "cava";
   };
 
   config = mkIf cli.cava.enable {

@@ -6,25 +6,16 @@
 }:
 
 let
-  inherit (lib)
-    mkEnableOption
-    mkOption
-    mkIf
-    types
-    ;
+  inherit (lib) mkEnableOption mkIf types;
+  inherit (lib.extraMkOptions) mkOpt_;
+
   inherit (config.my) cli;
 in
 {
   options.my.cli.git = {
-    enable = mkEnableOption "Enable git";
-    name = mkOption {
-      type = types.str;
-      description = "Git user name";
-    };
-    email = mkOption {
-      type = types.str;
-      description = "Git user email";
-    };
+    enable = mkEnableOption "git";
+    name = mkOpt_ types.str "Git user name";
+    email = mkOpt_ types.str "Git user email";
   };
 
   config = mkIf cli.git.enable {

@@ -11,7 +11,7 @@ let
 in
 {
   options.my.apps.editor.zed = {
-    enable = mkEnableOption "Enable Zed Editor";
+    enable = mkEnableOption "Zed editor";
   };
 
   config = mkIf apps.editor.zed.enable {

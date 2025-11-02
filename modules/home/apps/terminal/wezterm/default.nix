@@ -5,8 +5,8 @@ let
   inherit (config.my) apps user;
 in
 {
-  options.my.apps.terminal = {
-    wezterm.enable = mkEnableOption "Enable Wez's terminal emulator";
+  options.my.apps.terminal.wezterm = {
+    enable = mkEnableOption "Wez's terminal emulator";
   };
 
   config = mkIf apps.terminal.wezterm.enable {

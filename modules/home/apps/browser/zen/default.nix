@@ -11,8 +11,8 @@ let
   inherit (config.my) apps desktop user;
 in
 {
-  options.my.apps.browser = {
-    zen.enable = mkEnableOption "Enable Zen browser";
+  options.my.apps.browser.zen = {
+    enable = mkEnableOption "Zen browser";
   };
 
   config = mkIf apps.browser.zen.enable {

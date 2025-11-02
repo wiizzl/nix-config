@@ -11,7 +11,7 @@ let
 in
 {
   options.my.cli.helix = {
-    enable = mkEnableOption "Enable Helix editor";
+    enable = mkEnableOption "Helix editor";
   };
 
   config = mkIf cli.helix.enable {

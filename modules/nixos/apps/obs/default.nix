@@ -11,7 +11,7 @@ let
 in
 {
   options.my.apps.obs = {
-    enable = mkEnableOption "Enable Open Broadcaster Software (OBS) Studio";
+    enable = mkEnableOption "Open Broadcaster Software (OBS) Studio";
   };
 
   config = mkIf apps.obs.enable {

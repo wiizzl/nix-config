@@ -6,7 +6,7 @@ let
 in
 {
   options.my.desktop.addons.ly = {
-    enable = mkEnableOption "Enable ly display manager";
+    enable = mkEnableOption "ly display manager";
   };
 
   config = mkIf desktop.addons.ly.enable {

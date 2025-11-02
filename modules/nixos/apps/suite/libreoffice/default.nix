@@ -10,8 +10,8 @@ let
   inherit (config.my) apps;
 in
 {
-  options.my.apps.suite = {
-    libreoffice.enable = mkEnableOption "LibreOffice suite";
+  options.my.apps.suite.libreoffice = {
+    enable = mkEnableOption "LibreOffice suite";
   };
 
   config = mkIf apps.suite.libreoffice.enable {

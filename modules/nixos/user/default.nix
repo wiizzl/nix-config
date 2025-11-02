@@ -12,41 +12,22 @@ let
     mkIf
     types
     ;
+  inherit (lib.extraMkOptions) mkOpt;
+
   inherit (config.my) user;
 in
 {
   options.my.user = {
-    enable = mkEnableOption "Enable user configuration";
-    name = mkOption {
-      type = types.str;
-      default = "pier";
-      description = "User account name";
-    };
-    homeDir = mkOption {
-      type = types.str;
-      default = "/home/${user.name}";
-      description = "Home directory path";
-    };
-    home-manager.enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable home-manager";
-    };
+    enable = mkEnableOption "user configuration";
+    name = mkOpt types.str "pier" "User account name";
+    homeDir = mkOpt types.str "/home/${user.name}" "Home directory path";
+    home-manager.enable = mkEnableOption "home-manager";
     shell = mkOption {
-      default = { };
       description = "Shell configuration";
       type = types.submodule {
         options = {
-          package = mkOption {
-            type = types.package;
-            default = pkgs.bash;
-            description = "Shell package";
-          };
-          starship.enable = mkOption {
-            type = types.bool;
-            default = false;
-            description = "Enable starship prompt";
-          };
+          package = mkOpt types.package pkgs.bash "Shell package";
+          starship.enable = mkEnableOption "starship prompt";
         };
       };
     };

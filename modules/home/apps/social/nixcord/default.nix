@@ -6,27 +6,14 @@
 }:
 
 let
-  inherit (lib)
-    mkEnableOption
-    mkOption
-    mkIf
-    types
-    ;
+  inherit (lib) mkEnableOption mkIf;
   inherit (config.my) apps desktop user;
 in
 {
   options.my.apps.social.nixcord = {
-    enable = mkEnableOption "Enable NixCord";
-    vesktop.enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable Vesktop client";
-    };
-    discord.enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable Discord client";
-    };
+    enable = mkEnableOption "NixCord";
+    vesktop.enable = mkEnableOption "Vesktop client";
+    discord.enable = mkEnableOption "Discord client";
   };
 
   config = mkIf apps.social.nixcord.enable {

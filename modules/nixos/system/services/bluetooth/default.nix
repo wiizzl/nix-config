@@ -7,16 +7,13 @@ let
     mkIf
     types
     ;
+
   inherit (config.my) system;
 in
 {
   options.my.system.services.bluetooth = {
-    enable = mkEnableOption "Enable Bluetooth";
-    blueman = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable blueman-applet and blueman-manager";
-    };
+    enable = mkEnableOption "Bluetooth";
+    blueman = mkEnableOption "blueman-applet and blueman-manager";
   };
 
   config = mkIf system.services.bluetooth.enable {

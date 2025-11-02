@@ -11,7 +11,7 @@ let
 in
 {
   options.my.cli.yazi = {
-    enable = mkEnableOption "Enable Yazi file explorer";
+    enable = mkEnableOption "Yazi file explorer";
   };
 
   config = mkIf cli.yazi.enable {

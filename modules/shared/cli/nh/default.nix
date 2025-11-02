@@ -6,7 +6,7 @@ let
 in
 {
   options.my.cli.nh = {
-    enable = mkEnableOption "Enable Yet another Nix CLI helper (nh)";
+    enable = mkEnableOption "Yet another Nix CLI helper (nh)";
   };
 
   config = mkIf cli.nh.enable {

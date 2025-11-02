@@ -10,8 +10,8 @@ let
   inherit (config.my) apps;
 in
 {
-  options.my.apps.suite = {
-    onlyoffice.enable = mkEnableOption "OnlyOffice suite";
+  options.my.apps.suite.onlyoffice = {
+    enable = mkEnableOption "OnlyOffice suite";
   };
 
   config = mkIf apps.suite.onlyoffice.enable {

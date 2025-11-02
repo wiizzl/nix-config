@@ -7,26 +7,16 @@ let
     mkIf
     types
     ;
+  inherit (lib.extraMkOptions) mkOpt;
+
   inherit (config.my) system;
 in
 {
   options.my.system.nix.garbage-collector = {
-    enable = mkEnableOption "Enable ly display manager";
-    dates = mkOption {
-      type = types.str;
-      default = "weekly";
-      description = "When to run the garbage collector";
-    };
-    days = mkOption {
-      type = types.int;
-      default = 7;
-      description = "Number of days after which to delete old generations";
-    };
-    auto-optimise-store = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Automatically optimise the Nix store after garbage collection";
-    };
+    enable = mkEnableOption "Garbage collector for Nix store";
+    auto-optimise-store = mkEnableOption "the automatic optimisation for the Nix store";
+    dates = mkOpt types.str "weekly" "When to run the garbage collector";
+    days = mkOpt types.int 7 "Number of days after which to delete old generations";
   };
 
   config = mkIf system.nix.garbage-collector.enable {

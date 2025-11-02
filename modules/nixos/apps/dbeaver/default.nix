@@ -11,7 +11,7 @@ let
 in
 {
   options.my.apps.dbeaver = {
-    enable = mkEnableOption "Enable DBeaver Database Manager";
+    enable = mkEnableOption "DBeaver Database Manager";
   };
 
   config = mkIf apps.dbeaver.enable {

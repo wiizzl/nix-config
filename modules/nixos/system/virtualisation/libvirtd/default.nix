@@ -1,22 +1,13 @@
 { config, lib, ... }:
 
 let
-  inherit (lib)
-    mkEnableOption
-    mkOption
-    mkIf
-    types
-    ;
+  inherit (lib) mkEnableOption mkIf;
   inherit (config.my) system user;
 in
 {
   options.my.system.virtualisation.libvirtd = {
-    enable = mkEnableOption "Enable libvirtd";
-    virt-manager = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable virt-manager GUI";
-    };
+    enable = mkEnableOption "libvirtd";
+    virt-manager = mkEnableOption "virt-manager GUI";
   };
 
   config = mkIf system.virtualisation.libvirtd.enable {

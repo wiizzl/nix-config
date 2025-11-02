@@ -11,7 +11,7 @@ let
 in
 {
   options.my.cli.just = {
-    enable = mkEnableOption "Enable just";
+    enable = mkEnableOption "just";
   };
 
   config = mkIf cli.just.enable {

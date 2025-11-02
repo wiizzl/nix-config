@@ -6,7 +6,7 @@ let
 in
 {
   options.my.system.virtualisation.docker = {
-    enable = mkEnableOption "Enable Docker engine";
+    enable = mkEnableOption "Docker engine";
   };
 
   config = mkIf system.virtualisation.docker.enable {

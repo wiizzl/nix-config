@@ -10,8 +10,8 @@ let
   inherit (config.my) apps;
 in
 {
-  options.my.apps.jetbrains = {
-    rustrover.enable = mkEnableOption "Enable Jetbrains Rust IDE";
+  options.my.apps.jetbrains.rustrover = {
+    enable = mkEnableOption "Jetbrains Rust IDE";
   };
 
   config = mkIf apps.jetbrains.rustrover.enable {

@@ -5,8 +5,8 @@ let
   inherit (config.my) system;
 in
 {
-  options.my.system.video = {
-    amd.enable = mkEnableOption "Enable AMD graphics support";
+  options.my.system.video.amd = {
+    enable = mkEnableOption "AMD graphics support";
   };
 
   config = mkIf system.video.amd.enable {

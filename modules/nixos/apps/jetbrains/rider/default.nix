@@ -10,8 +10,8 @@ let
   inherit (config.my) apps;
 in
 {
-  options.my.apps.jetbrains = {
-    rider.enable = mkEnableOption "Enable Jetbrains C# IDE";
+  options.my.apps.jetbrains.rider = {
+    enable = mkEnableOption "Jetbrains C# IDE";
   };
   config = mkIf apps.jetbrains.rider.enable {
     environment.systemPackages = with pkgs; [

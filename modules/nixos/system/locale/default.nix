@@ -1,26 +1,16 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkOption types;
+  inherit (lib) types;
+  inherit (lib.extraMkOptions) mkOpt;
+
   inherit (config.my) system;
 in
 {
   options.my.system.locale = {
-    keymap = mkOption {
-      type = types.str;
-      default = "en";
-      description = "Keymap for the console";
-    };
-    default-locale = mkOption {
-      type = types.str;
-      default = "en_US.UTF-8";
-      description = "The default system locale";
-    };
-    extra-locale = mkOption {
-      type = types.str;
-      default = "en_US.UTF-8";
-      description = "The default system locale";
-    };
+    keymap = mkOpt types.str "en" "Keymap for the console";
+    default-locale = mkOpt types.str "en_US.UTF-8" "The default system locale";
+    extra-locale = mkOpt types.str "en_US.UTF-8" "The default system locale";
   };
 
   config = {
