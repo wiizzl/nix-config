@@ -45,7 +45,10 @@ in
           vscode = enabled;
         };
         social = {
-          vesktop = enabled;
+          nixcord = {
+            enable = true;
+            vesktop = enabled;
+          };
           thunderbird = enabled;
         };
         browser = {
