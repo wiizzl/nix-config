@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf types;
   inherit (lib.extraMkOptions) mkOpt;
 
   inherit (config.my) cli user;
