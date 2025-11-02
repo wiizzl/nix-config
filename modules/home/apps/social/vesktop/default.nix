@@ -19,7 +19,7 @@ in
     enable = mkEnableOption "Enable Vesktop Discord client";
   };
 
-  config = mkIf apps.social.nixcord.enable {
+  config = mkIf apps.social.vesktop.enable {
     home-manager.users.${user.name} = {
       programs.vesktop = {
         enable = true;
