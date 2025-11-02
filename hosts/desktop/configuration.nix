@@ -62,7 +62,6 @@ in
 
       cli = {
         helix = enabled;
-        nh = enabled;
         cava = enabled;
         direnv = enabled;
         microfetch = enabled;
@@ -73,6 +72,10 @@ in
           enable = true;
           name = "wiizzl";
           email = "git@houlliere.com";
+        };
+        nh = {
+          enable = true;
+          clean = enabled;
         };
       };
 
@@ -189,12 +192,6 @@ in
           flakes.extra-options = ''
             warn-dirty = false
           '';
-          garbage-collector = {
-            enable = true;
-            dates = "weekly";
-            days = 7;
-            auto-optimise-store = true;
-          };
         };
         services = {
           bluetooth = {
