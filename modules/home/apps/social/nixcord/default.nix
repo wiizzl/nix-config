@@ -43,7 +43,7 @@ in
         discord.enable = apps.social.nixcord.discord.enable;
         vesktop = {
           enable = apps.social.nixcord.vesktop.enable;
-          useSystemVencord = false;
+          useSystemVencord = false; # TODO: Maybe set to true in the future
         };
 
         quickCss = "@import url('https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css');";
@@ -55,16 +55,25 @@ in
             readAllNotificationsButton.enable = true;
             youtubeAdblock.enable = true;
             vencordToolbox.enable = true;
-            noTrack = {
-              enable = true;
-              disableAnalytics = true;
-            };
+            gameActivityToggle.enable = true;
+            noProfileThemes.enable = true;
+            spotifyControls.enable = true;
+            openInApp.enable = true;
+            colorSighted.enable = true;
             fakeNitro.enable = true;
             callTimer.enable = true;
             friendsSince.enable = true;
             replyTimestamp.enable = true;
             shikiCodeblocks.enable = true;
             voiceMessages.enable = true;
+            betterNotesBox = {
+              enable = true;
+              hide = true;
+            };
+            noTrack = {
+              enable = true;
+              disableAnalytics = true;
+            };
             messageLogger = {
               enable = true;
               collapseDeleted = true;
