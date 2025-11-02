@@ -45,6 +45,7 @@ The repository uses a modular, opinionated structure. While it may seem complex 
 ├── flake.nix
 ├── flake.lock
 ├── lib/             # Custom functions extending `nixpkgs.lib`
+├── secrets/         # Encrypted files to store informations like password or keys
 ├── shells/          # Development shell environments
 └── modules/
   ├── darwin/        # macOS-specific apps, system tweaks, CLI utilities
