@@ -17,6 +17,8 @@ in
   config = mkIf apps.editor.zed.enable {
     environment.systemPackages = with pkgs; [
       zed-editor
+      nixd
+      nil
     ];
   };
 }

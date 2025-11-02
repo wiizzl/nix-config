@@ -21,11 +21,6 @@ in
         enable = true;
 
         extensions = [ ];
-
-        extraPackages = [
-          pkgs.nixd
-        ];
-
         userSettings = { };
       };
     };

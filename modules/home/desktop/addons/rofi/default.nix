@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   inherit (lib) mkIf;
@@ -10,6 +15,10 @@ in
       programs.rofi = {
         enable = true;
         modes = [ "drun" ];
+
+        plugins = with pkgs; [
+          rofi-calc
+        ];
 
         extraConfig = {
           show-icons = true;

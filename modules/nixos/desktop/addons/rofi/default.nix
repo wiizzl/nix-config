@@ -17,6 +17,8 @@ in
   config = mkIf desktop.addons.rofi.enable {
     environment.systemPackages = with pkgs; [
       rofi
+      cliphist
+      rofimoji
     ];
   };
 }

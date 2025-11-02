@@ -51,13 +51,22 @@ in
             ];
           };
 
+          exec-once = [
+            "wl-paste --type text --watch cliphist store"
+            "wl-paste --type image --watch cliphist store"
+          ];
+
           bind = [
             # Run applications
             "$mod, Return, exec, kitty"
-            "$mod, D, exec, rofi -show drun"
             "$mod, E, exec, thunar"
             "$mod, B, exec, zen-beta"
-            "$mod, C, exec, code"
+
+            # Rofi
+            "$mod, D, exec, rofi -show drun"
+            "$mod Shift, E, exec, rofi -modi 'emoji:rofimoji --action copy --skin-tone neutral --max-recent 0' -show emoji"
+            "$mod, C, exec, cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
+            "$mod Shift, C, exec, rofi -modi calc -show calc -no-show-match -no-bold -no-sort -automatic-save-to-history"
 
             # Window management
             "$mod, Z, togglefloating"
