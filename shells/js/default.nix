@@ -2,7 +2,7 @@
 
 {
   js = pkgs.mkShell {
-    buildInputs = with pkgs; [
+    packages = with pkgs; [
       nodejs
       bun
       yarn
