@@ -6,7 +6,12 @@
 }:
 
 let
-  inherit (lib) mkEnableOption mkOption mkIf;
+  inherit (lib)
+    mkEnableOption
+    mkOption
+    mkIf
+    types
+    ;
   inherit (config.my) cli;
 in
 {
