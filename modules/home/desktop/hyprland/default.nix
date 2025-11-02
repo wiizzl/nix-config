@@ -13,6 +13,8 @@ in
         package = mkForce null;
         portalPackage = mkForce null;
 
+        plugins = [ ]; # TODO: Add plugins like hyprexpo, ...
+
         systemd.variables = [ "--all" ];
 
         settings = {

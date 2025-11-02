@@ -30,7 +30,7 @@ in
         discord.enable = apps.social.nixcord.discord.enable;
         vesktop = {
           enable = apps.social.nixcord.vesktop.enable;
-          useSystemVencord = false; # TODO: Maybe set to true in the future
+          useSystemVencord = false; # TODO: https://github.com/KaylorBen/nixcord/issues/136
         };
 
         quickCss = "@import url('https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css');";
