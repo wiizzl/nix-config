@@ -89,6 +89,7 @@ in
           hyprshot = enabled;
           hyprpaper = enabled;
           rofi = enabled;
+          vicinae = enabled;
           waybar = enabled;
           stylix = {
             enable = true;
@@ -184,11 +185,12 @@ in
           extra-locale = "fr_FR.UTF-8";
         };
         networking = {
-          firewall = disabled;
+          firewall = enabled;
           hostname = "nixos";
           networkmanager = enabled;
         };
         nix = {
+          substituters = enabled;
           flakes.extra-options = ''
             warn-dirty = false
           '';
