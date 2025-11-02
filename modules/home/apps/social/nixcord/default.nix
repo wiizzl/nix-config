@@ -15,19 +15,17 @@ let
   inherit (config.my) apps desktop user;
 in
 {
-  options.my.apps.social = {
-    nixcord = {
-      enable = mkEnableOption "Enable NixCord";
-      vesktop.enable = mkOption {
-        type = types.bool;
-        default = false;
-        description = "Enable Vesktop client";
-      };
-      discord.enable = mkOption {
-        type = types.bool;
-        default = false;
-        description = "Enable Discord client";
-      };
+  options.my.apps.social.nixcord = {
+    enable = mkEnableOption "Enable NixCord";
+    vesktop.enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable Vesktop client";
+    };
+    discord.enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable Discord client";
     };
   };
 

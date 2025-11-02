@@ -3,7 +3,6 @@
 # Credit: @JakeHamilton
 # https://github.com/jakehamilton/config/blob/bf8411ec6b636f887dac45970864e09ba3ebf816/lib/module/default.nix
 
-with lib;
 {
   ## Create a NixOS module option.
   ##
@@ -14,7 +13,7 @@ with lib;
   #@ Type -> Any -> String
   mkOpt =
     type: default: description:
-    mkOption { inherit type default description; };
+    lib.mkOption { inherit type default description; };
 
   ## Create a NixOS module option without a description.
   ##
@@ -23,7 +22,7 @@ with lib;
   ## ```
   ##
   #@ Type -> Any -> String
-  mkOpt' = type: default: mkOpt type default null;
+  mkOpt' = type: default: lib.mkOpt type default null;
 
   ## Create a NixOS module option with no default
   ##
@@ -32,7 +31,7 @@ with lib;
   ## ```
   ##
   #@ Type -> Any -> String
-  mkOpt_ = type: description: mkOption { inherit type description; };
+  mkOpt_ = type: description: lib.mkOption { inherit type description; };
 
   enabled = {
     ## Quickly enable an option.
