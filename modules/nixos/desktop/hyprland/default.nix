@@ -33,6 +33,7 @@ in
 
     environment = {
       sessionVariables = {
+        # TODO: Move to home-manager?
         NIXOS_OZONE_WL = "1"; # Hint Electron apps to use Wayland
         QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       };
