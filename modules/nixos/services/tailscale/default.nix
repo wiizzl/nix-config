@@ -13,7 +13,7 @@ in
     services.tailscale = {
       enable = true;
       openFirewall = true;
-      # authKeyFile = config.age.secrets.tailscale.path;
+      authKeyFile = config.age.secrets.tailscale.path;
     };
   };
 }

@@ -1,5 +1,5 @@
 let
-  pier = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII/5JRzhMTgejHanyUKYJUjTpbTMlBOIUatYuhMvNFC7 pier@nixos";
+  pier = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINBuhGpkusmMSzJZL/gfl+k0ytUUWBean705sk4l1UzY";
 in
 {
   "password.age".publicKeys = [ pier ];
