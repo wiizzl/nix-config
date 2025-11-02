@@ -39,16 +39,14 @@
       );
 
       secrets = {
-        age.secrets =
-          with lib;
-          listToAttrs (
-            map (name: {
-              name = removeSuffix ".age" name;
-              value = {
-                file = ./secrets/${name};
-              };
-            }) (attrNames (import ./secrets/secrets.nix))
-          );
+        age.secrets = lib.listToAttrs (
+          map (name: {
+            inherit name;
+            value = {
+              file = ./secrets/${name};
+            };
+          }) (lib.attrNames (import ./secrets/secrets.nix))
+        );
       };
 
       systems = [
@@ -73,8 +71,8 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs lib; };
           modules = [
-            agenix.nixosModules.default
             secrets
+            inputs.agenix.nixosModules.default
 
             ./hosts/desktop/configuration.nix
           ];
