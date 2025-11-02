@@ -39,7 +39,7 @@ in
         };
         suite.onlyoffice = enabled;
         file-manager.thunar = enabled;
-        terminal.wezterm = enabled;
+        terminal.kitty = enabled;
         editor = {
           zed = enabled;
           vscode = enabled;

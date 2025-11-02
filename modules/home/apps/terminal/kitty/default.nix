@@ -16,6 +16,10 @@ in
 
         settings = {
           enable_audio_bell = false;
+          cursor_shape = "beam";
+          cursor_shape_unfocused = "unchanged";
+          window_padding_width = 22;
+          confirm_os_window_close = 2;
         };
       };
     };

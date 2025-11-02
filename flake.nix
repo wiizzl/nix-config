@@ -41,7 +41,7 @@
       secrets = {
         age.secrets = lib.listToAttrs (
           map (name: {
-            inherit name;
+            name = lib.removeSuffix ".age" name;
             value = {
               file = ./secrets/${name};
             };

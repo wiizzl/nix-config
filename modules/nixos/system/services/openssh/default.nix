@@ -10,13 +10,14 @@ in
   };
 
   config = mkIf system.services.openssh.enable {
-    # programs.ssh.startAgent = true;
+    programs.ssh.startAgent = true;
+    services.gnome.gcr-ssh-agent.enable = false;
 
     services.openssh = {
       enable = true;
 
       settings = {
-        PasswordAuthentication = true; # TODO: Passwordless sudo when SSH'ing with keys
+        PasswordAuthentication = true;
         PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
       };
     };

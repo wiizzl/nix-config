@@ -39,6 +39,7 @@ in
     users.users.${user.name} = {
       isNormalUser = true;
       createHome = true;
+      hashedPasswordFile = config.age.secrets.password.path;
       description = "${user.name} account";
       extraGroups = [ "wheel" ];
       shell = user.shell.package;

@@ -53,7 +53,7 @@ in
 
           bind = [
             # Run applications
-            "$mod, Return, exec, wezterm"
+            "$mod, Return, exec, kitty"
             "$mod, D, exec, rofi -show drun"
             "$mod, E, exec, thunar"
             "$mod, B, exec, zen-beta"
