@@ -17,8 +17,7 @@ That’s when I started using NixOS, first with Qtile, which was my very first e
 
 ## TODO
 
-- Secrets management with [sops-nix](https://github.com/Mic92/sops-nix)
-- Use custom functions to make options
+- Secrets management with [agenix](https://github.com/ryantm/agenix)
 - Config [templates](./hosts/templates)
 - Darwin modules
 

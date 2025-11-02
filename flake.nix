@@ -11,10 +11,6 @@
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +19,7 @@
       url = "github:0xc000022070/zen-browser-flake/beta";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix.url = "github:ryantm/agenix";
     hyprland.url = "github:hyprwm/Hyprland";
     nixcord.url = "github:KaylorBen/nixcord";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
@@ -41,15 +38,28 @@
         }
       );
 
-      supportedSystems = [
+      secrets = {
+        age.secrets =
+          with lib;
+          listToAttrs (
+            map (name: {
+              name = removeSuffix ".age" name;
+              value = {
+                file = ./secrets/${name};
+              };
+            }) (attrNames (import ./secrets/secrets.nix))
+          );
+      };
+
+      systems = [
         "x86_64-linux"
         "aarch64-linux"
         "aarch64-darwin"
       ];
 
-      forEachSupportedSystem =
+      forAllSystems =
         f:
-        nixpkgs.lib.genAttrs supportedSystems (
+        nixpkgs.lib.genAttrs systems (
           system:
           f {
             pkgs = import nixpkgs { inherit system; };
@@ -62,11 +72,14 @@
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs lib; };
-          modules = [ ./hosts/desktop/configuration.nix ];
+          modules = [
+            agenix.nixosModules.default
+            secrets
+
+            ./hosts/desktop/configuration.nix
+          ];
         };
       };
-      devShells = forEachSupportedSystem (
-        { pkgs, ... }: import ./shells/import.nix { inherit pkgs lib; }
-      );
+      devShells = forAllSystems ({ pkgs, ... }: import ./shells/import.nix { inherit pkgs lib; });
     };
 }

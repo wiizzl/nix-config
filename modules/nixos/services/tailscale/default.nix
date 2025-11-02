@@ -13,7 +13,7 @@ in
     services.tailscale = {
       enable = true;
       openFirewall = true;
-      # authKeyFile = ""; TODO: secret management
+      authKeyFile = config.age.secrets.tailscale.path;
     };
 
     # systemd.services.tailscale-autoconnect = {
