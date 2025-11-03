@@ -137,7 +137,8 @@ in
             "$mod, mouse_up, workspace, e+1"
 
             # Special workspaces
-            "$mod Alt, X, movetoworkspace, special"
+            # "$mod Alt, X, movetoworkspace, special"
+            "$mod Alt, X, movetoworkspace, e+0"
             "$mod Shift, X, movetoworkspacesilent, special"
             "$mod, X, togglespecialworkspace"
 
