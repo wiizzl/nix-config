@@ -44,10 +44,16 @@
     pkgs.mkShell {
       packages = [
         dotnet-full
+        # pkgs.jdk21
       ];
 
       DOTNET_PATH = "${dotnet-full}/bin/dotnet";
       DOTNET_ROOT = "${dotnet-full}/share/dotnet";
+
+      # JAVA_HOME = pkgs.jdk21.home;
+
+      # ANDROID_HOME = "${android-sdk}/share/android-sdk";
+      # ANDROID_SDK_ROOT = "${android-sdk}/share/android-sdk";
 
       shellHook = ''
         echo "C# dev shell is ready !"
