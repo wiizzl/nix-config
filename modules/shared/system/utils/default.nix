@@ -31,6 +31,7 @@ in
         bat
         tldr
         unzip
+        zip
         unrar
       ]
       ++ optionals system.utils.dev [
