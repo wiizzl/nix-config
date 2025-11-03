@@ -56,7 +56,6 @@ in
         };
         jetbrains = {
           rider = enabled;
-          android-studio = disabled;
         };
       };
 

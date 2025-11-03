@@ -23,7 +23,10 @@
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    android-nixpkgs.url = "github:tadfisher/android-nixpkgs";
+    android-nixpkgs = {
+      url = "github:tadfisher/android-nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     vicinae.url = "github:vicinaehq/vicinae";
     agenix.url = "github:ryantm/agenix";
     hyprland.url = "github:hyprwm/Hyprland";
@@ -33,12 +36,7 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      self,
-      android-nixpkgs,
-      ...
-    }@inputs:
+    { nixpkgs, self, ... }@inputs:
     let
       lib = nixpkgs.lib.extend (
         self: super: {
@@ -90,7 +88,11 @@
         };
       };
       devShells = forAllSystems (
-        { pkgs, ... }: import ./shells/import.nix { inherit pkgs android-nixpkgs lib; }
+        { pkgs, ... }:
+        import ./shells/import.nix {
+          inherit pkgs lib;
+          android-nixpkgs = inputs.android-nixpkgs;
+        }
       );
     };
 }

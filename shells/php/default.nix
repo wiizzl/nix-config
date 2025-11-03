@@ -6,6 +6,9 @@
       php82
       php82Packages.composer
       symfony-cli
+      laravel
+      nodejs
+      bun
     ];
 
     shellHook = ''
