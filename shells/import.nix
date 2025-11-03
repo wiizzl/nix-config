@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  android-nixpkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 
 let
   getDir =
@@ -19,8 +14,6 @@ let
     );
 
   defaultNixFiles = builtins.filter (file: builtins.baseNameOf file == "default.nix") (files ./.);
-  importedShells = builtins.map (
-    file: import ./${file} { inherit pkgs android-nixpkgs lib; }
-  ) defaultNixFiles;
+  importedShells = builtins.map (file: import ./${file} { inherit pkgs lib; }) defaultNixFiles;
 in
 lib.foldl' lib.recursiveUpdate { } importedShells
