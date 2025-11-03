@@ -17,8 +17,6 @@ let
   inherit (config.my) desktop;
 in
 {
-  imports = [ inputs.stylix.nixosModules.stylix ];
-
   options.my.desktop.addons.stylix = {
     enable = mkEnableOption "Stylix theming framework";
     autoEnable = mkOpt types.bool false "Auto-enable Stylix on supported applications";
@@ -111,6 +109,8 @@ in
       };
     };
   };
+
+  imports = [ inputs.stylix.nixosModules.stylix ];
 
   config = mkIf desktop.addons.stylix.enable {
     stylix = {

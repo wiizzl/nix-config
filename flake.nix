@@ -33,7 +33,12 @@
   };
 
   outputs =
-    { nixpkgs, self, ... }@inputs:
+    {
+      nixpkgs,
+      self,
+      android-nixpkgs,
+      ...
+    }@inputs:
     let
       lib = nixpkgs.lib.extend (
         self: super: {

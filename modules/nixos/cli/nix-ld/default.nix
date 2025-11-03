@@ -14,9 +14,9 @@ in
     enable = mkEnableOption "nix-ld";
   };
 
-  config = mkIf cli.nix-ld.enable {
-    imports = [ inputs.nix-ld.nixosModules.nix-ld ];
+  imports = [ inputs.nix-ld.nixosModules.nix-ld ];
 
+  config = mkIf cli.nix-ld.enable {
     programs.nix-ld.dev.enable = true;
   };
 }
