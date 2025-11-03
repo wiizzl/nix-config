@@ -19,11 +19,11 @@
       url = "github:0xc000022070/zen-browser-flake/beta";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    elephant.url = "github:abenz1267/elephant";
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs.elephant.follows = "elephant";
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    android-nixpkgs.url = "github:tadfisher/android-nixpkgs";
     vicinae.url = "github:vicinaehq/vicinae";
     agenix.url = "github:ryantm/agenix";
     hyprland.url = "github:hyprwm/Hyprland";
@@ -84,6 +84,8 @@
           ];
         };
       };
-      devShells = forAllSystems ({ pkgs, ... }: import ./shells/import.nix { inherit pkgs lib; });
+      devShells = forAllSystems (
+        { pkgs, ... }: import ./shells/import.nix { inherit pkgs android-nixpkgs lib; }
+      );
     };
 }

@@ -56,7 +56,7 @@ in
         };
         jetbrains = {
           rider = enabled;
-          android-studio = enabled;
+          android-studio = disabled;
         };
       };
 
@@ -65,6 +65,7 @@ in
         cava = enabled;
         direnv = enabled;
         microfetch = enabled;
+        nix-ld = enabled;
         just = enabled;
         btop = enabled;
         yazi = enabled;
