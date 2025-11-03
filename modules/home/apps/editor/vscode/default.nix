@@ -142,6 +142,7 @@ in
             github.vscode-github-actions
             github.vscode-pull-request-github
             leonardssh.vscord
+            bmewburn.vscode-intelephense-client
           ];
         };
       };
