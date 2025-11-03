@@ -3,12 +3,13 @@
 {
   php = pkgs.mkShell {
     packages = with pkgs; [
-      php
+      php82
+      php82Packages.composer
       symfony-cli
     ];
 
     shellHook = ''
-      echo "JavaScript dev shell is ready !"
+      echo "PHP dev shell is ready !"
     '';
   };
 }
