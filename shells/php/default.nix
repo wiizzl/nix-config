@@ -3,8 +3,8 @@
 {
   php = pkgs.mkShell {
     packages = with pkgs; [
-      php82
-      php82Packages.composer
+      php84
+      php84Packages.composer
       symfony-cli
       laravel
       nodejs
