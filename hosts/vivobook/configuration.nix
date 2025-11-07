@@ -5,7 +5,7 @@ let
 in
 {
   imports = [
-    ../../modules/wsl/import.nix
+    ../../modules/nixos/import.nix
     ../../modules/shared/import.nix
     ../../modules/home/import.nix
   ];
@@ -19,6 +19,7 @@ in
         name = "pier";
         homeDir = "/home/pier";
         home-manager = enabled;
+        wsl = enabled;
 
         shell = {
           package = pkgs.fish;
@@ -41,12 +42,16 @@ in
       };
 
       system = {
+        ld = enabled;
         shell.fish = enabled;
         timezone = "Europe/Paris";
         utils = {
           enable = true;
           dev = true;
           fun = true;
+        };
+        virtualisation = {
+          docker = enabled;
         };
       };
     };

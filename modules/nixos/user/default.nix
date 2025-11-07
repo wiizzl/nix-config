@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }:
 
@@ -22,6 +23,7 @@ in
     name = mkOpt types.str "pier" "User account name";
     homeDir = mkOpt types.str "/home/${user.name}" "Home directory path";
     home-manager.enable = mkEnableOption "home-manager";
+    wsl.enable = mkEnableOption "WSL support";
     shell = mkOption {
       description = "Shell configuration";
       type = types.submodule {
@@ -33,6 +35,10 @@ in
     };
   };
 
+  imports = [
+    inputs.nixos-wsl.nixosModules.default
+  ];
+
   config = mkIf user.enable {
     nix.settings.trusted-users = [ "${user.name}" ];
 
@@ -43,6 +49,11 @@ in
       description = "${user.name} account";
       extraGroups = [ "wheel" ];
       shell = user.shell.package;
+    };
+
+    wsl = mkIf user.wsl.enable {
+      enable = true;
+      defaultUser = user.name;
     };
   };
 }

@@ -11,7 +11,7 @@ let
 in
 {
   options.my.system.virtualisation.podman = {
-    enable = mkEnableOption "Podman engine";
+    enable = mkEnableOption "Podman";
     docker-compat = mkEnableOption "Docker compatibility mode";
     podman-desktop = mkEnableOption "Podman Desktop GUI";
   };

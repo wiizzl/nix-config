@@ -27,7 +27,6 @@ The repository is split into several module types.
 - [NixOS modules](https://github.com/wiizzl/nix-config/tree/main/modules/nixos): System configurations tailored for NixOS.
 - [Home modules](https://github.com/wiizzl/nix-config/tree/main/modules/home): User-specific setups managed by [home-manager](https://github.com/nix-community/home-manager).
 - [Darwin modules](https://github.com/wiizzl/nix-config/tree/main/modules/darwin): macOS system configurations using [nix-darwin](https://github.com/nix-darwin/nix-darwin).
-- [WSL modules](https://github.com/wiizzl/nix-config/tree/main/modules/wsl): Windows Subsystem for Linux configurations using [NixOS-WSL](https://github.com/nix-community/NixOS-WSL)
 - [Shared modules](https://github.com/wiizzl/nix-config/tree/main/modules/shared): Common settings for both NixOS and Darwin platforms.
 
 Each module group contains an `import.nix` file at its root, which automatically locates and imports all `default.nix` files within its directory tree. These imports are referenced in the `configuration.nix` file for each host.

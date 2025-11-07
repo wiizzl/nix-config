@@ -6,19 +6,24 @@ let
 in
 {
   options.my.system.virtualisation.docker = {
-    enable = mkEnableOption "Docker engine";
+    enable = mkEnableOption "Docker";
   };
 
   config = mkIf system.virtualisation.docker.enable {
-    virtualisation.docker = {
-      enable = true;
-
-      rootless = {
+    virtualisation.docker =
+      !mkIf user.wsl.enable {
         enable = true;
-        setSocketVariable = true;
+
+        rootless = {
+          enable = true;
+          setSocketVariable = true;
+        };
       };
-    };
 
     users.users.${user.name}.extraGroups = [ "docker" ];
+
+    wsl.docker-desktop = mkIf user.wsl.enable {
+      enable = true;
+    };
   };
 }
