@@ -35,10 +35,6 @@ in
           name = "wiizzl";
           email = "git@houlliere.com";
         };
-        nh = {
-          enable = true;
-          clean = enabled;
-        };
       };
 
       system = {
