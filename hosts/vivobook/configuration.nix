@@ -30,6 +30,10 @@ in
       cli = {
         direnv = enabled;
         yazi = enabled;
+        just = enabled;
+        btop = enabled;
+        microfetch = enabled;
+        helix = enabled;
         git = {
           enable = true;
           name = "wiizzl";
@@ -38,13 +42,32 @@ in
       };
 
       system = {
-        ld = enabled;
         shell.fish = enabled;
         timezone = "Europe/Paris";
         utils = {
           enable = true;
           dev = true;
           fun = true;
+        };
+        docs = {
+          enable = true;
+          man = true;
+        };
+        locale = {
+          keymap = "fr";
+          default-locale = "en_US.UTF-8";
+          extra-locale = "fr_FR.UTF-8";
+        };
+        nix = {
+          ld = enabled;
+          extra-substituters = enabled;
+          flakes.extra-options = ''
+            warn-dirty = false
+          '';
+        };
+        networking = {
+          firewall = enabled;
+          hostname = "vivobook";
         };
         virtualisation = {
           docker = enabled;
