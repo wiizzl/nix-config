@@ -10,15 +10,14 @@ in
   };
 
   config = mkIf system.virtualisation.docker.enable {
-    virtualisation.docker =
-      !mkIf user.wsl.enable {
-        enable = true;
+    virtualisation.docker = mkIf (user.wsl.enable != true) {
+      enable = true;
 
-        rootless = {
-          enable = true;
-          setSocketVariable = true;
-        };
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
       };
+    };
 
     users.users.${user.name}.extraGroups = [ "docker" ];
 

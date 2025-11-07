@@ -19,7 +19,7 @@ in
 {
   options.my.desktop.addons.stylix = {
     enable = mkEnableOption "Stylix theming framework";
-    autoEnable = mkOpt types.bool false "Auto-enable Stylix on supported applications";
+    autoEnable = mkEnableOption "automatic Stylix theming";
     polarity = mkOpt types.str "dark" "Algorithm's preferred polarity (dark or light)";
     base16Scheme = mkOption {
       description = "The base16 color scheme to use";
@@ -44,6 +44,7 @@ in
         };
       };
     };
+    cursorEnable = mkEnableOption "Stylix cursor configuration";
     cursor = mkOption {
       description = "Cursor theme configuration";
       type = types.submodule {
@@ -54,6 +55,7 @@ in
         };
       };
     };
+    fontsEnable = mkEnableOption "Stylix font configuration";
     fonts = mkOption {
       description = "Font configuration for Stylix";
       type = types.submodule {
@@ -118,8 +120,35 @@ in
       autoEnable = desktop.addons.stylix.autoEnable;
       polarity = desktop.addons.stylix.polarity;
       base16Scheme = desktop.addons.stylix.base16Scheme;
-      cursor = desktop.addons.stylix.cursor;
-      fonts = desktop.addons.stylix.fonts;
+      cursor = mkIf desktop.addons.stylix.cursorEnable {
+        package = desktop.addons.stylix.cursor.package;
+        name = desktop.addons.stylix.cursor.name;
+        size = desktop.addons.stylix.cursor.size;
+      };
+      fonts = mkIf desktop.addons.stylix.fontsEnable {
+        monospace = {
+          package = desktop.addons.stylix.fonts.monospace.package;
+          name = desktop.addons.stylix.fonts.monospace.name;
+        };
+        sansSerif = {
+          package = desktop.addons.stylix.fonts.sansSerif.package;
+          name = desktop.addons.stylix.fonts.sansSerif.name;
+        };
+        serif = {
+          package = desktop.addons.stylix.fonts.serif.package;
+          name = desktop.addons.stylix.fonts.serif.name;
+        };
+        emoji = {
+          package = desktop.addons.stylix.fonts.emoji.package;
+          name = desktop.addons.stylix.fonts.emoji.name;
+        };
+        sizes = {
+          applications = desktop.addons.stylix.fonts.sizes.applications;
+          desktop = desktop.addons.stylix.fonts.sizes.desktop;
+          popups = desktop.addons.stylix.fonts.sizes.popups;
+          terminal = desktop.addons.stylix.fonts.sizes.terminal;
+        };
+      };
     };
   };
 }
