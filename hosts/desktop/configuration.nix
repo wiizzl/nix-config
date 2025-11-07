@@ -189,6 +189,7 @@ in
           networkmanager = enabled;
         };
         nix = {
+          ld = enabled;
           extra-substituters = enabled;
           flakes.extra-options = ''
             warn-dirty = false
