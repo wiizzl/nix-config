@@ -18,7 +18,7 @@ in
   config = mkIf system.fonts.enable {
     fonts = {
       packages = with pkgs; [
-        fira-code
+        nerd-fonts.jetbrains-mono
       ];
 
       enableDefaultPackages = system.fonts.default;

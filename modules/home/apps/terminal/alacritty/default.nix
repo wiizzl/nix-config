@@ -13,6 +13,21 @@ in
     home-manager.users.${user.name} = {
       programs.alacritty = {
         enable = true;
+
+        settings = {
+          window.padding = {
+            x = 22;
+            y = 22;
+          };
+          cursor = {
+            style = {
+              shape = "Beam";
+              blinking = "Always";
+            };
+            vi_mode_style.shape = "Block";
+            blink_interval = 700;
+          };
+        };
       };
     };
   };

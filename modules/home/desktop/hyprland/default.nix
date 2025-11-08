@@ -49,7 +49,7 @@ in
 
           bind = [
             # Run applications
-            "$mod, Return, exec, alacritty"
+            "$mod, Return, exec, foot"
             "$mod, E, exec, thunar"
             "$mod, B, exec, zen-beta"
 

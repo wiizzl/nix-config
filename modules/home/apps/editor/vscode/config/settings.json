@@ -33,15 +33,15 @@
   "nix.enableLanguageServer": true,
 
   // Font family
-  "editor.fontFamily": "Fira Code",
-  "terminal.integrated.fontFamily": "Fira Code",
-  "scm.inputFontFamily": "Fira Code",
-  "chat.editor.fontFamily": "Fira Code",
-  "debug.console.fontFamily": "Fira Code",
-  "editor.codeLensFontFamily": "Fira Code",
-  "notebook.output.fontFamily": "Fira Code",
-  "markdown.preview.fontFamily": "Fira Code",
-  "editor.inlayHints.fontFamily": "Fira Code",
+  "editor.fontFamily": "JetBrainsMono NF",
+  "terminal.integrated.fontFamily": "JetBrainsMono NF",
+  "scm.inputFontFamily": "JetBrainsMono NF",
+  "chat.editor.fontFamily": "JetBrainsMono NF",
+  "debug.console.fontFamily": "JetBrainsMono NF",
+  "editor.codeLensFontFamily": "JetBrainsMono NF",
+  "notebook.output.fontFamily": "JetBrainsMono NF",
+  "markdown.preview.fontFamily": "JetBrainsMono NF",
+  "editor.inlayHints.fontFamily": "JetBrainsMono NF",
   "editor.fontLigatures": true,
 
   // Font size

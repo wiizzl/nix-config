@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 let
-  inherit (lib.extraMkOptions) enabled disabled;
+  inherit (lib.extraMkOptions) enabled;
 in
 {
   imports = [
@@ -39,7 +39,7 @@ in
         };
         suite.onlyoffice = enabled;
         file-manager.thunar = enabled;
-        terminal.alacritty = enabled;
+        terminal.foot = enabled;
         editor = {
           zed = enabled;
           vscode = enabled;
