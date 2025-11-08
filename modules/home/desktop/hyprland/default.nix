@@ -174,13 +174,20 @@ in
             kb_layout = system.locale.keymap;
             follow_mouse = 1;
             sensitivity = 0;
-            repeat_delay = 300;
+
+            repeat_rate = 35;
+            repeat_delay = 250;
 
             touchpad = {
               natural_scroll = true;
               disable_while_typing = true;
               scroll_factor = 0.8;
             };
+          };
+
+          cursor = {
+            inactive_timeout = 30;
+            no_hardware_cursors = true;
           };
 
           device = {

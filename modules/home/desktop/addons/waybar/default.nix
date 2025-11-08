@@ -16,36 +16,40 @@ in
 
   config = mkIf desktop.addons.waybar.enable {
     home-manager.users.${user.name} = {
+      wayland.windowManager.hyprland.settings.exec-once = [ "waybar" ];
+
       programs.waybar = {
         enable = true;
-        systemd.enable = true;
 
         settings = {
           mainBar = {
             layer = "top";
-            position = "top";
+            position = "left";
             output = [ "DP-2" ];
 
             margin-top = 8;
             margin-right = 8;
             margin-left = 8;
 
-            spacing = 10;
+            spacing = 4;
 
             modules-left = [
               "image#nixos"
+              "custom/sep"
               "hyprland/workspaces"
-              "hyprland/window"
-            ];
-            modules-center = [
-              "clock"
             ];
             modules-right = [
-              "pulseaudio/slider"
-              "pulseaudio"
-              "battery"
+              "tray"
+              "custom/sep"
               "network"
-              "bluetooth"
+              # "custom/sep"
+              # "cpu"
+              # "custom/sep"
+              # "memory"
+              # "custom/sep"
+              # "disk"
+              "custom/sep"
+              "clock"
             ];
 
             network = {
@@ -87,25 +91,41 @@ in
 
             "hyprland/workspaces" = {
               format = "{name}";
+              disable-scroll = true;
+              warp-on-scroll = false;
             };
 
-            "hyprland/window" = {
-              format = "{initialTitle}";
-              separate-outputs = true;
+            tray = {
+              spacing = 10;
+              reverse-direction = true;
             };
 
-            bluetooth = {
-              format = " {status}";
-              on-click = "blueman-manager";
-              format-connected = " {num_connections}";
-              format-disabled = "󰂲";
-              tooltip-format = "{controller_alias}\t{controller_address}";
-              tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
-              tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+            clock = {
+              format-alt = "{:%d/%m/%Y}";
+              tooltip = false;
             };
-
+            cpu = {
+              format = "CPU: {usage}%";
+              tooltip = false;
+            };
+            memory = {
+              format = "Mem: {used}GiB";
+            };
+            disk = {
+              interval = 60;
+              path = "/";
+              format = "Disk: {free}";
+            };
             battery = {
-              format = "{capacity}% {icon}";
+              states = {
+                good = 95;
+                warning = 30;
+                critical = 15;
+              };
+              format = "Bat: {capacity}% {icon} {time}";
+              format-plugged = "{capacity}% ";
+              format-alt = "Bat {capacity}%";
+              format-time = "{H}:{M}";
               format-icons = [
                 ""
                 ""
@@ -114,12 +134,10 @@ in
                 ""
               ];
             };
-
-            clock = {
-              interval = 1;
-              format = "{:%H:%M:%S}";
-              format-alt = "{:%a, %d. %b  %H:%M}";
-              tooltip-format = "<tt>{calendar}</tt>";
+            "custom/sep" = {
+              format = "――";
+              interval = 0;
+              tooltip = false;
             };
           };
         };
@@ -130,88 +148,92 @@ in
             # hex = base: "#${base}";
           in
           ''
+            @define-color bg    #1a1b26;
+            @define-color fg    #a9b1d6;
+            @define-color blk   #32344a;
+            @define-color red   #f7768e;
+            @define-color grn   #9ece6a;
+            @define-color ylw   #e0af68;
+            @define-color blu   #7aa2f7;
+            @define-color mag   #ad8ee6;
+            @define-color cyn   #0db9d7;
+            @define-color brblk #444b6a;
+            @define-color white #ffffff;
+
+            * {
+              font-size: 14px;
+            }
+
             window#waybar {
-              background: rgba(43, 48, 59, 0.5);
-
+              background-color: @bg;
+              color: @fg;
               border-radius: 8px;
-              color: white;
-            }
-
-            tooltip {
-              background: rgba(43, 48, 59, 0.5);
-              border: 1px solid rgba(100, 114, 125, 0.5);
-              border-radius: 8px;
-            }
-
-            tooltip label {
-              color: white;
             }
 
             #workspaces button {
-              padding: 0 5px;
-              background: transparent;
-              color: white;
-              border-bottom: 3px solid transparent;
+                padding: 0 6px;
+                color: @cyn;
+                background: transparent;
+                border-bottom: 3px solid @bg;
+            }
+            #workspaces button.active {
+                color: @cyn;
+                border-bottom: 3px solid @mag;
+            }
+            #workspaces button.empty {
+                color: @white;
+            }
+            #workspaces button.empty.active {
+                color: @cyn;
+                border-bottom: 3px solid @mag;
             }
 
-            #workspaces button.focused {
-              background: #64727D;
-              border-bottom: 3px solid white;
+            #workspaces button.urgent {
+                background-color: @red;
             }
 
-            #mode, #clock, #battery {
-              padding: 0 10px;
+            #clock,
+            #custom-sep,
+            #battery,
+            #cpu,
+            #memory,
+            #disk,
+            #network,
+            #tray {
+                padding: 0 8px;
+                color: @white;
             }
 
-            #mode {
-              background: #64727D;
-              border-bottom: 3px solid white;
+            #custom-sep {
+                color: @brblk;
             }
 
             #clock {
-              background-color: #64727D;
+                color: @cyn;
             }
 
             #battery {
-              background-color: #ffffff;
-              color: black;
+                color: @mag;
             }
 
-            #battery.charging {
-              color: white;
-              background-color: #26A65B;
+            #disk {
+                color: @ylw;
             }
 
-            #battery.warning:not(.charging) {
-              background: #f53c3c;
-              color: white;
+            #memory {
+                color: @mag;
             }
 
-            #pulseaudio-slider {
-              padding: 0;
-              margin: 0;
+            #cpu {
+                color: @grn;
             }
 
-            #pulseaudio-slider slider {
-              min-height: 0px;
-              min-width: 0px;
-              opacity: 0;
-              background-image: none;
-              border: none;
-              box-shadow: none;
+            #network {
+                color: @blu;
             }
 
-            #pulseaudio-slider trough {
-              min-height: 10px;
-              min-width: 80px;
-              border-radius: 5px;
-              background: black;
-            }
-
-            #pulseaudio-slider highlight {
-              min-width: 10px;
-              border-radius: 5px;
-              background: green;
+            #network.disconnected {
+                background-color: @red;
             }
           '';
       };
