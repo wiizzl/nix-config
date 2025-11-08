@@ -28,7 +28,8 @@ in
             output = [ "DP-2" ];
 
             margin-top = 8;
-            margin-right = 8;
+            margin-bottom = 8;
+            margin-right = 0;
             margin-left = 8;
 
             spacing = 4;
@@ -41,6 +42,10 @@ in
             modules-right = [
               "tray"
               "custom/sep"
+              "pulseaudio"
+              "custom/sep"
+              # "bluetooth"
+              # "custom/sep"
               "network"
               # "custom/sep"
               # "cpu"
@@ -49,11 +54,12 @@ in
               # "custom/sep"
               # "disk"
               "custom/sep"
+              "battery"
+              "custom/sep"
               "clock"
             ];
 
             network = {
-              # interface = var.hyprland.waybar.network;
               format = "{ifname}";
               format-wifi = "{icon}";
               format-ethernet = "";
@@ -64,11 +70,10 @@ in
                 "󰤥"
                 "󰤨"
               ];
-              tooltip-format = "{ifname} via {gwaddr} 󰊗";
-              tooltip-format-wifi = "{essid} ({signalStrength}%) ";
-              tooltip-format-ethernet = "{ifname} ";
-              tooltip-format-disconnected = "Disconnected 󰤭";
-              max-length = 50;
+              tooltip-format = "{ifname} via {gwaddr}";
+              tooltip-format-wifi = "{essid} ({signalStrength}%)";
+              tooltip-format-ethernet = "{ifname}";
+              tooltip-format-disconnected = "Disconnected";
             };
 
             "image#nixos" = {
@@ -78,15 +83,10 @@ in
             };
 
             pulseaudio = {
-              format = "   {volume}";
+              format = "";
+              tooltip-format = "{volume}%";
               format-muted = "";
               on-click = "pavucontrol";
-            };
-
-            "pulseaudio/slider" = {
-              "min" = 0;
-              "max" = 100;
-              "orientation" = "horizontal";
             };
 
             "hyprland/workspaces" = {
@@ -101,21 +101,9 @@ in
             };
 
             clock = {
-              format-alt = "{:%d/%m/%Y}";
-              tooltip = false;
+              tooltip-format = "{:%d/%m/%Y}";
             };
-            cpu = {
-              format = "CPU: {usage}%";
-              tooltip = false;
-            };
-            memory = {
-              format = "Mem: {used}GiB";
-            };
-            disk = {
-              interval = 60;
-              path = "/";
-              format = "Disk: {free}";
-            };
+
             battery = {
               states = {
                 good = 95;
@@ -134,6 +122,7 @@ in
                 ""
               ];
             };
+
             "custom/sep" = {
               format = "――";
               interval = 0;
@@ -143,97 +132,39 @@ in
         };
 
         style =
-          let
-            # colors = config.lib.stylix.colors;
-            # hex = base: "#${base}";
-          in
+          # let
+          # colors = config.lib.stylix.colors;
+          # hex = base: "#${base}";
+          # in
           ''
-            @define-color bg    #1a1b26;
-            @define-color fg    #a9b1d6;
-            @define-color blk   #32344a;
-            @define-color red   #f7768e;
-            @define-color grn   #9ece6a;
-            @define-color ylw   #e0af68;
-            @define-color blu   #7aa2f7;
-            @define-color mag   #ad8ee6;
-            @define-color cyn   #0db9d7;
-            @define-color brblk #444b6a;
-            @define-color white #ffffff;
-
-            * {
-              font-size: 14px;
-            }
-
             window#waybar {
-              background-color: @bg;
-              color: @fg;
               border-radius: 8px;
+              color: #cdd6f4;
+              border: 1px solid #313244;
             }
 
             #workspaces button {
-                padding: 0 6px;
-                color: @cyn;
-                background: transparent;
-                border-bottom: 3px solid @bg;
+              padding: 0;
+              color: #89b4fa;
+              background: transparent;
+              border-bottom: 3px solid transparent;
             }
+
             #workspaces button.active {
-                color: @cyn;
-                border-bottom: 3px solid @mag;
+              color: #89b4fa;
+              border-bottom: 3px solid #cba6f7;
             }
+
             #workspaces button.empty {
-                color: @white;
-            }
-            #workspaces button.empty.active {
-                color: @cyn;
-                border-bottom: 3px solid @mag;
+              color: #cdd6f4;
             }
 
             #workspaces button.urgent {
-                background-color: @red;
-            }
-
-            #clock,
-            #custom-sep,
-            #battery,
-            #cpu,
-            #memory,
-            #disk,
-            #network,
-            #tray {
-                padding: 0 8px;
-                color: @white;
+              background-color: #f38ba8;
             }
 
             #custom-sep {
-                color: @brblk;
-            }
-
-            #clock {
-                color: @cyn;
-            }
-
-            #battery {
-                color: @mag;
-            }
-
-            #disk {
-                color: @ylw;
-            }
-
-            #memory {
-                color: @mag;
-            }
-
-            #cpu {
-                color: @grn;
-            }
-
-            #network {
-                color: @blu;
-            }
-
-            #network.disconnected {
-                background-color: @red;
+              color: #585b70;
             }
           '';
       };

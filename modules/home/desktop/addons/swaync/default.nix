@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkIf optionalAttrs;
+  inherit (lib) mkIf;
   inherit (config.my) desktop user;
 in
 {
@@ -12,9 +12,6 @@ in
 
         settings = { };
       };
-    }
-    // optionalAttrs desktop.addons.stylix.enable {
-      stylix.targets.swaync.enable = false;
     };
   };
 }
