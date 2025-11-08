@@ -72,7 +72,7 @@
     {
       darwinConfigurations = { };
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs lib; };
           modules = [
@@ -80,6 +80,16 @@
             inputs.agenix.nixosModules.default
 
             ./hosts/desktop/configuration.nix
+          ];
+        };
+        vivobook = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs lib; };
+          modules = [
+            secrets
+            inputs.agenix.nixosModules.default
+
+            ./hosts/vivobook/configuration.nix
           ];
         };
       };

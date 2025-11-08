@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf system.virtualisation.docker.enable {
-    virtualisation.docker = mkIf (user.wsl.enable != true) {
+    virtualisation.docker = {
       enable = true;
 
       rootless = {
