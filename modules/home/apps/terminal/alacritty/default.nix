@@ -13,10 +13,6 @@ in
     home-manager.users.${user.name} = {
       programs.alacritty = {
         enable = true;
-
-        settings = {
-          cursor.shape = "Beam";
-        };
       };
     };
   };
