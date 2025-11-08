@@ -2,7 +2,7 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  inherit (config.my) cli desktop user;
+  inherit (config.my) cli user;
 in
 {
   options.my.desktop.addons.hyprpaper = {
