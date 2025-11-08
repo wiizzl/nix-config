@@ -36,7 +36,6 @@ in
               adpyke.codesnap
               naumovs.color-highlight
               catppuccin.catppuccin-vsc
-              pkief.material-product-icons
               thang-nm.flow-icons
               usernamehw.errorlens
               yoavbls.pretty-ts-errors
@@ -61,6 +60,7 @@ in
               github.vscode-github-actions
               github.vscode-pull-request-github
               leonardssh.vscord
+              tamasfe.even-better-toml
               bmewburn.vscode-intelephense-client
             ];
           };

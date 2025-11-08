@@ -4,7 +4,6 @@
   "window.autoDetectColorScheme": true,
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
-  "workbench.productIconTheme": "material-product-icons",
 
   // Misc
   "workbench.startupEditor": "none",
