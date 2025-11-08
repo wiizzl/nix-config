@@ -173,6 +173,7 @@ in
         };
         audio.pipewire = enabled;
         boot = {
+          enable = true;
           systemd.enable = true;
           kernel = pkgs.linuxPackages_latest; # _zen, _hardened, _rt, _rt_latest, etc.
         };
