@@ -16,10 +16,11 @@ in
 
   config = mkIf desktop.addons.waybar.enable {
     home-manager.users.${user.name} =
-      mkIf desktop.addons.stylix.enable {
-        stylix.targets.waybar.enable = false;
-      }
-      // {
+      # mkIf desktop.addons.stylix.enable {
+      #   stylix.targets.waybar.enable = false;
+      # }
+      # // {
+      {
         # wayland.windowManager.hyprland.settings.exec-once = [ "waybar" ]; # TODO: use a systemd service
 
         programs.waybar = {
@@ -131,13 +132,13 @@ in
 
           style =
             let
-              colors = config.lib.stylix.colors;
-              hex = base: "#${base}";
+              # colors = config.lib.stylix.colors;
+              # hex = base: "#${base}";
             in
             ''
               window#waybar {
                 background: rgba(43, 48, 59, 0.5);
-                border: 2px solid ${hex colors.base04};
+
                 border-radius: 8px;
                 color: white;
               }

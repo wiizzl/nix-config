@@ -22,9 +22,7 @@ in
 
         extraConfig = {
           show-icons = true;
-
           drun-display-format = "{icon} {name}";
-          display-drun = " Apps";
         };
       };
     };

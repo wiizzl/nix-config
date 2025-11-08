@@ -19,6 +19,10 @@
       url = "github:0xc000022070/zen-browser-flake/beta";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     vicinae.url = "github:vicinaehq/vicinae";
     agenix.url = "github:ryantm/agenix";
@@ -29,7 +33,7 @@
   };
 
   outputs =
-    { nixpkgs, self, ... }@inputs:
+    { nixpkgs, ... }@inputs:
     let
       lib = nixpkgs.lib.extend (
         self: super: {

@@ -90,64 +90,64 @@ in
           hyprshot = enabled;
           hyprpaper = enabled;
           waybar = enabled;
-          # stylix = {
-          #   enable = true;
-          #   autoEnable = true;
-          #   polarity = "dark";
+          stylix = {
+            enable = true;
+            autoEnable = true;
+            polarity = "dark";
 
-          #   # See https://tinted-theming.github.io/tinted-gallery/ for more schemes
-          #   base16Scheme = {
-          #     base00 = "1e1e2e";
-          #     base01 = "181825";
-          #     base02 = "313244";
-          #     base03 = "45475a";
-          #     base04 = "585b70";
-          #     base05 = "cdd6f4";
-          #     base06 = "f5e0dc";
-          #     base07 = "b4befe";
-          #     base08 = "f38ba8";
-          #     base09 = "fab387";
-          #     base0A = "f9e2af";
-          #     base0B = "a6e3a1";
-          #     base0C = "94e2d5";
-          #     base0D = "cba6f7";
-          #     base0E = "89b4fa";
-          #     base0F = "f2cdcd";
-          #   };
+            # See https://tinted-theming.github.io/tinted-gallery/ for more schemes
+            base16Scheme = {
+              base00 = "1e1e2e";
+              base01 = "181825";
+              base02 = "313244";
+              base03 = "45475a";
+              base04 = "585b70";
+              base05 = "cdd6f4";
+              base06 = "f5e0dc";
+              base07 = "b4befe";
+              base08 = "f38ba8";
+              base09 = "fab387";
+              base0A = "f9e2af";
+              base0B = "a6e3a1";
+              base0C = "94e2d5";
+              base0D = "cba6f7";
+              base0E = "89b4fa";
+              base0F = "f2cdcd";
+            };
 
-          #   cursorEnable = true;
-          #   cursor = {
-          #     package = pkgs.bibata-cursors;
-          #     name = "Bibata-Modern-Ice";
-          #     size = 32;
-          #   };
+            cursorEnable = true;
+            cursor = {
+              package = pkgs.bibata-cursors;
+              name = "Bibata-Modern-Ice";
+              size = 32;
+            };
 
-          #   fontsEnable = true;
-          #   fonts = {
-          #     monospace = {
-          #       package = pkgs.nerd-fonts.meslo-lg;
-          #       name = "Meslo LGM Nerd Font";
-          #     };
-          #     sansSerif = {
-          #       package = pkgs.montserrat;
-          #       name = "Montserrat";
-          #     };
-          #     serif = {
-          #       package = pkgs.dm-sans;
-          #       name = "DM Sans";
-          #     };
-          #     emoji = {
-          #       package = pkgs.noto-fonts-color-emoji;
-          #       name = "Noto Color Emoji";
-          #     };
-          #     sizes = {
-          #       applications = 11;
-          #       desktop = 11;
-          #       popups = 11;
-          #       terminal = 13;
-          #     };
-          #   };
-          # };
+            fontsEnable = true;
+            fonts = {
+              monospace = {
+                package = pkgs.nerd-fonts.meslo-lg;
+                name = "Meslo LGM Nerd Font";
+              };
+              sansSerif = {
+                package = pkgs.montserrat;
+                name = "Montserrat";
+              };
+              serif = {
+                package = pkgs.dm-sans;
+                name = "DM Sans";
+              };
+              emoji = {
+                package = pkgs.noto-fonts-color-emoji;
+                name = "Noto Color Emoji";
+              };
+              sizes = {
+                applications = 11;
+                desktop = 11;
+                popups = 11;
+                terminal = 13;
+              };
+            };
+          };
         };
       };
 

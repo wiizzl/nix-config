@@ -6,7 +6,7 @@
 }:
 
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf optionalAttrs;
   inherit (config.my) apps desktop user;
 in
 {
@@ -17,59 +17,58 @@ in
   };
 
   config = mkIf apps.social.nixcord.enable {
-    home-manager.users.${user.name} =
-      mkIf desktop.addons.stylix.enable {
-        stylix.targets.nixcord.enable = false;
-      }
-      // {
-        imports = [ inputs.nixcord.homeModules.nixcord ];
+    home-manager.users.${user.name} = {
+      imports = [ inputs.nixcord.homeModules.nixcord ];
 
-        programs.nixcord = {
-          enable = true;
+      programs.nixcord = {
+        enable = true;
 
-          discord.enable = apps.social.nixcord.discord.enable;
-          vesktop = {
-            enable = apps.social.nixcord.vesktop.enable;
-            useSystemVencord = false; # TODO: https://github.com/KaylorBen/nixcord/issues/136
-          };
+        discord.enable = apps.social.nixcord.discord.enable;
+        vesktop = {
+          enable = apps.social.nixcord.vesktop.enable;
+          useSystemVencord = false; # TODO: https://github.com/KaylorBen/nixcord/issues/136
+        };
 
-          quickCss = "@import url('https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css');";
+        quickCss = "@import url('https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css');";
 
-          config = {
-            useQuickCss = true;
+        config = {
+          useQuickCss = true;
 
-            plugins = {
-              readAllNotificationsButton.enable = true;
-              youtubeAdblock.enable = true;
-              vencordToolbox.enable = true;
-              gameActivityToggle.enable = true;
-              noProfileThemes.enable = true;
-              spotifyControls.enable = true;
-              openInApp.enable = true;
-              colorSighted.enable = true;
-              fakeNitro.enable = true;
-              callTimer.enable = true;
-              friendsSince.enable = true;
-              replyTimestamp.enable = true;
-              shikiCodeblocks.enable = true;
-              voiceMessages.enable = true;
-              betterNotesBox = {
-                enable = true;
-                hide = true;
-              };
-              noTrack = {
-                enable = true;
-                disableAnalytics = true;
-              };
-              messageLogger = {
-                enable = true;
-                collapseDeleted = true;
-                ignoreBots = true;
-                ignoreSelf = true;
-              };
+          plugins = {
+            readAllNotificationsButton.enable = true;
+            youtubeAdblock.enable = true;
+            vencordToolbox.enable = true;
+            gameActivityToggle.enable = true;
+            noProfileThemes.enable = true;
+            spotifyControls.enable = true;
+            openInApp.enable = true;
+            colorSighted.enable = true;
+            fakeNitro.enable = true;
+            callTimer.enable = true;
+            friendsSince.enable = true;
+            replyTimestamp.enable = true;
+            shikiCodeblocks.enable = true;
+            voiceMessages.enable = true;
+            betterNotesBox = {
+              enable = true;
+              hide = true;
+            };
+            noTrack = {
+              enable = true;
+              disableAnalytics = true;
+            };
+            messageLogger = {
+              enable = true;
+              collapseDeleted = true;
+              ignoreBots = true;
+              ignoreSelf = true;
             };
           };
         };
       };
+    }
+    // optionalAttrs desktop.addons.stylix.enable {
+      stylix.targets.nixcord.enable = false;
+    };
   };
 }
