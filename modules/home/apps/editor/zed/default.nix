@@ -14,9 +14,8 @@ in
     home-manager.users.${user.name} =
       { config, ... }:
       {
-        xdg.configFile."zed" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${user.homeDir}/nix-config/modules/home/apps/editor/zed/config/";
-          recursive = true;
+        xdg.configFile."zed/settings.json" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${user.homeDir}/nix-config/modules/home/apps/editor/zed/config/settings.json";
         };
 
         programs.zed-editor = {

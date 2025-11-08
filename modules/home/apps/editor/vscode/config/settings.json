@@ -1,0 +1,119 @@
+{
+  // Theme
+  "workbench.iconTheme": "flow-dim",
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "workbench.productIconTheme": "material-product-icons",
+
+  // Misc
+  "workbench.startupEditor": "none",
+  "files.enableTrash": true,
+  "explorer.compactFolders": false,
+  "editor.linkedEditing": true,
+  "files.trimTrailingWhitespace": true,
+
+  // Formatter
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.printWidth": 120,
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
+
+  // Font
+  // "editor.fontFamily": "FiraCode Nerd Font",
+  // "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  // "scm.inputFontFamily": "FiraCode Nerd Font",
+  // "chat.editor.fontFamily": "FiraCode Nerd Font",
+  // "debug.console.fontFamily": "FiraCode Nerd Font",
+  // "editor.codeLensFontFamily": "FiraCode Nerd Font",
+  // "notebook.output.fontFamily": "FiraCode Nerd Font",
+  // "markdown.preview.fontFamily": "FiraCode Nerd Font",
+  // "editor.inlayHints.fontFamily": "FiraCode Nerd Font",
+  "editor.fontLigatures": true,
+
+  // Font size
+  "editor.fontSize": 16,
+  "terminal.integrated.fontSize": 15,
+
+  // Tab size
+  "editor.tabSize": 2,
+
+  // Files limitation
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 6,
+
+  // Typescript
+  // "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  // "typescript.inlayHints.functionLikeReturnTypes.enabled": true
+
+  // Excluded files
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/.husky": true,
+    "**/.expo": true,
+    "**/.astro": true,
+    "**/bun.lockb": true,
+    "**/bun.lock": true,
+    "**/package-lock.json": true,
+    "**/pnpm-lock.yaml": true,
+    "**/next-env.d.ts": true
+  },
+
+  // Files save
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+
+  // Layout
+  "workbench.layoutControl.enabled": false,
+  "window.commandCenter": false,
+  "window.titleBarStyle": "native",
+  "workbench.activityBar.location": "hidden",
+  "workbench.sideBar.location": "right",
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "breadcrumbs.filePath": "off",
+
+  // Git
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.ignoreRebaseWarning": true,
+  "git.enableSmartCommit": true,
+
+  // Delete confirmation
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+
+  // Smooth animations
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.smoothScrolling": true,
+  "workbench.list.smoothScrolling": true,
+  "terminal.integrated.smoothScrolling": true,
+  "editor.cursorBlinking": "expand",
+  "window.menuBarVisibility": "toggle",
+
+  // RPC (discord)
+  "vscord.app.name": "Visual Studio Code",
+  "vscord.status.idle.enabled": false
+}
