@@ -9,7 +9,6 @@ let
   inherit (lib)
     mkEnableOption
     mkIf
-    types
     optionals
     ;
   inherit (config.my) system;
@@ -39,6 +38,8 @@ in
         ripgrep
         jq
         nixfmt-rfc-style
+        nil
+        nixd
       ]
       ++ optionals system.utils.fun [
         peaclock

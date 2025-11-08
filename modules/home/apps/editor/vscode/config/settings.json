@@ -29,16 +29,19 @@
     "editor.defaultFormatter": "jnoortheen.nix-ide"
   },
 
-  // Font
-  // "editor.fontFamily": "FiraCode Nerd Font",
-  // "terminal.integrated.fontFamily": "FiraCode Nerd Font",
-  // "scm.inputFontFamily": "FiraCode Nerd Font",
-  // "chat.editor.fontFamily": "FiraCode Nerd Font",
-  // "debug.console.fontFamily": "FiraCode Nerd Font",
-  // "editor.codeLensFontFamily": "FiraCode Nerd Font",
-  // "notebook.output.fontFamily": "FiraCode Nerd Font",
-  // "markdown.preview.fontFamily": "FiraCode Nerd Font",
-  // "editor.inlayHints.fontFamily": "FiraCode Nerd Font",
+  // Nix
+  "nix.enableLanguageServer": true,
+
+  // Font family
+  "editor.fontFamily": "Fira Code",
+  "terminal.integrated.fontFamily": "Fira Code",
+  "scm.inputFontFamily": "Fira Code",
+  "chat.editor.fontFamily": "Fira Code",
+  "debug.console.fontFamily": "Fira Code",
+  "editor.codeLensFontFamily": "Fira Code",
+  "notebook.output.fontFamily": "Fira Code",
+  "markdown.preview.fontFamily": "Fira Code",
+  "editor.inlayHints.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
 
   // Font size

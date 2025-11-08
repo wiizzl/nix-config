@@ -6,7 +6,7 @@
 }:
 
 let
-  inherit (lib) mkEnableOption mkIf types;
+  inherit (lib) mkEnableOption mkIf;
   inherit (config.my) system;
 in
 {
@@ -18,7 +18,7 @@ in
   config = mkIf system.fonts.enable {
     fonts = {
       packages = with pkgs; [
-        # TODO: add fonts
+        fira-code
       ];
 
       enableDefaultPackages = system.fonts.default;

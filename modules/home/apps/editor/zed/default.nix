@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, ... }:
 
 let
   inherit (lib) mkIf optionalAttrs;
@@ -20,10 +15,6 @@ in
 
         programs.zed-editor = {
           enable = true;
-
-          extraPackages = with pkgs; [
-            nixd
-          ];
         };
       }
       // optionalAttrs desktop.addons.stylix.enable {
