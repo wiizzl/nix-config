@@ -15,8 +15,14 @@ in
         enable = true;
 
         settings = {
-          pad = "8x8";
-
+          main = {
+            pad = "8x8";
+          };
+          cursor = {
+            style = "beam";
+            blink = true;
+            blink-rate = 700;
+          };
           scrollback = {
             lines = 100000;
           };
