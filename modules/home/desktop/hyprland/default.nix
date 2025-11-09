@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkIf mkForce optionals;
+  inherit (lib) mkIf;
   inherit (config.my) desktop system user;
 in
 {
@@ -10,8 +10,8 @@ in
       wayland.windowManager.hyprland = {
         enable = true;
 
-        package = mkForce null;
-        portalPackage = mkForce null;
+        package = null;
+        portalPackage = null;
 
         plugins = [ ]; # TODO: Add plugins like hyprexpo, ...
 
@@ -154,22 +154,24 @@ in
 
           # Multimedia keys for volume and LCD brightness (fallback)
           bindel =
-            optionals desktop.addons.swayosd.enable [
-              ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
-              ", XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
-              ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
-              ", XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
-              ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
-              ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
-            ]
-            ++ optionals (!desktop.addons.swayosd.enable) [
-              ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-              ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-              ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-              ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-              ", XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
-              ", XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
-            ];
+            if desktop.addons.swayosd.enable then
+              [
+                ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
+                ", XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
+                ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
+                ", XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
+                ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
+                ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
+              ]
+            else
+              [
+                ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+                ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+                ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+                ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+                ", XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
+                ", XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
+              ];
 
           bindl = [
             # Requires playerctl

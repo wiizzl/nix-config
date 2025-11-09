@@ -40,7 +40,9 @@ in
           gnome-icon-theme
           adwaita-icon-theme
         ]
-        ++ (if system.audio.pipewire.enable || system.networkmanager.enable then [ pavucontrol ] else [ ])
+        ++ (
+          if system.audio.pipewire.enable || system.audio.pavucontrol.enable then [ pavucontrol ] else [ ]
+        )
         ++ (if system.networking.networkmanager.enable then [ networkmanagerapplet ] else [ ]);
     };
   };

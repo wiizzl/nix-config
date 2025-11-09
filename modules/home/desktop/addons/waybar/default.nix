@@ -16,7 +16,7 @@ in
 
   config = mkIf desktop.addons.waybar.enable {
     home-manager.users.${user.name} = {
-      wayland.windowManager.hyprland.settings.exec-once = [ "waybar" ];
+      wayland.windowManager.hyprland.settings.exec-once = mkIf desktop.hyprland.enable [ "waybar" ];
 
       programs.waybar = {
         enable = true;
@@ -31,8 +31,6 @@ in
             margin-bottom = 8;
             margin-right = 0;
             margin-left = 8;
-
-            spacing = 4;
 
             modules-left = [
               "image#nixos"
