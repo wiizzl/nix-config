@@ -62,6 +62,10 @@ in
               leonardssh.vscord
               tamasfe.even-better-toml
               bmewburn.vscode-intelephense-client
+              ms-vscode.remote-explorer
+              ms-vscode-remote.remote-ssh
+              ms-vscode-remote.remote-ssh-edit
+              ms-azuretools.vscode-containers
             ];
           };
         };
