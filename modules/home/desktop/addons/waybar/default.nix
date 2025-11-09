@@ -32,35 +32,48 @@ in
             margin-right = 0;
             margin-left = 8;
 
+            width = 40;
+            spacing = 0;
+
             modules-left = [
               "image#nixos"
+              "clock#hours"
+              "clock#minutes"
               "custom/sep"
-              "hyprland/workspaces"
             ];
+            modules-center = [ "hyprland/workspaces" ];
             modules-right = [
               "tray"
               "custom/sep"
-              "pulseaudio"
-              "custom/sep"
-              # "bluetooth"
-              # "custom/sep"
+              "bluetooth"
               "network"
-              # "custom/sep"
-              # "cpu"
-              # "custom/sep"
-              # "memory"
-              # "custom/sep"
-              # "disk"
-              "custom/sep"
-              "battery"
-              "custom/sep"
-              "clock"
+              "custom/notifications"
             ];
+
+            "custom/notifications" = {
+              format = "{icon}";
+              format-icons = {
+                notification = "󱅫";
+                none = "󰂚";
+                dnd-notification = "󰂛";
+                dnd-none = "󰂛";
+                inhibited-notification = "󱅫";
+                inhibited-none = "󰂚";
+                dnd-inhibited-notification = "󰂛";
+                dnd-inhibited-none = "󰂛";
+              };
+              return-type = "json";
+              exec-if = "which swaync-client";
+              exec = "swaync-client -swb";
+              on-click = "swaync-client -t -sw";
+              on-click-right = "swaync-client -d -sw";
+              tooltip = false;
+            };
 
             network = {
               format = "{ifname}";
               format-wifi = "{icon}";
-              format-ethernet = "󰈀";
+              format-ethernet = "󰈁";
               format-disconnected = "󰤭";
               format-icons = [
                 "󰤟"
@@ -74,17 +87,19 @@ in
               tooltip-format-disconnected = "Disconnected";
             };
 
+            bluetooth = {
+              format = "";
+              on-click = "blueman-manager";
+              format-connected = "󰂰";
+              format-disabled = "󰂲";
+              tooltip-format = "{controller_alias}\t{controller_address}";
+              tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
+              tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+            };
+
             "image#nixos" = {
               path = "${pkgs.nixos-icons}/share/icons/hicolor/24x24/apps/nix-snowflake-white.png";
               size = 24;
-              on-click = "swaync-client -t -sw";
-            };
-
-            pulseaudio = {
-              format = "";
-              tooltip-format = "{volume}%";
-              format-muted = "󰝟";
-              on-click = "pavucontrol";
             };
 
             "hyprland/workspaces" = {
@@ -98,7 +113,13 @@ in
               reverse-direction = true;
             };
 
-            clock = {
+            "clock#hours" = {
+              format = "{:%H}";
+              tooltip-format = "{:%d/%m/%Y}";
+            };
+
+            "clock#minutes" = {
+              format = "{:%M}";
               tooltip-format = "{:%d/%m/%Y}";
             };
 
@@ -137,37 +158,57 @@ in
           ''
             * {
               font-family: "JetBrainsMono NF";
-              font-size: 14px;
+              font-size: 16px;
             }
 
             window#waybar {
               border-radius: 8px;
               color: #cdd6f4;
-              border: 1.5px solid #3b4157;
+              border: 2px solid #45475a;
+              background: #181825;
+              opacity: 0.85;
+            }
+
+            tooltip {
+              background: #181825;
+              border: 1.5px solid #45475a;
+              opacity: 0.85;
+            }
+
+            tooltip label {
+              color: #cdd6f4;
             }
 
             #workspaces button {
               padding: 0;
-              color: #89b4fa;
               background: transparent;
-              border-bottom: 3px solid transparent;
+              transition: all 0.3s ease;
+              font-size: 14px;
+            }
+
+            #workspaces button:hover {
+              color: #cba6f7;
             }
 
             #workspaces button.active {
-              color: #89b4fa;
-              border-bottom: 3px solid #cba6f7;
-            }
-
-            #workspaces button.empty {
-              color: #cdd6f4;
+              color: #cba6f7;
             }
 
             #workspaces button.urgent {
-              background-color: #f38ba8;
+              color: #f38ba8;
+            }
+
+            #custom-notifications {
+              margin-bottom: 15px;
+            }
+
+            #image {
+              margin-top: 15px;
+              margin-bottom: 10px;
             }
 
             #custom-sep {
-              color: #3b4157;
+              color: #45475a;
             }
           '';
       };

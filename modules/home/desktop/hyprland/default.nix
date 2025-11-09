@@ -134,7 +134,7 @@ in
             "$mod, X, togglespecialworkspace"
 
             # Capture
-            "$mod Shift, P, exec, hyprpicker -adln"
+            "$mod Shift, P, exec, hyprpicker -aln"
             "$mod Shift, S, exec, hyprshot --mode region --freeze --output-folder ~/Pictures/Screenshots/"
           ];
 
