@@ -66,6 +66,8 @@ in
               ms-vscode-remote.remote-ssh
               ms-vscode-remote.remote-ssh-edit
               ms-azuretools.vscode-containers
+              formulahendry.auto-close-tag
+              formulahendry.auto-rename-tag
             ];
           };
         };
