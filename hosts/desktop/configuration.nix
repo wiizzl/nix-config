@@ -87,6 +87,7 @@ in
           ly = enabled;
           hyprpicker = enabled;
           swaync = enabled;
+          swayosd = enabled;
           hyprshot = enabled;
           hyprpaper = enabled;
           waybar = enabled;

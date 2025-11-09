@@ -62,7 +62,7 @@ in
             network = {
               format = "{ifname}";
               format-wifi = "{icon}";
-              format-ethernet = "";
+              format-ethernet = "󰈀";
               format-disconnected = "󰤭";
               format-icons = [
                 "󰤟"
@@ -83,9 +83,9 @@ in
             };
 
             pulseaudio = {
-              format = "";
+              format = "";
               tooltip-format = "{volume}%";
-              format-muted = "";
+              format-muted = "󰝟";
               on-click = "pavucontrol";
             };
 
@@ -106,20 +106,20 @@ in
 
             battery = {
               states = {
-                good = 95;
+                good = 80;
                 warning = 30;
-                critical = 15;
+                critical = 10;
               };
               format = "{icon}";
               tooltip-format = "{capacity}% - {time}";
-              format-plugged = "";
+              format-plugged = "󰂄";
               format-time = "{H}:{M}";
               format-icons = [
-                ""
-                ""
-                ""
-                ""
-                ""
+                "󰁻"
+                "󰁽"
+                "󰁿"
+                "󰂀"
+                "󰁹"
               ];
             };
 
@@ -137,10 +137,15 @@ in
           # hex = base: "#${base}";
           # in
           ''
+            * {
+              font-family: "JetBrainsMono NF";
+              font-size: 14px;
+            }
+
             window#waybar {
               border-radius: 8px;
               color: #cdd6f4;
-              border: 1px solid #313244;
+              border: 1.5px solid #3b4157;
             }
 
             #workspaces button {
@@ -164,7 +169,7 @@ in
             }
 
             #custom-sep {
-              color: #585b70;
+              color: #3b4157;
             }
           '';
       };
