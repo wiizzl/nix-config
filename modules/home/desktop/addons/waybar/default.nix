@@ -110,9 +110,9 @@ in
                 warning = 30;
                 critical = 15;
               };
-              format = "Bat: {capacity}% {icon} {time}";
-              format-plugged = "{capacity}% ";
-              format-alt = "Bat {capacity}%";
+              format = "{icon}";
+              tooltip-format = "{capacity}% - {time}";
+              format-plugged = "";
               format-time = "{H}:{M}";
               format-icons = [
                 ""
