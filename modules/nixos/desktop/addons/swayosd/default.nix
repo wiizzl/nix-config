@@ -10,7 +10,7 @@ let
   inherit (config.my) desktop;
 in
 {
-  options.my.desktop.swayosd.syshud = {
+  options.my.desktop.addons.swayosd = {
     enable = mkEnableOption "Sway OSD";
   };
 
