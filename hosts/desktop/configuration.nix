@@ -30,7 +30,6 @@ in
 
       apps = {
         dbeaver = enabled;
-        gimp = enabled;
         obs = enabled;
         spotify = enabled;
         media = {

@@ -7,7 +7,7 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  inherit (config.my) apps desktop;
+  inherit (config.my) apps;
 in
 {
   options.my.apps.editor.vscode = {

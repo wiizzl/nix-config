@@ -7,7 +7,7 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  inherit (config.my) services system;
+  inherit (config.my) services;
 
   authKey = config.age.secrets.tailscale.path;
 in

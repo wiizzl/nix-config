@@ -7,7 +7,7 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  inherit (config.my) desktop user;
+  inherit (config.my) desktop;
 in
 {
   options.my.desktop.addons.rofi = {
