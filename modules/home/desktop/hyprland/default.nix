@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkIf mkForce;
+  inherit (lib) mkIf mkForce optionals;
   inherit (config.my) desktop system user;
 in
 {
@@ -152,15 +152,24 @@ in
             "$mod Ctrl, K, resizeactive, 0 30"
           ];
 
-          bindel = [
-            # Laptop multimedia keys for volume and LCD brightness
-            ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-            ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-            ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-            ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-            ", XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
-            ", XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
-          ];
+          # Multimedia keys for volume and LCD brightness (fallback)
+          bindel =
+            optionals desktop.addons.swayosd.enable [
+              ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
+              ", XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
+              ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
+              ", XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
+              ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
+              ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
+            ]
+            ++ optionals (!desktop.addons.swayosd.enable) [
+              ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+              ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+              ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+              ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+              ", XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
+              ", XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
+            ];
 
           bindl = [
             # Requires playerctl
