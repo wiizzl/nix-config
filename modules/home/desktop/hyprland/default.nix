@@ -68,7 +68,6 @@ in
             # Kill window
             "$mod, Q, killactive"
             "Alt, F4, killactive"
-            "$mod Alt, K, exec hyprctl kill"
 
             # Groups
             "$mod, G, togglegroup"
