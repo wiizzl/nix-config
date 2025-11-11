@@ -35,6 +35,7 @@ in
         media = {
           qimgv = enabled;
           vlc = enabled;
+          localsend = enabled;
         };
         suite.onlyoffice = enabled;
         file-manager.thunar = enabled;
@@ -168,8 +169,8 @@ in
         timezone = "Europe/Paris";
         utils = {
           enable = true;
-          dev = true;
-          fun = true;
+          dev = enabled;
+          fun = enabled;
         };
         audio.pipewire = enabled;
         boot = {

@@ -46,8 +46,8 @@ in
         timezone = "Europe/Paris";
         utils = {
           enable = true;
-          dev = true;
-          fun = true;
+          dev = enabled;
+          fun = enabled;
         };
         docs = {
           enable = true;

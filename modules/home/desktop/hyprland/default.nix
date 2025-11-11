@@ -54,7 +54,7 @@ in
             "$mod, B, exec, zen-beta"
 
             # Rofi
-            "$mod, D, exec, rofi -show drun"
+            "$mod, Space, exec, rofi -show drun"
             "$mod Shift, E, exec, rofi -modi 'emoji:rofimoji --action copy --skin-tone neutral --max-recent 0' -show emoji"
             "$mod, C, exec, cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
             "$mod Shift, C, exec, rofi -modi calc -show calc -no-show-match -no-bold -no-sort -automatic-save-to-history"
@@ -68,6 +68,7 @@ in
             # Kill window
             "$mod, Q, killactive"
             "Alt, F4, killactive"
+            "$mod Alt, K, exec, hyprctl kill"
 
             # Groups
             "$mod, G, togglegroup"
