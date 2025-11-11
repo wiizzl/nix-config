@@ -36,6 +36,7 @@ in
           qimgv = enabled;
           vlc = enabled;
           localsend = enabled;
+          pinta = enabled;
         };
         suite.onlyoffice = enabled;
         file-manager.thunar = enabled;
