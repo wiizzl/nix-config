@@ -10,11 +10,11 @@ let
   inherit (config.my) apps;
 in
 {
-  options.my.apps.gimp = {
+  options.my.apps.media.gimp = {
     enable = mkEnableOption "GNU Image Manipulation Program (GIMP)";
   };
 
-  config = mkIf apps.gimp.enable {
+  config = mkIf apps.media.gimp.enable {
     environment.systemPackages = with pkgs; [
       gimp
     ];
