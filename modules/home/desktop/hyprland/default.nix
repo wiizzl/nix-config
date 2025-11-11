@@ -65,9 +65,10 @@ in
             "$mod, P, pseudo"
             "$mod, W, togglesplit"
 
-            # Kill focused window
+            # Kill window
             "$mod, Q, killactive"
             "Alt, F4, killactive"
+            "$mod Alt, K, exec hyprctl kill"
 
             # Groups
             "$mod, G, togglegroup"

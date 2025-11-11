@@ -37,7 +37,7 @@ in
           vlc = enabled;
         };
         suite.onlyoffice = enabled;
-        file-manager.nautilus = enabled;
+        file-manager.thunar = enabled;
         terminal.foot = enabled;
         editor = {
           zed = enabled;
