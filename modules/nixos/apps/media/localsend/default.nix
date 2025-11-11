@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 
 let
   inherit (lib) mkEnableOption mkIf;
@@ -15,8 +10,9 @@ in
   };
 
   config = mkIf apps.media.localsend.enable {
-    environment.systemPackages = with pkgs; [
-      localsend
-    ];
+    programs.localsend = {
+      enable = true;
+      openFirewall = true;
+    };
   };
 }
