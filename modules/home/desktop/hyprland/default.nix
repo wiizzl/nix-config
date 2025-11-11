@@ -50,7 +50,7 @@ in
           bind = [
             # Run applications
             "$mod, Return, exec, foot"
-            "$mod, E, exec, thunar"
+            "$mod, E, exec, nautilus"
             "$mod, B, exec, zen-beta"
 
             # Rofi
