@@ -1,13 +1,13 @@
-{ inputs, ... }:
+{ pkgs, inputs, ... }:
 
 let
-  vscodeExtensions = final: prev: {
+  vscodeExtensions = {
     nix-vscode-extensions = import inputs.nix-vscode-extensions.overlays.default {
-      system = "${prev.system}";
+      system = pkgs.stdenv.hostPlatform.system;
       config.allowUnfree = true;
     };
   };
 in
 {
-  nixpkgs.overlays = [ vscodeExtensions ];
+  nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
 }
