@@ -6,13 +6,18 @@
 }:
 
 let
-  inherit (lib) mkIf;
+  inherit (lib) mkEnableOption mkIf;
+
   inherit (config.my) user;
 in
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
-  config = mkIf user.home-manager.enable {
+  options.my.user.home-manager = {
+    userDirs.enable = mkEnableOption "manage home directories via home-manager";
+  };
+
+  config = {
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
@@ -29,7 +34,7 @@ in
           stateVersion = "25.05";
         };
 
-        xdg.userDirs = {
+        xdg.userDirs = mkIf user.home-manager.usersDir.enable {
           enable = true;
           createDirectories = true;
         };

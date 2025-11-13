@@ -20,7 +20,7 @@ in
         enable = true;
         name = "pier";
         homeDir = "/home/pier";
-        home-manager = enabled;
+        home-manager.userDirs = enabled;
 
         shell = {
           package = pkgs.fish;
@@ -56,7 +56,6 @@ in
           zen = enabled;
         };
         jetbrains = {
-          rider = enabled;
           android-studio = enabled;
         };
       };

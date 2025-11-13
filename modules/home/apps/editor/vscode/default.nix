@@ -68,6 +68,8 @@ in
               ms-azuretools.vscode-containers
               formulahendry.auto-close-tag
               formulahendry.auto-rename-tag
+              ms-dotnettools.csdevkit
+              ms-dotnettools.dotnet-maui
             ];
           };
         };

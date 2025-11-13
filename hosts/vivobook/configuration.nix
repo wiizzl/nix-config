@@ -18,7 +18,6 @@ in
         enable = true;
         name = "pier";
         homeDir = "/home/pier";
-        home-manager = enabled;
         wsl = enabled;
 
         shell = {
@@ -42,6 +41,10 @@ in
       };
 
       system = {
+        allow = {
+          unfree = enabled;
+          broken = enabled;
+        };
         shell.fish = enabled;
         timezone = "Europe/Paris";
         utils = {
@@ -64,10 +67,6 @@ in
           flakes.extra-options = ''
             warn-dirty = false
           '';
-        };
-        networking = {
-          firewall = enabled;
-          hostname = "vivobook";
         };
         virtualisation = {
           docker = enabled;
