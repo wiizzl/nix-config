@@ -12,18 +12,12 @@ in
 {
   options.my.system.virtualisation.docker = {
     enable = mkEnableOption "Docker";
-    rootless.enable = mkEnableOption "Rootless Docker";
     lazydocker.enable = mkEnableOption "lazydocker TUI";
   };
 
   config = mkIf system.virtualisation.docker.enable {
     virtualisation.docker = {
-      enable = !system.virtualisation.docker.rootless.enable;
-
-      rootless = mkIf system.virtualisation.docker.rootless.enable {
-        enable = true;
-        setSocketVariable = true;
-      };
+      enable = true;
     };
 
     environment.systemPackages = mkIf system.virtualisation.docker.lazydocker.enable [

@@ -215,7 +215,6 @@ in
         virtualisation = {
           docker = {
             enable = true;
-            rootless = enabled;
             lazydocker = enabled;
           };
           libvirtd = {
