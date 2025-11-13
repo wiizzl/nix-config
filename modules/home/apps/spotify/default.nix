@@ -31,18 +31,14 @@ in
             hidePodcasts
             adblock
             shuffle
-            keyboardShortcut
           ];
 
           enabledCustomApps = with spicePkgs.apps; [
-            ncsVisualizer
-            newReleases
             historyInSidebar
           ];
 
           enabledSnippets = with spicePkgs.snippets; [
             rotatingCoverart
-            pointer
           ];
         };
     };

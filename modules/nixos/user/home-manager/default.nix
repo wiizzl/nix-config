@@ -34,7 +34,7 @@ in
           stateVersion = "25.05";
         };
 
-        xdg.userDirs = mkIf user.home-manager.usersDir.enable {
+        xdg.userDirs = mkIf user.home-manager.userDirs.enable {
           enable = true;
           createDirectories = true;
         };
