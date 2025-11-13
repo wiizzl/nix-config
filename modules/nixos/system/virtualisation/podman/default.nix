@@ -12,23 +12,21 @@ in
 {
   options.my.system.virtualisation.podman = {
     enable = mkEnableOption "Podman";
-    docker-compat = mkEnableOption "Docker compatibility mode";
-    podman-desktop = mkEnableOption "Podman Desktop GUI";
+    docker-compat.enable = mkEnableOption "Docker compatibility mode";
+    podman-desktop.enable = mkEnableOption "Podman Desktop GUI";
   };
 
   config = mkIf system.virtualisation.podman.enable {
     virtualisation.podman = {
       enable = true;
-      dockerCompat = system.virtualisation.podman.docker-compat;
+      dockerCompat = system.virtualisation.podman.docker-compat.enable;
       defaultNetwork.settings.dns_enabled = true;
     };
 
     users.users.${user.name}.extraGroups = [ "podman" ];
 
-    environment.systemPackages =
-      with pkgs;
-      mkIf system.virtualisation.podman.podman-desktop [
-        podman-desktop
-      ];
+    environment.systemPackages = mkIf system.virtualisation.podman.podman-desktop.enable [
+      pkgs.podman-desktop
+    ];
   };
 }

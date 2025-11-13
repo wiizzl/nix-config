@@ -66,13 +66,13 @@ in
         cava = enabled;
         direnv = enabled;
         microfetch = enabled;
-        just = enabled;
         btop = enabled;
         yazi = enabled;
         git = {
           enable = true;
           name = "wiizzl";
           email = "git@houlliere.com";
+          lazygit = enabled;
         };
         nh = {
           enable = true;
@@ -213,10 +213,10 @@ in
         };
         video.amd = enabled;
         virtualisation = {
-          podman = {
+          docker = {
             enable = true;
-            docker-compat = true;
-            podman-desktop = true;
+            rootless = enabled;
+            lazydocker = enabled;
           };
           libvirtd = {
             enable = true;

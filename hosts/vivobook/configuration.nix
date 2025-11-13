@@ -39,6 +39,7 @@ in
           enable = true;
           name = "wiizzl";
           email = "git@houlliere.com";
+          lazygit = enabled;
         };
       };
 
@@ -71,7 +72,11 @@ in
           '';
         };
         virtualisation = {
-          docker = enabled;
+          docker = {
+            enable = true;
+            rootless = enabled;
+            lazydocker = enabled;
+          };
         };
       };
     };
