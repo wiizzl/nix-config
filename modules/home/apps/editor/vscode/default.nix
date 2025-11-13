@@ -63,6 +63,7 @@ in
               formulahendry.auto-rename-tag
               ms-dotnettools.csdevkit
               ms-dotnettools.dotnet-maui
+              ms-dotnettools.csharp
             ];
           };
         };
