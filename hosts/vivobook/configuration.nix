@@ -5,6 +5,8 @@ let
 in
 {
   imports = [
+    ../../overlays/unstable
+
     ../../modules/nixos/import.nix
     ../../modules/shared/import.nix
     ../../modules/home/import.nix

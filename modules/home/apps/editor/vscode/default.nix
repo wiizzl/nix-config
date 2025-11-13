@@ -2,19 +2,12 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 
 let
   inherit (lib) mkIf optionalAttrs;
   inherit (config.my) apps desktop user;
-
-  pkgsWithOverlay = import pkgs.path {
-    system = pkgs.stdenv.hostPlatform.system;
-    overlays = [ inputs.nix-vscode-extensions.overlays.default ];
-    config = pkgs.config;
-  };
 in
 {
   config = mkIf apps.editor.vscode.enable {
@@ -29,7 +22,7 @@ in
           enable = true;
 
           profiles.default = {
-            extensions = with pkgsWithOverlay.vscode-marketplace-release; [
+            extensions = with pkgs.nix-vscode-extensions.vscode-marketplace-release; [
               gruntfuggly.todo-tree
               astro-build.astro-vscode
               jnoortheen.nix-ide

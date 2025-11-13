@@ -7,6 +7,9 @@ in
   imports = [
     ./hardware-configuration.nix
 
+    ../../overlays/unstable-pkgs
+    ../../overlays/nix-vscode-extensions
+
     ../../modules/nixos/import.nix
     ../../modules/shared/import.nix
     ../../modules/home/import.nix
@@ -175,7 +178,7 @@ in
         audio.pipewire = enabled;
         boot = {
           enable = true;
-          systemd.enable = true;
+          systemd = enabled;
           kernel = pkgs.linuxPackages_latest; # _zen, _hardened, _rt, _rt_latest, etc.
         };
         docs = {
