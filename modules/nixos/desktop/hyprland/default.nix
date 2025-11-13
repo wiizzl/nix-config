@@ -7,7 +7,7 @@
 }:
 
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf optionals;
   inherit (config.my) desktop system;
 in
 {
@@ -40,10 +40,8 @@ in
           gnome-icon-theme
           adwaita-icon-theme
         ]
-        ++ (
-          if system.audio.pipewire.enable || system.audio.pavucontrol.enable then [ pavucontrol ] else [ ]
-        )
-        ++ (if system.networking.networkmanager.enable then [ networkmanagerapplet ] else [ ]);
+        ++ optionals (system.audio.pipewire.enable || system.audio.pavucontrol.enable) [ pavucontrol ]
+        ++ optionals (system.networking.networkmanager.enable) [ networkmanagerapplet ];
     };
   };
 }
