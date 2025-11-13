@@ -7,11 +7,11 @@ in
 {
   options.my.system.services.keyring = {
     enable = mkEnableOption "Enable Keyring";
-    seahorse = mkEnableOption "Seahorse GUI";
+    seahorse.enable = mkEnableOption "Seahorse GUI";
   };
 
   config = mkIf system.services.keyring.enable {
     services.gnome.gnome-keyring.enable = true;
-    programs.seahorse.enable = system.services.keyring.seahorse;
+    programs.seahorse.enable = system.services.keyring.seahorse.enable;
   };
 }

@@ -7,7 +7,7 @@ in
 {
   options.my.system.services.bluetooth = {
     enable = mkEnableOption "Bluetooth";
-    blueman = mkEnableOption "blueman-applet and blueman-manager";
+    blueman.enable = mkEnableOption "blueman-applet and blueman-manager";
   };
 
   config = mkIf system.services.bluetooth.enable {
@@ -21,6 +21,6 @@ in
       };
     };
 
-    services.blueman.enable = system.services.bluetooth.blueman;
+    services.blueman.enable = system.services.bluetooth.blueman.enable;
   };
 }

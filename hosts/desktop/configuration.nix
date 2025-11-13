@@ -181,7 +181,7 @@ in
         };
         docs = {
           enable = true;
-          man = true;
+          man = enabled;
         };
         locale = {
           keymap = "fr";
@@ -203,11 +203,11 @@ in
         services = {
           bluetooth = {
             enable = true;
-            blueman = true;
+            blueman = enabled;
           };
           keyring = {
             enable = true;
-            seahorse = true;
+            seahorse = enabled;
           };
           openssh = enabled;
         };
@@ -219,7 +219,7 @@ in
           };
           libvirtd = {
             enable = true;
-            virt-manager = true;
+            virt-manager = enabled;
           };
         };
       };

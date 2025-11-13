@@ -7,7 +7,7 @@ in
 {
   options.my.system.virtualisation.libvirtd = {
     enable = mkEnableOption "libvirtd";
-    virt-manager = mkEnableOption "virt-manager GUI";
+    virt-manager.enable = mkEnableOption "virt-manager GUI";
   };
 
   config = mkIf system.virtualisation.libvirtd.enable {
@@ -16,6 +16,6 @@ in
     };
 
     users.users.${user.name}.extraGroups = [ "libvirtd" ];
-    programs.virt-manager.enable = system.virtualisation.libvirtd.virt-manager;
+    programs.virt-manager.enable = system.virtualisation.libvirtd.virt-manager.enable;
   };
 }
