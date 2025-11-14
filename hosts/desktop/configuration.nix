@@ -55,6 +55,7 @@ in
       };
 
       cli = {
+        impala = enabled;
         tmux = enabled;
         helix = enabled;
         cava = enabled;
