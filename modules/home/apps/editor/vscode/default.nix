@@ -66,6 +66,7 @@ in
               formulahendry.auto-close-tag
               formulahendry.auto-rename-tag
               ms-dotnettools.csdevkit
+              ms-dotnettools.vscode-dotnet-runtime
               ms-dotnettools.dotnet-maui
               ms-dotnettools.csharp
             ];
