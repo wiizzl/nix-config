@@ -5,11 +5,11 @@ let
   inherit (config.my) apps desktop user;
 in
 {
-  config = mkIf apps.editor.zed.enable {
-    options.my.apps.editor.zed = {
-      enable = mkEnableOption "Zed editor";
-    };
+  options.my.apps.editor.zed = {
+    enable = mkEnableOption "Zed editor";
+  };
 
+  config = mkIf apps.editor.zed.enable {
     home-manager.users.${user.name} =
       { config, ... }:
       {
