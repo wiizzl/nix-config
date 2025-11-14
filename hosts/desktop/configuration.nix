@@ -55,6 +55,7 @@ in
       };
 
       cli = {
+        tmux = enabled;
         helix = enabled;
         cava = enabled;
         direnv = enabled;
