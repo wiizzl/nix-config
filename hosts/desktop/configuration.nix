@@ -20,7 +20,6 @@ in
       user = {
         name = "pier";
         home-manager.userDirs = enabled;
-
         shell = {
           package = pkgs.fish;
           starship = enabled;
@@ -52,7 +51,6 @@ in
         };
         browser = {
           zen = enabled;
-          chromium = enabled;
         };
       };
 

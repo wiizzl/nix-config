@@ -4,7 +4,7 @@ let
   inherit (lib) mkIf;
   inherit (config.my) user;
 
-  starship-config = import ../../../nixos/user/shell/starship {
+  starship-config = import ../../../../nixos/user/shell/starship {
     inherit config lib;
   };
 in

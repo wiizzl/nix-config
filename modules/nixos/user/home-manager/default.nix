@@ -7,7 +7,6 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-
   inherit (config.my) user;
 in
 {

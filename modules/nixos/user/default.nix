@@ -1,12 +1,7 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 
 let
-  inherit (lib) mkIf types;
+  inherit (lib) types;
   inherit (lib.extraMkOptions) mkOpt;
 
   inherit (config.my) user;
@@ -17,7 +12,7 @@ in
     homeDir = mkOpt types.str "/home/${user.name}" "Home directory path";
   };
 
-  config = mkIf user.enable {
+  config = {
     nix.settings.trusted-users = [ "${user.name}" ];
 
     users.users.${user.name} = {
