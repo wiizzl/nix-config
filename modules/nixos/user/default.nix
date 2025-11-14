@@ -6,30 +6,15 @@
 }:
 
 let
-  inherit (lib)
-    mkEnableOption
-    mkOption
-    mkIf
-    types
-    ;
+  inherit (lib) mkIf types;
   inherit (lib.extraMkOptions) mkOpt;
 
   inherit (config.my) user;
 in
 {
   options.my.user = {
-    enable = mkEnableOption "user configuration";
     name = mkOpt types.str "nixos" "User account name";
     homeDir = mkOpt types.str "/home/${user.name}" "Home directory path";
-    shell = mkOption {
-      description = "Shell configuration";
-      type = types.submodule {
-        options = {
-          package = mkOpt types.package pkgs.bash "Shell package";
-          starship.enable = mkEnableOption "starship prompt";
-        };
-      };
-    };
   };
 
   config = mkIf user.enable {
@@ -41,7 +26,6 @@ in
       hashedPasswordFile = config.age.secrets.password.path;
       description = "${user.name} account";
       extraGroups = [ "wheel" ];
-      shell = user.shell.package;
     };
   };
 }

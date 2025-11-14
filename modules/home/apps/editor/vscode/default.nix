@@ -6,10 +6,14 @@
 }:
 
 let
-  inherit (lib) mkIf optionalAttrs;
+  inherit (lib) mkEnableOption mkIf optionalAttrs;
   inherit (config.my) apps desktop user;
 in
 {
+  options.my.apps.editor.vscode = {
+    enable = mkEnableOption "Visual Studio Code editor";
+  };
+
   config = mkIf apps.editor.vscode.enable {
     home-manager.users.${user.name} =
       { config, ... }:

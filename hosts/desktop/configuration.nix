@@ -18,9 +18,7 @@ in
 
     my = {
       user = {
-        enable = true;
         name = "pier";
-        homeDir = "/home/pier";
         home-manager.userDirs = enabled;
 
         shell = {
@@ -40,7 +38,6 @@ in
           pinta = enabled;
         };
         suite.onlyoffice = enabled;
-        file-manager.thunar = enabled;
         terminal.foot = enabled;
         editor = {
           zed = enabled;
@@ -55,9 +52,7 @@ in
         };
         browser = {
           zen = enabled;
-        };
-        jetbrains = {
-          android-studio = enabled;
+          chromium = enabled;
         };
       };
 

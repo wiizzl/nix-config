@@ -17,9 +17,7 @@ in
 
     my = {
       user = {
-        enable = true;
         name = "pier";
-        homeDir = "/home/pier";
         wsl = enabled;
 
         shell = {

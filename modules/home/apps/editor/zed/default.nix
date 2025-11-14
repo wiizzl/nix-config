@@ -1,11 +1,15 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkIf optionalAttrs;
+  inherit (lib) mkEnableOption mkIf optionalAttrs;
   inherit (config.my) apps desktop user;
 in
 {
   config = mkIf apps.editor.zed.enable {
+    options.my.apps.editor.zed = {
+      enable = mkEnableOption "Zed editor";
+    };
+
     home-manager.users.${user.name} =
       { config, ... }:
       {
