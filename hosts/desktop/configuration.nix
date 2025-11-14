@@ -6,7 +6,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ../../overlays/import.nix
+    ../../overlays/nix-vscode-extensions
 
     ../../modules/nixos/import.nix
     ../../modules/shared/import.nix
