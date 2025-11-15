@@ -27,6 +27,7 @@
     agenix.url = "github:ryantm/agenix";
     hyprland.url = "github:hyprwm/Hyprland";
     nixcord.url = "github:KaylorBen/nixcord";
+    vicinae.url = "github:vicinaehq/vicinae";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
@@ -72,7 +73,7 @@
         host: system:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs lib; };
+          specialArgs = { inherit inputs lib host; };
           modules = [
             (secrets host)
             inputs.agenix.nixosModules.default
