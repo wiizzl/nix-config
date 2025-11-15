@@ -30,7 +30,7 @@
     vicinae.url = "github:vicinaehq/vicinae";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    inputs.awww.url = "git+https://codeberg.org/LGFae/awww";
+    awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 
   outputs =
