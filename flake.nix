@@ -43,14 +43,14 @@
         }
       );
 
-      secrets = {
+      secrets = host: {
         age.secrets = lib.listToAttrs (
           map (name: {
             name = lib.removeSuffix ".age" name;
             value = {
-              file = ./secrets/${name};
+              file = ./hosts/${host}/secrets/${name};
             };
-          }) (lib.attrNames (import ./secrets/secrets.nix))
+          }) (lib.attrNames (import ./hosts/${host}/secrets/secrets.nix))
         );
       };
 
@@ -67,30 +67,24 @@
             pkgs = import nixpkgs { inherit system; };
           }
         );
+
+      makeNixosConfig = host: system: {
+        "${host}" = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs lib; };
+          modules = [
+            (secrets host)
+            inputs.agenix.nixosModules.default
+            ./hosts/${host}/configuration.nix
+          ];
+        };
+      };
     in
     {
       darwinConfigurations = { };
       nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs lib; };
-          modules = [
-            secrets
-            inputs.agenix.nixosModules.default
-
-            ./hosts/desktop/configuration.nix
-          ];
-        };
-        vivobook = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs lib; };
-          modules = [
-            secrets
-            inputs.agenix.nixosModules.default
-
-            ./hosts/vivobook/configuration.nix
-          ];
-        };
+        desktop = (makeNixosConfig "desktop" "x86_64-linux").desktop;
+        vivobook = (makeNixosConfig "vivobook" "x86_64-linux").vivobook;
       };
       devShells = forAllSystems ({ pkgs, ... }: import ./shells/import.nix { inherit pkgs lib; });
     };
