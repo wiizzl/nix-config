@@ -155,7 +155,7 @@ in
           # in
           ''
             * {
-              font-family: "JetBrainsMono NF";
+              font-family: "JetBrainsMono Nerd Font Propo";
               font-size: 16px;
             }
 
