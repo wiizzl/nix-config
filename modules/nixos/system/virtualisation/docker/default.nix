@@ -23,7 +23,7 @@ in
 
     environment.systemPackages =
       with pkgs;
-      mkIf system.virtualisation.docker.lazydocker.enable [
+      optionals system.virtualisation.docker.lazydocker.enable [
         lazydocker
       ]
       ++ optionals system.virtualisation.docker.distrobox.enable [

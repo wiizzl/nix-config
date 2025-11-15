@@ -6,7 +6,7 @@
 }:
 
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf optionals;
   inherit (config.my) system user;
 in
 {
@@ -28,10 +28,10 @@ in
 
     environment.systemPackages =
       with pkgs;
-      mkIf system.virtualisation.podman.podman-desktop.enable [
+      optionals system.virtualisation.podman.podman-desktop.enable [
         podman-desktop
       ]
-      ++ optionals system.virtualisation.docker.distrobox.enable [
+      ++ optionals system.virtualisation.podman.distrobox.enable [
         distrobox
       ];
   };
