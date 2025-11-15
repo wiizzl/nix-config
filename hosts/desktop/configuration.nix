@@ -94,7 +94,7 @@ in
           swaync = enabled;
           swayosd = enabled;
           hyprshot = enabled;
-          hyprpaper = enabled;
+          awww = enabled;
           waybar = enabled;
           stylix = {
             enable = true;

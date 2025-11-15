@@ -66,6 +66,7 @@ in
 
           exec-once = [
             "systemctl --user start hyprpolkitagent"
+            "awww-daemon"
           ];
 
           bind = [
