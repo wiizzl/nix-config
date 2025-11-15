@@ -13,20 +13,15 @@ in
     nix.settings = {
       substituters = [
         "https://cache.nixos.org?priority=10"
-      ];
-      extra-substituters = [
         "https://hyprland.cachix.org"
-        "https://nix-community.cachix.org"
         "https://vicinae.cachix.org"
       ];
-      extra-trusted-substituters = [
+      trusted-substituters = [
         "https://hyprland.cachix.org"
-        "https://nix-community.cachix.org"
         "https://vicinae.cachix.org"
       ];
-      extra-trusted-public-keys = [
+      trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
       ];
     };

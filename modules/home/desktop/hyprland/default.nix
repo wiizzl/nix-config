@@ -66,7 +66,6 @@ in
 
           exec-once = [
             "systemctl --user start hyprpolkitagent"
-            "awww-daemon"
           ];
 
           bind = [
@@ -75,7 +74,11 @@ in
             "$mod, E, exec, $fileManager"
             "$mod, B, exec, $browser"
             "$mod, M, exec, $music"
+
+            # Vicinae
             "$mod, Space, exec, vicinae toggle"
+            "$mod Ctrl, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
+            "$mod Ctrl, W, exec, vicinae vicinae://extensions/sovereign/awww-switcher/wpgrid"
 
             # Window management
             "$mod, Z, togglefloating"
