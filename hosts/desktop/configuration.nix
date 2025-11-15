@@ -226,6 +226,7 @@ in
           docker = {
             enable = true;
             lazydocker = enabled;
+            distrobox = enabled;
           };
           libvirtd = {
             enable = true;

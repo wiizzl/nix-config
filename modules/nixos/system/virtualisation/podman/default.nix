@@ -14,6 +14,7 @@ in
     enable = mkEnableOption "Podman";
     docker-compat.enable = mkEnableOption "Docker compatibility mode";
     podman-desktop.enable = mkEnableOption "Podman Desktop GUI";
+    distrobox.enable = mkEnableOption "Distrobox";
   };
 
   config = mkIf system.virtualisation.podman.enable {
@@ -25,8 +26,13 @@ in
 
     users.users.${user.name}.extraGroups = [ "podman" ];
 
-    environment.systemPackages = mkIf system.virtualisation.podman.podman-desktop.enable [
-      pkgs.podman-desktop
-    ];
+    environment.systemPackages =
+      with pkgs;
+      mkIf system.virtualisation.podman.podman-desktop.enable [
+        podman-desktop
+      ]
+      ++ optionals system.virtualisation.docker.distrobox.enable [
+        distrobox
+      ];
   };
 }
