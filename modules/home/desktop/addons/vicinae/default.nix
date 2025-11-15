@@ -1,8 +1,6 @@
 {
   config,
   lib,
-  inputs,
-  pkgs,
   ...
 }:
 
@@ -17,13 +15,14 @@ in
 
   config = mkIf desktop.addons.vicinae.enable {
     home-manager.users.${user.name} = {
-      imports = [ inputs.vicinae.homeManagerModules.default ];
-
-      services.vicinae = {
+      programs.vicinae = {
         enable = true;
-        package = inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
-        autoStart = true;
+        systemd = {
+          enable = true;
+          autoStart = true;
+        };
+
         useLayerShell = true;
 
         settings = {
@@ -44,6 +43,14 @@ in
           popToRootOnClose = true;
           rootSearch.searchFiles = false;
         };
+
+        # extensions = [
+        #   (config.lib.vicinae.mkRayCastExtension {
+        #     name = "gif-search";
+        #     sha256 = "sha256-G7il8T1L+P/2mXWJsb68n4BCbVKcrrtK8GnBNxzt73Q=";
+        #     rev = "4d417c2dfd86a5b2bea202d4a7b48d8eb3dbaeb1";
+        #   })
+        # ];
       };
     };
   };

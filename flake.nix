@@ -27,7 +27,6 @@
     agenix.url = "github:ryantm/agenix";
     hyprland.url = "github:hyprwm/Hyprland";
     nixcord.url = "github:KaylorBen/nixcord";
-    vicinae.url = "github:vicinaehq/vicinae";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     awww.url = "git+https://codeberg.org/LGFae/awww";
