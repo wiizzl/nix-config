@@ -68,8 +68,9 @@
           }
         );
 
-      makeNixosConfig = host: system: {
-        "${host}" = nixpkgs.lib.nixosSystem {
+      mkNixosConfig =
+        host: system:
+        nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs lib; };
           modules = [
@@ -78,13 +79,12 @@
             ./hosts/${host}/configuration.nix
           ];
         };
-      };
     in
     {
       darwinConfigurations = { };
       nixosConfigurations = {
-        desktop = (makeNixosConfig "desktop" "x86_64-linux").desktop;
-        vivobook = (makeNixosConfig "vivobook" "x86_64-linux").vivobook;
+        desktop = (mkNixosConfig "desktop" "x86_64-linux");
+        vivobook = (mkNixosConfig "vivobook" "x86_64-linux");
       };
       devShells = forAllSystems ({ pkgs, ... }: import ./shells/import.nix { inherit pkgs lib; });
     };

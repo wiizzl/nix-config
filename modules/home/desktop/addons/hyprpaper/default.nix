@@ -11,16 +11,24 @@ in
 
   config = mkIf cli.cava.enable {
     home-manager.users.${user.name} = {
+      home.file = {
+        "Pictures/Wallpapers" = {
+          source = ../../../../../wallpapers;
+          recursive = true;
+        };
+      };
+
       services.hyprpaper = {
         enable = true;
 
-        settings = {
-          ipc = "off";
-          splash = false;
-
-          preload = [ "~/nix-config/wallpapers/a_cartoon_of_a_woman_in_a_pool.jpg" ];
-          wallpaper = [ ", ~/nix-config/wallpapers/a_cartoon_of_a_woman_in_a_pool.jpg" ];
-        };
+        settings =
+          let
+            wallpaperName = "a_cartoon_of_a_woman_in_a_pool.jpg";
+          in
+          {
+            preload = [ "~/Pictures/Wallpapers/${wallpaperName}" ];
+            wallpaper = [ ",~/Pictures/Wallpapers/${wallpaperName}" ];
+          };
       };
 
       # wayland.windowManager.hyprland.settings.exec-once = [ "${pkgs.hyprpaper}/bin/hyprpaper" ]; # TODO: use a systemd service

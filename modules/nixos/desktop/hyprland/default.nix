@@ -35,6 +35,7 @@ in
       systemPackages =
         with pkgs;
         [
+          hyprpolkitagent
           playerctl
           wl-clipboard
           gnome-icon-theme

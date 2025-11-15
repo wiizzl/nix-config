@@ -73,7 +73,19 @@ in
       };
 
       desktop = {
-        hyprland = enabled;
+        hyprland = {
+          enable = true;
+          monitors = [
+            "DP-2, 1920x1080@164.92, 0x0, 1"
+            "HDMI-A-2, 1920x1200@59.95, auto-center-left, 1, transform, 1"
+          ];
+          defaultApps = {
+            terminal = "foot";
+            fileManager = "$terminal -e yazi";
+            browser = "zen-beta";
+            music = "spotify";
+          };
+        };
 
         addons = {
           rofi = enabled;

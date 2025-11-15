@@ -18,7 +18,6 @@ in
       ];
       trusted-substituters = [
         "https://hyprland.cachix.org"
-        "https://hyprland.cachix.org"
         "https://nix-community.cachix.org"
       ];
       trusted-public-keys = [

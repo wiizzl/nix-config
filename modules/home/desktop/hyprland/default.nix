@@ -1,10 +1,30 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkIf;
+  inherit (lib) mkIf types mkOption;
+  inherit (lib.extraMkOptions) mkOpt;
+
   inherit (config.my) desktop system user;
 in
 {
+  options.my.desktop.hyprland = {
+    defaultApps = mkOption {
+      type = types.submodule {
+        options = {
+          terminal = mkOpt types.str "" "Default terminal emulator";
+          fileManager = mkOpt types.str "" "Default file manager";
+          browser = mkOpt types.str "" "Default web browser";
+          music = mkOpt types.str "" "Default music application";
+        };
+      };
+    };
+    monitors = mkOption {
+      type = types.listOf types.str;
+      default = [ ];
+      description = "monitors configuration";
+    };
+  };
+
   config = mkIf desktop.hyprland.enable {
     home-manager.users.${user.name} = {
       wayland.windowManager.hyprland = {
@@ -18,13 +38,15 @@ in
         systemd.variables = [ "--all" ];
 
         settings = {
+          "$terminal" = desktop.hyprland.defaultApps.terminal;
+          "$fileManager" = desktop.hyprland.defaultApps.fileManager;
+          "$browser" = desktop.hyprland.defaultApps.browser;
+          "$music" = desktop.hyprland.defaultApps.music;
+
           "$mod" = "SUPER";
           "misc:middle_click_paste" = false;
 
-          monitor = [
-            "DP-2, 1920x1080@164.92, 0x0, 1"
-            "HDMI-A-2, 1920x1200@59.95, auto-center-left, 1, transform, 1"
-          ];
+          monitor = desktop.hyprland.monitors;
 
           animations = {
             enabled = true;
@@ -43,15 +65,17 @@ in
           };
 
           exec-once = [
+            "systemctl --user start hyprpolkitagent"
             "wl-paste --type text --watch cliphist store"
             "wl-paste --type image --watch cliphist store"
           ];
 
           bind = [
             # Run applications
-            "$mod, Return, exec, foot"
-            "$mod, E, exec, nautilus"
-            "$mod, B, exec, zen-beta"
+            "$mod, Return, exec, $terminal"
+            "$mod, E, exec, $fileManager"
+            "$mod, B, exec, $browser"
+            "$mod, M, exec, $music"
 
             # Rofi
             "$mod, Space, exec, rofi -show drun"
@@ -266,8 +290,12 @@ in
           };
 
           misc = {
-            force_default_wallpaper = -1;
+            disable_splash_rendering = true;
             disable_hyprland_logo = true;
+          };
+
+          ecosystem = {
+            no_update_news = true;
           };
 
           windowrule = [
