@@ -88,7 +88,6 @@ in
         };
 
         addons = {
-          rofi = enabled;
           vicinae = enabled;
           ly = enabled;
           hyprpicker = enabled;

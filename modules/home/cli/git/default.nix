@@ -17,12 +17,11 @@ in
           };
 
           url = {
-            "https://github.com/" = {
-              insteadOf = [
-                "gh:"
-                "github:"
-              ];
-            };
+            "git@github.com:".insteadOf = [
+              "gh:"
+              "https://github.com/"
+            ];
+            "git@github.com:${cli.git.name}/".insteadOf = "me:";
           };
 
           init.defaultBranch = "main";

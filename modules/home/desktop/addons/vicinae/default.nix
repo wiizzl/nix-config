@@ -32,23 +32,17 @@ in
             size = 12;
           };
 
-          # theme = {
-          #   iconTheme = "Papirus-Dark";
-          #   name = "gruvbox-dark-hard.json";
-          # };
+          theme.name = "catppuccin-mocha";
 
           window = {
             csd = true;
-            opacity = 1;
-            rounding = 0;
+            opacity = 0.95;
+            rounding = 8;
           };
 
           faviconService = "twenty";
           popToRootOnClose = true;
-
-          rootSearch = {
-            searchFiles = true;
-          };
+          rootSearch.searchFiles = false;
         };
       };
     };
