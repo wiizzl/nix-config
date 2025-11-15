@@ -16,8 +16,6 @@ in
 
   config = mkIf desktop.addons.waybar.enable {
     home-manager.users.${user.name} = {
-      wayland.windowManager.hyprland.settings.exec-once = mkIf desktop.hyprland.enable [ "waybar" ];
-
       programs.waybar = {
         enable = true;
 

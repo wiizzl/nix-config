@@ -11,16 +11,15 @@ in
 
   config = mkIf system.nix.substituters.enable {
     nix.settings = {
-      substituters = [
-        "https://cache.nixos.org?priority=10"
+      extra-substituters = [
         "https://hyprland.cachix.org"
         "https://vicinae.cachix.org"
       ];
-      trusted-substituters = [
+      extra-trusted-substituters = [
         "https://hyprland.cachix.org"
         "https://vicinae.cachix.org"
       ];
-      trusted-public-keys = [
+      extra-trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
       ];
