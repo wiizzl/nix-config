@@ -2,7 +2,7 @@
 
 let
   inherit (lib) mkIf types mkOption;
-  inherit (lib.extraMkOptions) mkOpt;
+  inherit (lib.extraMkOptions) mkOpt';
 
   inherit (config.my) desktop system user;
 in
@@ -11,10 +11,10 @@ in
     defaultApps = mkOption {
       type = types.submodule {
         options = {
-          terminal = mkOpt types.str "" "Default terminal emulator";
-          fileManager = mkOpt types.str "" "Default file manager";
-          browser = mkOpt types.str "" "Default web browser";
-          music = mkOpt types.str "" "Default music application";
+          terminal = mkOpt' types.str "Default terminal emulator";
+          fileManager = mkOpt' types.str "Default file manager";
+          browser = mkOpt' types.str "Default web browser";
+          music = mkOpt' types.str "Default music application";
         };
       };
     };

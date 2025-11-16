@@ -1,13 +1,13 @@
 {
-  pkgs,
   config,
   lib,
+  pkgs,
   ...
 }:
 
 let
   inherit (lib) mkEnableOption mkIf;
-  inherit (config.my) cli;
+  inherit (config.my) cli user;
 in
 {
   options.my.cli.just = {
@@ -15,8 +15,10 @@ in
   };
 
   config = mkIf cli.just.enable {
-    environment.systemPackages = with pkgs; [
-      just
-    ];
+    home-manager.users.${user.name} = {
+      home.packages = with pkgs; [
+        just
+      ];
+    };
   };
 }

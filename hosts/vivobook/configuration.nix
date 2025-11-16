@@ -25,7 +25,10 @@ in
       };
 
       cli = {
-        direnv = enabled;
+        direnv = {
+          enable = true;
+          nix-direnv = enabled;
+        };
         yazi = enabled;
         just = enabled;
         btop = enabled;
@@ -35,6 +38,7 @@ in
           enable = true;
           name = "wiizzl";
           email = "git@houlliere.com";
+          gh = enabled;
           lazygit = enabled;
         };
       };

@@ -1,10 +1,14 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkIf;
+  inherit (lib) mkEnableOption mkIf;
   inherit (config.my) cli user;
 in
 {
+  options.my.cli.btop = {
+    enable = mkEnableOption "btop";
+  };
+
   config = mkIf cli.btop.enable {
     home-manager.users.${user.name} = {
       programs.btop = {

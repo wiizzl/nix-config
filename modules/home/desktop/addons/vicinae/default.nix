@@ -1,6 +1,8 @@
 {
   config,
   lib,
+  inputs,
+  pkgs,
   ...
 }:
 
@@ -15,14 +17,13 @@ in
 
   config = mkIf desktop.addons.vicinae.enable {
     home-manager.users.${user.name} = {
-      programs.vicinae = {
+      imports = [ inputs.vicinae.homeManagerModules.default ];
+
+      services.vicinae = {
         enable = true;
+        package = inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
-        systemd = {
-          enable = true;
-          autoStart = true;
-        };
-
+        autoStart = true;
         useLayerShell = true;
 
         settings = {
@@ -44,13 +45,26 @@ in
           rootSearch.searchFiles = false;
         };
 
-        # extensions = [
-        #   (config.lib.vicinae.mkRayCastExtension {
-        #     name = "gif-search";
-        #     sha256 = "sha256-G7il8T1L+P/2mXWJsb68n4BCbVKcrrtK8GnBNxzt73Q=";
-        #     rev = "4d417c2dfd86a5b2bea202d4a7b48d8eb3dbaeb1";
-        #   })
-        # ];
+        # TODO: Declarativily install extensions
+        extensions = [
+          # (inputs.vicinae.mkVicinaeExtension.${pkgs.system} {
+          #   inherit pkgs;
+          #   name = "extension-name";
+          #   src = pkgs.fetchFromGitHub {
+          #     # You can also specify different sources other than github
+          #     owner = "repo-owner";
+          #     repo = "repo-name";
+          #     rev = "v1.0"; # If the extension has no releases use the latest commit hash
+          #     # You can get the sha256 by rebuilding once and then copying the output hash from the error message
+          #     sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+          #   }; # If the extension is in a subdirectory you can add ` + "/subdir"` between the brace and the semicolon here
+          # })
+          # (inputs.vicinae.mkRayCastExtension {
+          #   name = "gif-search";
+          #   sha256 = "sha256-G7il8T1L+P/2mXWJsb68n4BCbVKcrrtK8GnBNxzt73Q=";
+          #   rev = "4d417c2dfd86a5b2bea202d4a7b48d8eb3dbaeb1";
+          # })
+        ];
       };
     };
   };

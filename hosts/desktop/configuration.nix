@@ -56,11 +56,13 @@ in
       };
 
       cli = {
-        impala = enabled;
         tmux = enabled;
         helix = enabled;
         cava = enabled;
-        direnv = enabled;
+        direnv = {
+          enable = true;
+          nix-direnv = enabled;
+        };
         microfetch = enabled;
         btop = enabled;
         yazi = enabled;
@@ -68,6 +70,7 @@ in
           enable = true;
           name = "wiizzl";
           email = "git@houlliere.com";
+          gh = enabled;
           lazygit = enabled;
         };
       };
