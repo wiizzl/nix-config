@@ -30,7 +30,6 @@ in
         btop = enabled;
         microfetch = enabled;
         helix = enabled;
-        zoxide = enabled;
         direnv = {
           enable = true;
           nix-direnv = enabled;

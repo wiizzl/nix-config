@@ -63,7 +63,6 @@ in
         microfetch = enabled;
         btop = enabled;
         yazi = enabled;
-        zoxide = enabled;
         git = {
           enable = true;
           name = "wiizzl";
