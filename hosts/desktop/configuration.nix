@@ -48,6 +48,7 @@ in
             enable = true;
             vesktop = enabled;
           };
+          element = enabled;
           thunderbird = enabled;
         };
         browser = {

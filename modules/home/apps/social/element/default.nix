@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 
 let
   inherit (lib) mkEnableOption mkIf;
@@ -16,9 +11,9 @@ in
 
   config = mkIf apps.social.element.enable {
     home-manager.users.${user.name} = {
-      home.packages = with pkgs; [
-        element-desktop
-      ];
+      programs.element-desktop = {
+        enable = true;
+      };
     };
   };
 }
