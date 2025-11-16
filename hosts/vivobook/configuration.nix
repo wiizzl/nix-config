@@ -25,15 +25,16 @@ in
       };
 
       cli = {
-        direnv = {
-          enable = true;
-          nix-direnv = enabled;
-        };
         yazi = enabled;
         just = enabled;
         btop = enabled;
         microfetch = enabled;
         helix = enabled;
+        zoxide = enabled;
+        direnv = {
+          enable = true;
+          nix-direnv = enabled;
+        };
         git = {
           enable = true;
           name = "wiizzl";

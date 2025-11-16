@@ -34,7 +34,6 @@ in
         unrar
       ]
       ++ optionals system.utils.dev.enable [
-        zoxide
         fzf
         fd
         ripgrep

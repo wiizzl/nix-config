@@ -60,19 +60,20 @@ in
         tmux = enabled;
         helix = enabled;
         cava = enabled;
-        direnv = {
-          enable = true;
-          nix-direnv = enabled;
-        };
         microfetch = enabled;
         btop = enabled;
         yazi = enabled;
+        zoxide = enabled;
         git = {
           enable = true;
           name = "wiizzl";
           email = "git@houlliere.com";
           gh = enabled;
           lazygit = enabled;
+        };
+        direnv = {
+          enable = true;
+          nix-direnv = enabled;
         };
       };
 
