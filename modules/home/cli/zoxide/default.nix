@@ -6,7 +6,7 @@ let
 in
 {
   options.my.cli.zoxide = {
-    enable = mkEnableOption "zoxide";
+    enable = mkEnableOption "zoxide smart cd tool";
   };
 
   config = mkIf cli.zoxide.enable {
