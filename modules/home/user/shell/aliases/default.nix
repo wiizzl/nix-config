@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) optionals;
+  inherit (lib) optionalAttrs;
   inherit (config.my) user cli system;
 in
 {
@@ -9,7 +9,7 @@ in
     home.shellAliases = {
       nfu = "cd ~/nix-config && sudo nix flake update";
     }
-    // optionals cli.git.enable {
+    // optionalAttrs cli.git.enable {
       ga = "git add";
       gaa = "git add .";
       gc = "git add --patch";
@@ -36,7 +36,7 @@ in
       gsa = "git stash --all";
       gst = "git --no-pager status";
     }
-    // optionals system.utils.enable {
+    // optionalAttrs system.utils.enable {
       cat = "bat";
       ld = "eza -lD --icons=auto";
       lf = "eza -lF --icons=auto --color=always | grep -v /";
