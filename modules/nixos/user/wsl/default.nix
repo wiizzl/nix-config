@@ -22,6 +22,8 @@ in
     wsl = {
       enable = true;
       defaultUser = user.name;
+      startMenuLaunchers = true;
+      useWindowsDriver = true;
     };
   };
 }

@@ -26,7 +26,7 @@ in
         discord.enable = apps.social.nixcord.discord.enable;
         vesktop = {
           enable = apps.social.nixcord.vesktop.enable;
-          useSystemVencord = false; # TODO: https://github.com/KaylorBen/nixcord/issues/136
+          useSystemVencord = true;
         };
 
         quickCss = "@import url('https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css');";
@@ -52,10 +52,6 @@ in
             betterNotesBox = {
               enable = true;
               hide = true;
-            };
-            noTrack = {
-              enable = true;
-              disableAnalytics = true;
             };
             messageLogger = {
               enable = true;

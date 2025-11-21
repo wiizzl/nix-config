@@ -2,9 +2,7 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  inherit (config.my) system cli;
-
-  aliases = import ../aliases.nix;
+  inherit (config.my) system;
 in
 {
   options.my.system.shell.zsh = {
@@ -14,10 +12,6 @@ in
   config = mkIf system.shell.zsh.enable {
     programs.zsh = {
       enable = true;
-
-      shellAliases = {
-        nfu = "cd ~/nix-config && sudo nix flake update";
-      };
     };
   };
 }

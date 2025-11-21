@@ -19,6 +19,7 @@ in
   config = mkIf system.virtualisation.docker.enable {
     virtualisation.docker = {
       enable = true;
+      autoPrune.enable = true;
     };
 
     environment.systemPackages =
@@ -32,8 +33,6 @@ in
 
     users.users.${user.name}.extraGroups = [ "docker" ];
 
-    wsl.docker-desktop = mkIf user.wsl.enable {
-      enable = true;
-    };
+    wsl.docker-desktop.enable = user.wsl.enable;
   };
 }
