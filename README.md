@@ -1,7 +1,5 @@
 # nix-config
 
-![Workflow status](https://github.com/wiizzl/nix-config/actions/workflows/update-flake.yml/badge.svg)
-
 This is my Nix configuration files. Much inspired by configurations found online.
 
 ## My Journey into declarative systems
