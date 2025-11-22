@@ -21,7 +21,7 @@ in
     monitors = mkOption {
       type = types.listOf types.str;
       default = [ ];
-      description = "monitors configuration";
+      description = "monitors names";
     };
   };
 
@@ -46,7 +46,9 @@ in
           "$mod" = "SUPER";
           "misc:middle_click_paste" = false;
 
-          monitor = desktop.hyprland.monitors;
+          source = [
+            "~/.config/hypr/monitors.conf" # nwg-displays
+          ];
 
           animations = {
             enabled = true;
@@ -298,11 +300,11 @@ in
           };
 
           windowrule = [
-            # Ignore maximize requests from apps.
-            "suppressevent maximize, class:.*"
+            # Ignore maximize requests from apps
+            "suppress_event maximize, match:class .*"
 
             # Fix some dragging issues with XWayland
-            "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
+            # "no_focus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
           ];
 
           workspace = [

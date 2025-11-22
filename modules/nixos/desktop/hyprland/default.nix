@@ -40,6 +40,7 @@ in
           wl-clipboard
           gnome-icon-theme
           adwaita-icon-theme
+          nwg-displays
         ]
         ++ optionals (system.audio.pipewire.enable || system.audio.pavucontrol.enable) [ pavucontrol ]
         ++ optionals (system.networking.networkmanager.enable) [ networkmanagerapplet ];
