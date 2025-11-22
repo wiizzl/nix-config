@@ -79,15 +79,19 @@ in
       desktop = {
         hyprland = {
           enable = true;
-          monitors = [
-            "DP-2"
-            "HDMI-A-2"
-          ];
           defaultApps = {
             terminal = "foot";
             fileManager = "$terminal -e yazi";
             browser = "zen-beta";
             music = "spotify";
+          };
+          monitors = [
+            "DP-2"
+            "HDMI-A-2"
+          ];
+          device = {
+            name = "logitech-usb-receiver";
+            sensitivity = -0.7;
           };
         };
 

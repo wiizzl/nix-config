@@ -23,6 +23,14 @@ in
       default = [ ];
       description = "monitors names";
     };
+    device = mkOption {
+      type = types.submodule {
+        options = {
+          name = mkOpt_ types.str "Name of the main input device to configure";
+          sensitivity = mkOpt_ types.float "Pointer sensitivity adjustment value";
+        };
+      };
+    };
   };
 
   config = mkIf desktop.hyprland.enable {
@@ -164,7 +172,7 @@ in
 
             # Capture
             "$mod Shift, P, exec, hyprpicker -aln"
-            "$mod Shift, S, exec, hyprshot --mode region --freeze --output-folder ~/Pictures/Screenshots/"
+            "$mod Shift, S, exec, hyprshot --mode region --freeze"
           ];
 
           bindm = [
@@ -231,8 +239,8 @@ in
           };
 
           device = {
-            name = "logitech-usb-receiver";
-            sensitivity = -0.7;
+            name = desktop.hyprland.device.name;
+            sensitivity = desktop.hyprland.device.sensitivity;
           };
 
           gesture = [ "3, horizontal, workspace" ];
