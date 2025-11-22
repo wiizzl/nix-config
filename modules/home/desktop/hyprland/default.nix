@@ -80,6 +80,8 @@ in
             "$mod, B, exec, $browser"
             "$mod, M, exec, $music"
 
+            "$mod, L, exec, hyprlock"
+
             # Vicinae
             "$mod, Space, exec, vicinae toggle"
             "$mod Ctrl, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"

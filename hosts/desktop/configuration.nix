@@ -96,7 +96,6 @@ in
           ly = enabled;
           hyprpicker = enabled;
           hyprlock = enabled;
-          hypridle = enabled;
           swaync = enabled;
           swayosd = enabled;
           hyprshot = enabled;
