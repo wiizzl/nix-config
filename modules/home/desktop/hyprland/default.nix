@@ -45,6 +45,7 @@ in
 
           "$mod" = "SUPER";
           "misc:middle_click_paste" = false;
+          "misc:vfr" = true;
 
           source = [
             "~/.config/hypr/monitors.conf" # nwg-displays
@@ -307,19 +308,24 @@ in
             # "no_focus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
           ];
 
-          workspace = [
-            "1, monitor:DP-2, default:true, persistent:true"
-            "2, monitor:DP-2, persistent:true"
-            "3, monitor:DP-2, persistent:true"
-            "4, monitor:DP-2, persistent:true"
-            "5, monitor:DP-2, persistent:true"
-            "6, monitor:DP-2, persistent:true"
-            "7, monitor:DP-2, persistent:true"
-            "8, monitor:DP-2, persistent:true"
-            "9, monitor:DP-2"
-            "10, monitor:DP-2"
-            "20, monitor:HDMI-A-2, default:true, persistent:true, gapsout:0, border:false, rounding:false, decorate:false, shadow:false"
-          ];
+          workspace =
+            let
+              primary = (builtins.elemAt desktop.hyprland.monitors 0);
+              secondary = (builtins.elemAt desktop.hyprland.monitors 1);
+            in
+            [
+              "1, monitor:${primary}, default:true, persistent:true"
+              "2, monitor:${primary}, persistent:true"
+              "3, monitor:${primary}, persistent:true"
+              "4, monitor:${primary}, persistent:true"
+              "5, monitor:${primary}, persistent:true"
+              "6, monitor:${primary}, persistent:true"
+              "7, monitor:${primary}, persistent:true"
+              "8, monitor:${primary}, persistent:true"
+              "9, monitor:${primary}"
+              "10, monitor:${primary}"
+              "20, monitor:${secondary}, default:true, persistent:true, gapsout:0, gapsin:0, border:false, rounding:false, decorate:false, shadow:false"
+            ];
         };
       };
     };

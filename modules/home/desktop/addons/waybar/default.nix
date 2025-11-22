@@ -23,7 +23,7 @@ in
           mainBar = {
             layer = "top";
             position = "left";
-            output = [ "DP-2" ];
+            output = [ (builtins.elemAt desktop.hyprland.monitors 0) ];
 
             margin-top = 8;
             margin-bottom = 8;
