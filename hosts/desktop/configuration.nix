@@ -51,6 +51,7 @@ in
           element = enabled;
           thunderbird = enabled;
         };
+        file-manager.dolphin = enabled;
         browser = {
           zen = enabled;
         };
