@@ -15,6 +15,8 @@ in
   };
 
   config = mkIf apps.file-manager.nautilus.enable {
+    services.gvfs.enable = true;
+
     home-manager.users.${user.name} = {
       home.packages = with pkgs; [
         nautilus

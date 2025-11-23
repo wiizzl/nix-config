@@ -8,7 +8,6 @@ in
     ./hardware-configuration.nix
 
     ../../overlays/nix-vscode-extensions
-    ../../overlays/dolphin-overlays
 
     ../../modules/nixos/import.nix
     ../../modules/shared/import.nix
@@ -52,7 +51,7 @@ in
           element = enabled;
           thunderbird = enabled;
         };
-        file-manager.dolphin = enabled;
+        file-manager.thunar = enabled;
         browser = {
           zen = enabled;
         };

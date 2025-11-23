@@ -18,6 +18,9 @@ in
     home-manager.users.${user.name} = {
       home.packages = with pkgs; [
         kdePackages.dolphin
+        kdePackages.qtsvg
+        kdePackages.kio-fuse
+        kdePackages.kio-extras
       ];
     };
   };

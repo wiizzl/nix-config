@@ -15,11 +15,15 @@ in
   };
 
   config = mkIf apps.file-manager.thunar.enable {
+    programs.xfconf.enable = true;
+    services.gvfs.enable = true;
+    services.tumbler.enable = true;
+
     home-manager.users.${user.name} = {
-      home.packages = with pkgs; [
-        xfce.thunar
-        xfce.thunar-archive-plugin
-        xfce.tumbler
+      home.packages = with pkgs.xfce; [
+        thunar
+        thunar-archive-plugin
+        thunar-volman
       ];
     };
   };
