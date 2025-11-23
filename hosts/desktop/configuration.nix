@@ -8,6 +8,7 @@ in
     ./hardware-configuration.nix
 
     ../../overlays/nix-vscode-extensions
+    ../../overlays/dolphin-overlays
 
     ../../modules/nixos/import.nix
     ../../modules/shared/import.nix
