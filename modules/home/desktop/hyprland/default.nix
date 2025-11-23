@@ -172,7 +172,7 @@ in
 
             # Capture
             "$mod Shift, P, exec, hyprpicker -aln"
-            "$mod Shift, S, exec, hyprshot --mode region --freeze"
+            "$mod Shift, S, exec, hyprshot --mode region --freeze --output-folder ~/Pictures/Screenshots/"
           ];
 
           bindm = [
