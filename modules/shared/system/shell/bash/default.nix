@@ -2,8 +2,10 @@
 
 let
 
-  inherit (lib) mkEnableOption mkIf;
-  inherit (config.my) system;
+  inherit (lib) mkEnableOption mkIf optionalAttrs;
+  inherit (config.my) system cli;
+
+  aliases = import ../aliases.nix;
 in
 {
   options.my.system.shell.bash = {
@@ -13,6 +15,16 @@ in
   config = mkIf system.shell.bash.enable {
     programs.bash = {
       enable = true;
+
+      shellAliases = {
+        nfu = "cd ~/nix-config && sudo nix flake update";
+      }
+      // optionalAttrs cli.git.enable {
+        inherit (aliases) git;
+      }
+      // optionalAttrs system.utils.enable {
+        inherit (aliases) bat eza;
+      };
 
       # bashrcExtra = ''
       #   nrs() {
