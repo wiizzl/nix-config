@@ -17,7 +17,7 @@ in
   config = mkIf apps.file-manager.dolphin.enable {
     home-manager.users.${user.name} = {
       home.packages = with pkgs; [
-        libsForQt5.dolphin
+        kdePackages.dolphin
       ];
     };
   };
