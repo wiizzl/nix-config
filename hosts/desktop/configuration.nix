@@ -36,6 +36,7 @@ in
           vlc = enabled;
           localsend = enabled;
           pinta = enabled;
+          ark = enabled;
         };
         suite.onlyoffice = enabled;
         terminal.foot = enabled;
