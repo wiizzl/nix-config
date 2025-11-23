@@ -32,6 +32,7 @@ in
         unzip
         zip
         unrar
+        rar
       ]
       ++ optionals system.utils.dev.enable [
         fzf
