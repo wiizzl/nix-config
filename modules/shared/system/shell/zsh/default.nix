@@ -15,15 +15,10 @@ in
     programs.zsh = {
       enable = true;
 
-      shellAliases = {
-        nfu = "cd ~/nix-config && sudo nix flake update";
-      }
-      // optionalAttrs cli.git.enable {
-        inherit (aliases) git;
-      }
-      // optionalAttrs system.utils.enable {
-        inherit (aliases) bat eza;
-      };
+      shellAliases =
+        aliases.system
+        // optionalAttrs cli.git.enable aliases.git
+        // optionalAttrs system.utils.enable (aliases.bat // aliases.eza);
     };
   };
 }

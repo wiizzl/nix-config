@@ -1,6 +1,8 @@
-{ ... }:
-
 {
+  system = {
+    nfu = "cd ~/nix-config && sudo nix flake update";
+  };
+
   git = {
     ga = "git add";
     gaa = "git add .";
@@ -34,12 +36,13 @@
   };
 
   eza = {
-    ld = "eza -lD --icons=auto";
-    lf = "eza -lF --icons=auto --color=always | grep -v /";
-    lh = "eza -dl .* --icons=auto --group-directories-first";
-    ll = "eza -al --icons=auto --group-directories-first";
-    lss = "eza -alF --icons=auto --color=always --sort=size | grep -v /";
-    lt = "eza -al --icons=auto --sort=modified";
+    ls = "eza -lD --icons=auto --group-directories-first --git";
+    ld = "ls";
+    lf = "eza -lF --icons=auto --color=always | grep -v / --git";
+    lh = "eza -dl .* --icons=auto --group-directories-first --git";
+    ll = "eza -al --icons=auto --group-directories-first --git";
+    lss = "eza -alF --icons=auto --color=always --git --sort=size | grep -v /";
+    lt = "eza -al --icons=auto --sort=modified --git";
     tree = "eza --icons=auto -T";
   };
 }
