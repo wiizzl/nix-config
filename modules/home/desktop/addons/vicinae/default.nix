@@ -32,14 +32,6 @@ in
             size = 12;
           };
 
-          theme.name = "catppuccin-mocha";
-
-          window = {
-            csd = true;
-            opacity = 0.95;
-            rounding = 8;
-          };
-
           faviconService = "twenty";
           popToRootOnClose = true;
           rootSearch.searchFiles = false;
