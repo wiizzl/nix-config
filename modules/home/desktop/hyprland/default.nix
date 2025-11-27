@@ -1,7 +1,12 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkIf types mkOption;
+  inherit (lib)
+    mkIf
+    types
+    mkOption
+    optionals
+    ;
   inherit (lib.extraMkOptions) mkOpt_;
 
   inherit (config.my) desktop system user;
@@ -322,6 +327,7 @@ in
             let
               primary = (builtins.elemAt desktop.hyprland.monitors 0);
               secondary = (builtins.elemAt desktop.hyprland.monitors 1);
+              length = builtins.length desktop.hyprland.monitors;
             in
             [
               "1, monitor:${primary}, default:true, persistent:true"
@@ -334,7 +340,9 @@ in
               "8, monitor:${primary}, persistent:true"
               "9, monitor:${primary}"
               "10, monitor:${primary}"
-              "20, monitor:${secondary}, default:true, persistent:true, gapsout:0, gapsin:0, border:false, rounding:false, decorate:false, shadow:false"
+            ]
+            ++ optionals (length > 1) [
+              "special, monitor:${secondary}, persistent:true"
             ];
         };
       };

@@ -59,7 +59,6 @@ in
       };
 
       cli = {
-        tmux = enabled;
         helix = enabled;
         cava = enabled;
         microfetch = enabled;
@@ -83,7 +82,7 @@ in
           enable = true;
           defaultApps = {
             terminal = "foot";
-            fileManager = "$terminal -e yazi";
+            fileManager = "thunar";
             browser = "zen-beta";
             music = "spotify";
           };
