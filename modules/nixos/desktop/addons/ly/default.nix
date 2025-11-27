@@ -10,6 +10,8 @@ in
   };
 
   config = mkIf desktop.addons.ly.enable {
-    services.displayManager.ly.enable = true;
+    services.displayManager.ly = {
+      enable = true;
+    };
   };
 }
