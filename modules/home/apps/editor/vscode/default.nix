@@ -27,7 +27,8 @@ in
 
           profiles.default = {
             extensions = with pkgs.nix-vscode-extensions.vscode-marketplace-release; [
-              gruntfuggly.todo-tree
+              dsznajder.es7-react-js-snippets
+              wayou.vscode-todo-highlight
               astro-build.astro-vscode
               jnoortheen.nix-ide
               adpyke.codesnap
@@ -37,6 +38,7 @@ in
               usernamehw.errorlens
               yoavbls.pretty-ts-errors
               dbaeumer.vscode-eslint
+              biomejs.biome
               prisma.prisma
               golang.go
               ziglang.vscode-zig
@@ -58,6 +60,7 @@ in
               github.vscode-pull-request-github
               leonardssh.vscord
               tamasfe.even-better-toml
+              redhat.vscode-yaml
               bmewburn.vscode-intelephense-client
               ms-vscode.remote-explorer
               ms-vscode-remote.remote-ssh
