@@ -30,7 +30,7 @@ in
         home = {
           username = user.name;
           homeDirectory = user.homeDir;
-          stateVersion = "25.05";
+          stateVersion = "25.11";
         };
 
         xdg.userDirs = mkIf user.home-manager.userDirs.enable {
