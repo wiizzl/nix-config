@@ -1,5 +1,5 @@
 let
-  pier = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHyWE+mk3eu5C0XdV9oCOHULBcnQT4BVUdq4YBZLugnI";
+  pier = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJEWBWKmH94FDB6oaI4J60GwAnVqScvXNN89GJtFiBOv";
 in
 {
   # You can generate age keys with `nix run github:ryantm/agenix -- -e <key-name>.age`

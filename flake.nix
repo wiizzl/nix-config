@@ -55,17 +55,11 @@
 
       systems = [
         "x86_64-linux"
+        "aarch64-linux"
         "aarch64-darwin"
       ];
 
-      forAllSystems =
-        f:
-        nixpkgs.lib.genAttrs systems (
-          system:
-          f {
-            pkgs = import nixpkgs { inherit system; };
-          }
-        );
+      forAllSystems = nixpkgs.lib.genAttrs systems;
 
       mkNixosConfig =
         host: system:
@@ -80,11 +74,12 @@
         };
     in
     {
-      darwinConfigurations = { };
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
+      templates = import ./shells; # see https://github.com/the-nix-way/dev-templates
+      darwinConfigurations = { }; # TODO: add Darwin hosts here
       nixosConfigurations = {
         desktop = (mkNixosConfig "desktop" "x86_64-linux");
         vivobook = (mkNixosConfig "vivobook" "x86_64-linux");
       };
-      devShells = forAllSystems ({ pkgs, ... }: import ./shells/import.nix { inherit pkgs lib; });
     };
 }

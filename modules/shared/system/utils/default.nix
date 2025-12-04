@@ -39,7 +39,7 @@ in
         fd
         ripgrep
         jq
-        nixfmt-rfc-style
+        # nixfmt-rfc-style
         nil
         nixd
       ]
