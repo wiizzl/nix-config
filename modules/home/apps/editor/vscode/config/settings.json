@@ -117,6 +117,5 @@
 
   // RPC (discord)
   "vscord.app.name": "Visual Studio Code",
-  "vscord.status.idle.enabled": false,
-  "github.copilot.nextEditSuggestions.enabled": true
+  "vscord.status.idle.enabled": false
 }

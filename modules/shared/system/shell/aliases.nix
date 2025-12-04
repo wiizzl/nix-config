@@ -36,13 +36,9 @@
   };
 
   eza = {
-    ls = "eza -lD --icons=auto --group-directories-first --git";
-    ld = "ls";
-    lf = "eza -lF --icons=auto --color=always | grep -v / --git";
-    lh = "eza -dl .* --icons=auto --group-directories-first --git";
-    ll = "eza -al --icons=auto --group-directories-first --git";
-    lss = "eza -alF --icons=auto --color=always --git --sort=size | grep -v /";
-    lt = "eza -al --icons=auto --sort=modified --git";
-    tree = "eza --icons=auto -T";
+    ls = "eza -l --icons --group-directories-first --git";
+    l = "eza --icons -a --group-directories-first -1";
+    ll = "eza --icons -a --group-directories-first -1 --no-user --long";
+    tree = "eza --icons --tree --group-directories-first";
   };
 }

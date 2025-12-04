@@ -38,7 +38,7 @@ in
               usernamehw.errorlens
               yoavbls.pretty-ts-errors
               dbaeumer.vscode-eslint
-              biomejs.biome
+              # biomejs.biome
               prisma.prisma
               golang.go
               ziglang.vscode-zig
