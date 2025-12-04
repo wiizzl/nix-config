@@ -342,7 +342,7 @@ in
               "10, monitor:${primary}"
             ]
             ++ optionals (length > 1) [
-              "special, monitor:${secondary}, persistent:true"
+              "20, monitor:${secondary}, default:true, persistent:true, gapsout:0, border:false, rounding:false, decorate:false, shadow:false"
             ];
         };
       };
