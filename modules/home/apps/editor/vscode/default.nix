@@ -63,6 +63,7 @@ in
               redhat.vscode-yaml
               bmewburn.vscode-intelephense-client
               ms-vscode.remote-explorer
+              ms-vscode-remote.remote-containers
               ms-vscode-remote.remote-ssh
               ms-vscode-remote.remote-ssh-edit
               ms-azuretools.vscode-containers
