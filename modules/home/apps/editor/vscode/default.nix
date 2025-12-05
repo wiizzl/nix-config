@@ -58,10 +58,12 @@ in
               github.copilot-chat
               github.vscode-github-actions
               github.vscode-pull-request-github
-              leonardssh.vscord
+              icrawl.discord-vscode
               tamasfe.even-better-toml
               redhat.vscode-yaml
+              redhat.java
               bmewburn.vscode-intelephense-client
+              junstyle.php-cs-fixer
               ms-vscode.remote-explorer
               ms-vscode-remote.remote-containers
               ms-vscode-remote.remote-ssh
@@ -69,10 +71,10 @@ in
               ms-azuretools.vscode-containers
               formulahendry.auto-close-tag
               formulahendry.auto-rename-tag
-              ms-dotnettools.csdevkit
-              ms-dotnettools.vscode-dotnet-runtime
-              ms-dotnettools.dotnet-maui
-              ms-dotnettools.csharp
+              # ms-dotnettools.csdevkit
+              # ms-dotnettools.vscode-dotnet-runtime
+              # ms-dotnettools.dotnet-maui
+              # ms-dotnettools.csharp
             ];
           };
         };

@@ -116,6 +116,5 @@
   "window.menuBarVisibility": "toggle",
 
   // RPC (discord)
-  "vscord.app.name": "Visual Studio Code",
-  "vscord.status.idle.enabled": false
+  "discord.swapBigAndSmallImage": true
 }
