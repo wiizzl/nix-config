@@ -119,5 +119,11 @@
   "discord.swapBigAndSmallImage": true,
 
   // Copilot
-  "chat.extensionUnification.enabled": true
+  "chat.extensionUnification.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  }
 }

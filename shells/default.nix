@@ -35,6 +35,10 @@
     path = ./python;
     description = "Python development environment";
   };
+  uv = {
+    path = ./uv;
+    description = "UV development environment";
+  };
   rust = {
     path = ./rust;
     description = "Rust development environment";
