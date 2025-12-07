@@ -15,7 +15,8 @@ in
         download-buffer-size = 200000000;
         auto-optimise-store = true; # May make rebuilds longer but less size
       };
+
+      optimise.automatic = true;
     };
-    optimise.automatic = true;
   };
 }

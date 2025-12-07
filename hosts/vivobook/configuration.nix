@@ -16,8 +16,6 @@ in
     my = {
       user = {
         name = "pier";
-        wsl = enabled;
-
         shell = {
           package = pkgs.fish;
           starship = enabled;
@@ -25,15 +23,10 @@ in
       };
 
       cli = {
-        yazi = enabled;
-        just = enabled;
-        btop = enabled;
-        microfetch = enabled;
         helix = enabled;
-        direnv = {
-          enable = true;
-          nix-direnv = enabled;
-        };
+        microfetch = enabled;
+        btop = enabled;
+        yazi = enabled;
         git = {
           enable = true;
           name = "wiizzl";
@@ -41,6 +34,18 @@ in
           gh = enabled;
           lazygit = enabled;
         };
+        direnv = {
+          enable = true;
+          nix-direnv = enabled;
+        };
+        nh = {
+          enable = true;
+          clean = enabled;
+        };
+      };
+
+      services = {
+        tailscale = enabled;
       };
 
       system = {
@@ -55,33 +60,44 @@ in
           dev = enabled;
           fun = enabled;
         };
+        boot = {
+          enable = true;
+          systemd = enabled;
+          kernel = pkgs.linuxPackages_latest; # _zen, _hardened, _rt, _rt_latest, etc.
+        };
         docs = {
           enable = true;
-          man = true;
+          man = enabled;
         };
         locale = {
           keymap = "fr";
           default-locale = "en_US.UTF-8";
           extra-locale = "fr_FR.UTF-8";
         };
+        networking = {
+          firewall = enabled;
+          hostname = "nixos";
+          networkmanager = enabled;
+        };
         nix = {
           ld = enabled;
           substituters = enabled;
+          optimisation = enabled;
           flakes.extra-options = ''
             warn-dirty = false
           '';
-          garbage-collector = {
-            enable = true;
-            auto-optimise-store = enabled;
-            dates = "weekly";
-            days = 7;
-          };
+        };
+        services = {
+          keyring = enabled;
+          openssh = enabled;
         };
         virtualisation = {
           docker = {
             enable = true;
             lazydocker = enabled;
+            distrobox = enabled;
           };
+          libvirtd = enabled;
         };
       };
     };
