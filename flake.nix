@@ -27,7 +27,6 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     vicinae.url = "github:vicinaehq/vicinae";
     awww.url = "git+https://codeberg.org/LGFae/awww";
-    dolphin-overlay.url = "github:rumboon/dolphin-overlay";
   };
 
   outputs =
