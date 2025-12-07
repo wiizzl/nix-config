@@ -214,7 +214,7 @@ in
         nix = {
           ld = enabled;
           substituters = enabled;
-          store = enabled;
+          optimisation = enabled;
           flakes.extra-options = ''
             warn-dirty = false
           '';
