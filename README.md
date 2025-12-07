@@ -41,6 +41,32 @@ The repository uses a modular, opinionated structure. While it may seem complex 
   └── shared/        # Modules shared by NixOS and macOS (aliases, fonts, CLI utilities)
 ```
 
+## Installation
+
+1. Create a new [host](./hosts/).
+
+```
+mkdir hosts/<your-host>
+```
+
+2. Generate your secrets
+
+```
+cp hosts/templates/<your-template>/secrets hosts/<your-host>/
+```
+
+Do not forget to add your host to the [`flake.nix`](./flake.nix) file.
+
+Generate your keys based on what is inside the `secrets.nix` file.
+
+```
+nix run github:ryantm/agenix -- -e <key-name>.age
+```
+
+3. Configure your host based on your needs. See [templates](./hosts/templates/) for a list of options.
+
+4. Build the config!
+
 ## My Journey into declarative systems
 
 After using Fedora for a while, I really thought I had found the perfect distribution for my needs. I was using GNOME and was very satisfied with my experience — everything just worked without having to fuss around too much.
