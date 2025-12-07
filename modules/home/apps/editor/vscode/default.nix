@@ -54,7 +54,6 @@ in
               ms-python.vscode-python-envs
               charliermarsh.ruff
               meganrogge.template-string-converter
-              github.copilot
               github.copilot-chat
               github.vscode-github-actions
               github.vscode-pull-request-github

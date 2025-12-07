@@ -116,5 +116,8 @@
   "window.menuBarVisibility": "toggle",
 
   // RPC (discord)
-  "discord.swapBigAndSmallImage": true
+  "discord.swapBigAndSmallImage": true,
+
+  // Copilot
+  "chat.extensionUnification.enabled": true
 }
