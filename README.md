@@ -4,8 +4,8 @@ This is my Nix configuration files. Much inspired by configurations found online
 
 ## TODO
 
-- [] Config [templates](./hosts/templates)
-- [] Darwin modules
+- Config [templates](./hosts/templates)
+- Darwin modules
 
 ## Modules
 
