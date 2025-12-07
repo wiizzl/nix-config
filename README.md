@@ -4,8 +4,8 @@ This is my Nix configuration files. Much inspired by configurations found online
 
 ## TODO
 
-- Config [templates](./hosts/templates)
-- Darwin modules
+- [] Config [templates](./hosts/templates)
+- [] Darwin modules
 
 ## Modules
 
@@ -49,15 +49,17 @@ The repository uses a modular, opinionated structure. While it may seem complex 
 mkdir hosts/<your-host>
 ```
 
+> [!WARNING]
+> Do not forget to add your host to the [`flake.nix`](./flake.nix) file.
+
 2. Generate your secrets
 
 ```
 cp hosts/templates/<your-template>/secrets hosts/<your-host>/
 ```
 
-Do not forget to add your host to the [`flake.nix`](./flake.nix) file.
-
-Generate your keys based on what is inside the `secrets.nix` file.
+> [!IMPORTANT]
+> Generate your keys based on what is inside the `secrets.nix` file.
 
 ```
 nix run github:ryantm/agenix -- -e <key-name>.age
