@@ -75,6 +75,10 @@ in
           enable = true;
           nix-direnv = enabled;
         };
+        nh = {
+          enable = true;
+          clean = enabled;
+        };
       };
 
       desktop = {
@@ -213,12 +217,6 @@ in
           flakes.extra-options = ''
             warn-dirty = false
           '';
-          garbage-collector = {
-            enable = true;
-            auto-optimise-store = enabled;
-            dates = "weekly";
-            days = 7;
-          };
         };
         services = {
           bluetooth = {
