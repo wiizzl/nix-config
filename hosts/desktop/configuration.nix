@@ -229,6 +229,7 @@ in
             seahorse = enabled;
           };
           openssh = enabled;
+          printing = enabled;
         };
         video.amd = enabled;
         virtualisation = {
