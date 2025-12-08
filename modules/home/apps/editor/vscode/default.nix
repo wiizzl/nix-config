@@ -70,6 +70,7 @@ in
               ms-azuretools.vscode-containers
               formulahendry.auto-close-tag
               formulahendry.auto-rename-tag
+              oven.bun-vscode
               # ms-dotnettools.csdevkit
               # ms-dotnettools.vscode-dotnet-runtime
               # ms-dotnettools.dotnet-maui
