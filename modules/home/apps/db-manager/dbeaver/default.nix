@@ -10,11 +10,11 @@ let
   inherit (config.my) apps user;
 in
 {
-  options.my.apps.dbeaver = {
+  options.my.apps.db-manager.dbeaver = {
     enable = mkEnableOption "DBeaver Database Manager";
   };
 
-  config = mkIf apps.dbeaver.enable {
+  config = mkIf apps.db-manager.dbeaver.enable {
     home-manager.users.${user.name} = {
       home.packages = with pkgs; [
         dbeaver-bin

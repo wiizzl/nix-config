@@ -28,7 +28,11 @@ in
       };
 
       apps = {
-        dbeaver = enabled;
+        db-manager = {
+          dbeaver = enabled;
+          compass = enabled;
+          insight = enabled;
+        };
         obs = enabled;
         spotify = enabled;
         media = {
