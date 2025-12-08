@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   inherit (lib) mkEnableOption mkIf;
@@ -11,7 +16,15 @@ in
   };
 
   config = mkIf system.services.keyring.enable {
+    environment.systemPackages = with pkgs; [
+      libsecret
+    ];
+
     services.gnome.gnome-keyring.enable = true;
-    programs.seahorse.enable = system.services.keyring.seahorse.enable;
+    security.pam.services.greetd.enableGnomeKeyring = true;
+
+    programs.seahorse = mkIf system.services.keyring.seahorse.enable {
+      enable = true;
+    };
   };
 }
