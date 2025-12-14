@@ -81,7 +81,6 @@ in
         };
         nix = {
           ld = enabled;
-          substituters = enabled;
           optimisation = enabled;
           flakes.extra-options = ''
             warn-dirty = false

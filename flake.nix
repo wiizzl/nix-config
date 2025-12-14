@@ -1,6 +1,17 @@
 {
   description = "My garden of configurations";
 
+  nixConfig = {
+    trusted-extra-substituters = [
+      "https://hyprland.cachix.org"
+      "https://vicinae.cachix.org"
+    ];
+    trusted-extra-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {

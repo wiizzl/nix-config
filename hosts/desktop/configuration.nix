@@ -41,6 +41,7 @@ in
           localsend = enabled;
           pinta = enabled;
           ark = enabled;
+          kdenlive = enabled;
         };
         suite.onlyoffice = enabled;
         terminal.foot = enabled;
@@ -217,7 +218,6 @@ in
         };
         nix = {
           ld = enabled;
-          substituters = enabled;
           optimisation = enabled;
           flakes.extra-options = ''
             warn-dirty = false
