@@ -63,6 +63,7 @@ in
               redhat.java
               bmewburn.vscode-intelephense-client
               junstyle.php-cs-fixer
+              mblode.twig-language
               ms-vscode.remote-explorer
               ms-vscode-remote.remote-containers
               ms-vscode-remote.remote-ssh
