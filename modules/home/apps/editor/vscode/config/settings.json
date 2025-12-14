@@ -1,40 +1,29 @@
 {
-  // Theme
+  // Theme Settings
   "workbench.iconTheme": "flow-dim",
   "window.autoDetectColorScheme": true,
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
 
-  // Misc
+  // Layout and Appearance
   "workbench.startupEditor": "none",
-  "files.enableTrash": true,
-  "explorer.compactFolders": false,
-  "editor.linkedEditing": true,
-  "files.trimTrailingWhitespace": true,
+  "workbench.layoutControl.enabled": false,
+  "workbench.activityBar.location": "hidden",
+  "workbench.sideBar.location": "right",
+  "window.commandCenter": false,
+  "window.titleBarStyle": "native",
+  "window.menuBarVisibility": "toggle",
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "breadcrumbs.filePath": "off",
 
-  // Formatter
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.printWidth": 120,
-  "[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma"
-  },
-  "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff"
-  },
-  "prettier.documentSelectors": ["**/*.astro"],
-  "[astro]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[nix]": {
-    "editor.defaultFormatter": "jnoortheen.nix-ide"
-  },
-
-  // Nix
-  "nix.enableLanguageServer": true,
-
-  // Font family
+  // Font Settings
   "editor.fontFamily": "JetBrainsMono NF",
+  "editor.fontSize": 16,
+  "editor.fontLigatures": true,
   "terminal.integrated.fontFamily": "JetBrainsMono NF",
+  "terminal.integrated.fontSize": 15,
   "scm.inputFontFamily": "JetBrainsMono NF",
   "chat.editor.fontFamily": "JetBrainsMono NF",
   "debug.console.fontFamily": "JetBrainsMono NF",
@@ -42,26 +31,11 @@
   "notebook.output.fontFamily": "JetBrainsMono NF",
   "markdown.preview.fontFamily": "JetBrainsMono NF",
   "editor.inlayHints.fontFamily": "JetBrainsMono NF",
-  "editor.fontLigatures": true,
 
-  // Font size
-  "editor.fontSize": 16,
-  "terminal.integrated.fontSize": 15,
-
-  // Tab size
-  "editor.tabSize": 2,
-
-  // Files limitation
-  "workbench.editor.limit.enabled": true,
-  "workbench.editor.limit.value": 6,
-
-  // Typescript
-  // "typescript.inlayHints.variableTypes.enabled": true,
-  "typescript.inlayHints.parameterNames.enabled": "all",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  // "typescript.inlayHints.functionLikeReturnTypes.enabled": true
-
-  // Excluded files
+  // File Management
+  "files.enableTrash": true,
+  "files.autoSave": "onFocusChange",
+  "files.trimTrailingWhitespace": true,
   "files.exclude": {
     "**/.git": true,
     "**/.DS_Store": true,
@@ -78,44 +52,56 @@
     "**/next-env.d.ts": true
   },
 
-  // Files save
-  "files.autoSave": "onFocusChange",
+  // Editor Behavior
+  "editor.linkedEditing": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit",
     "source.organizeImports": "explicit"
   },
-
-  // Layout
-  "workbench.layoutControl.enabled": false,
-  "window.commandCenter": false,
-  "window.titleBarStyle": "native",
-  "workbench.activityBar.location": "hidden",
-  "workbench.sideBar.location": "right",
-  "editor.accessibilitySupport": "off",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": true,
-  "breadcrumbs.filePath": "off",
-
-  // Git
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "git.ignoreRebaseWarning": true,
-  "git.enableSmartCommit": true,
-
-  // Delete confirmation
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-
-  // Smooth animations
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.smoothScrolling": true,
   "workbench.list.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
   "editor.cursorBlinking": "expand",
-  "window.menuBarVisibility": "toggle",
 
-  // RPC (discord)
+  // Git Settings
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.ignoreRebaseWarning": true,
+  "git.enableSmartCommit": true,
+
+  // Confirmation Settings
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+
+  // File Limitations
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 6,
+
+  // Formatter Settings
+  "prettier.printWidth": 120,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
+  "prettier.documentSelectors": ["**/*.astro"],
+
+  // Nix Settings
+  "nix.enableLanguageServer": true,
+
+  // TypeScript Settings
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  // Discord RPC
   "discord.swapBigAndSmallImage": true,
 
   // Copilot
