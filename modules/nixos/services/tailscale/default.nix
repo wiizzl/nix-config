@@ -3,8 +3,6 @@
 let
   inherit (lib) mkEnableOption mkIf;
   inherit (config.my) services;
-
-  authKey = config.age.secrets.tailscale.path;
 in
 {
 
@@ -16,7 +14,7 @@ in
     services.tailscale = {
       enable = true;
       openFirewall = true;
-      authKeyFile = authKey;
+      authKeyFile = config.age.secrets.tailscale.path;
     };
   };
 }
