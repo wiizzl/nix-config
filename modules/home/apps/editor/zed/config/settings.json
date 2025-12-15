@@ -1,7 +1,5 @@
 {
-  "icon_theme": "Catppuccin Mocha",
-  "theme": "Catppuccin Mocha",
-
+  // Extensions
   "auto_install_extensions": {
     "html": true,
     "astro": true,
@@ -15,11 +13,45 @@
     "java": true,
     "prisma": true,
     "csharp": true,
-    "biome": true,
     "catppuccin": true,
-    "catppuccin-icons": true
+    "catppuccin-icons": true,
+    "discord-presence": true
   },
 
+  // Appearance
+  "icon_theme": {
+    "mode": "system",
+    "dark": "Catppuccin Mocha",
+    "light": "Catppuccin Latte"
+  },
+  "theme": {
+    "mode": "system",
+    "dark": "Catppuccin Mocha",
+    "light": "Catppuccin Latte"
+  },
+  "colorize_brackets": true,
+
+  // Fonts
+  "terminal": {
+    "font_size": 15.0,
+    "font_family": "JetBrainsMono Nerd Font Mono"
+  },
+  "buffer_font_size": 16.0,
+  "buffer_font_weight": 400,
+  "buffer_line_height": "comfortable",
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "ui_font_family": ".ZedSans",
+  "ui_font_weight": 400,
+  "ui_font_size": 16,
+
+  // Formatting
+  "format_on_save": "on",
+  "formatter": "auto",
+
+  // AI Features
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
   "agent": {
     "default_model": {
       "model": "gpt-4o",
@@ -32,6 +64,31 @@
       "provider": "copilot_chat"
     }
   },
+
+  // Keymaps and Modes
+  "base_keymap": "VSCode",
+  "vim_mode": false,
+  "helix_mode": false,
+
+  // Cursor
+  "cursor_shape": "bar",
+  "cursor_blink": true,
+  "hide_mouse": "on_typing",
+
+  // Tabs and Autosave
+  "max_tabs": 6,
+  "autosave": "on_focus_change",
+
+  // Indentation
+  "tab_size": 2,
+  "indent_guides": {
+    "active_line_width": 2,
+    "coloring": "indent_aware",
+    "enabled": true,
+    "line_width": 1
+  },
+
+  // Diagnostics
   "diagnostics": {
     "button": false,
     "include_warnings": true,
@@ -43,13 +100,9 @@
       "update_debounce_ms": 150
     }
   },
-  "indent_guides": {
-    "active_line_width": 2,
-    "coloring": "indent_aware",
-    "enabled": true,
-    "line_width": 1
-  },
+
+  // Project Panel
   "project_panel": {
-    "dock": "left"
+    "dock": "right"
   }
 }
