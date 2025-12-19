@@ -39,7 +39,7 @@ in
 
         # TODO: Declarativily install extensions
         extensions = [
-          # (inputs.vicinae.mkVicinaeExtension.${pkgs.system} {
+          # (inputs.vicinae.mkVicinaeExtension.${pkgs.stdenv.hostPlatform.system} {
           #   inherit pkgs;
           #   name = "extension-name";
           #   src = pkgs.fetchFromGitHub {

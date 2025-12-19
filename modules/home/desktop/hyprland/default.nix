@@ -1,4 +1,10 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 
 let
   inherit (lib)
@@ -46,7 +52,10 @@ in
         package = null;
         portalPackage = null;
 
-        plugins = [ ]; # TODO: Add plugins like hyprexpo, ...
+        plugins = [
+          # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+          # inputs.hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace
+        ];
 
         systemd.variables = [ "--all" ];
 
