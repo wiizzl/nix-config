@@ -41,7 +41,6 @@ in
           localsend = enabled;
           pinta = enabled;
           ark = enabled;
-          kdenlive = enabled;
         };
         suite.onlyoffice = enabled;
         terminal.foot = enabled;
@@ -55,7 +54,6 @@ in
             vesktop = enabled;
           };
           element = enabled;
-          thunderbird = enabled;
         };
         file-manager.thunar = enabled;
         browser = {
