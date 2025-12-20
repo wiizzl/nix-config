@@ -110,6 +110,5 @@
   // Updates
   "extensions.autoCheckUpdates": false,
   "update.mode": "none",
-  "github.copilot.nextEditSuggestions.enabled": false,
-  "chat.disableAIFeatures": false
+  "github.copilot.nextEditSuggestions.enabled": false
 }

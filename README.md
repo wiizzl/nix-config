@@ -1,6 +1,5 @@
 > [!IMPORTANT]
-
-This configuration will not be maintained because I think Nix doesn't fit my needs. I now use [`chezmoi`](https://github.com/twpayne/chezmoi). My dotfiles can be found [here](https://github.com/wiizzl/dotfiles).
+> This configuration will not be maintained because I think Nix doesn't fit my needs. I now use [`chezmoi`](https://github.com/twpayne/chezmoi). My dotfiles can be found [here](https://github.com/wiizzl/dotfiles).
 
 # nix-config
 
