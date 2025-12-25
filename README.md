@@ -1,6 +1,9 @@
 > [!IMPORTANT]
 > This configuration will not be maintained because I think Nix doesn't fit my needs. I now use [`chezmoi`](https://github.com/twpayne/chezmoi). My dotfiles can be found [here](https://github.com/wiizzl/dotfiles).
 
+> [!WARNING]
+> This configuration is incomplete and likely will never be finalized. It is not intended for general use.
+
 # nix-config
 
 This is my Nix configuration files. Much inspired by configurations found online.
@@ -23,7 +26,6 @@ The repository uses a modular, opinionated structure. While it may seem complex 
 ## Layout
 
 ```
-├── wallpapers/      # Image files for wallpapers
 ├── hosts/
 │   ├── templates/   # Templates hosts so you can see all available options (in progress)
 │   ├── vivobook/    # School laptop with WSL
